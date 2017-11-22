@@ -5,10 +5,12 @@ class SessionForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      username: '',
-      password: ''
+      display_name: '',
+      password: '',
+      email: ''
     };
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.displayNameForm = this.displayNameForm.bind(this);
   }
 
   componentWillReceiveProps(nextProps) {
@@ -26,7 +28,7 @@ class SessionForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     const user = this.state;
-    this.props.processForm({user});
+    this.props.processForm(user);
   }
 
   navLink() {
@@ -34,6 +36,29 @@ class SessionForm extends React.Component {
       return <p>New user? <Link to="/signup">Sign up</Link> instead</p>;
     } else {
       return <p>Returning user? <Link to="/login">Log in</Link> instead</p>;
+    }
+  }
+
+  welcomeText() {
+    if (this.props.formType === 'login') {
+      return <h2>Sign in to get started</h2>;
+    } else {
+      return <h2>Create a new account</h2>;
+    }
+  }
+
+  displayNameForm() {
+    if (this.props.formType === 'signup') {
+      return (
+        <label>Display Name:
+          <input type="text"
+            value={this.state.display_name}
+            onChange={this.update('display_name')}
+            className="login-input"
+          />
+        <br/>
+        </label>
+      );
     }
   }
 
@@ -53,15 +78,18 @@ class SessionForm extends React.Component {
 
     return (
       <div className="login-form-container">
+        <h1>Message Me!</h1>
+        {this.welcomeText()}
+
         <form onSubmit={this.handleSubmit} className="login-form-box">
-          Message-Me!
           <br/>
           <div className="login-form">
             <br/>
-            <label>Username:
+            {this.displayNameForm()}
+            <label>Email:
               <input type="text"
-                value={this.state.username}
-                onChange={this.update('username')}
+                value={this.state.email}
+                onChange={this.update('email')}
                 className="login-input"
               />
             </label>

@@ -1,5 +1,5 @@
 {
-  "name": "messenger-clone",
+  "name": "message-me",
   "private": true,
   "dependencies": {
     "babel-core": "^6.26.0",

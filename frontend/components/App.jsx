@@ -37,10 +37,26 @@
 //
 //
 import React from 'react';
+import {
+  Route,
+  Redirect,
+  Switch,
+  Link,
+  HashRouter,
+  withRouter
+} from 'react-router-dom';
+import SessionFormContainer from './session_form/session_form_container';
+import { AuthRoute, ProtectedRoute } from '../util/route_util';
+import Conversations from './conversations/conversations';
 
 const App = () => (
   <div>
-    <h1>Messenger-Clone</h1>
+    <Switch>
+      <AuthRoute path="/login" component={SessionFormContainer} />
+      <AuthRoute path="/signup" component={SessionFormContainer} />
+      <Route exact path="/" render={()=>(<Redirect to="/login"/>)} />
+      <ProtectedRoute path="/conversations" component={Conversations} />
+    </Switch>
   </div>
 );
 
