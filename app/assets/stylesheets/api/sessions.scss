@@ -6,15 +6,15 @@
   display: flex;
   justify-content: space-around;
   .session-splash {
+    padding-right: 150px;
     width: 600px;
     height: 550px;
   }
 }
 
 .login-form-container {
-  border: 1px solid black;
   display: table-cell;
-  padding: 0 40px;
+  padding-left: 150px;
   margin-top: 20px;
 
   width: 320px;
@@ -50,7 +50,6 @@
   display: block;
   margin-top: 10px;
   line-height: normal;
-  border: 1px solid black;
   margin: 0 2px;
   padding: 0 2px;
 }
@@ -99,7 +98,7 @@
   bottom: 0;
   width: 100%;
   background-color: #0084ff;
-  height: 50px;
+  height: 35px;
   color: #fff;
   text-align: center;
 }
