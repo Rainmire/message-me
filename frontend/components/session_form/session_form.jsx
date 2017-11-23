@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
 
+
 class SessionForm extends React.Component {
   constructor(props) {
     super(props);
@@ -33,32 +34,43 @@ class SessionForm extends React.Component {
 
   navLink() {
     if (this.props.formType === 'login') {
-      return <p>New user? <Link to="/signup">Sign up</Link> instead</p>;
+      return <h2 className="navlink-text"><span>New user? </span><Link className="navlink-link" to="/signup">Sign up</Link><span> instead</span></h2>;
     } else {
-      return <p>Returning user? <Link to="/login">Log in</Link> instead</p>;
+      return <h2 className="navlink-text"><span>Returning user? </span><Link className="navlink-link" to="/login">Log in</Link><span> instead</span></h2>;
     }
   }
 
   welcomeText() {
     if (this.props.formType === 'login') {
-      return <h2>Sign in to get started</h2>;
+      return <h2 className="welcome-text">Sign in to get started.</h2>;
     } else {
-      return <h2>Create a new account</h2>;
+      return <h2 className="welcome-text">Create a new account.</h2>;
     }
+  }
+
+  lineBreak() {
+    return <br/>;
   }
 
   displayNameForm() {
     if (this.props.formType === 'signup') {
+      this.lineBreak();
       return (
-        <label>Display Name:
-          <input type="text"
-            value={this.state.display_name}
-            onChange={this.update('display_name')}
-            className="login-input"
-          />
-        <br/>
-        </label>
+        <input type="text"
+          value={this.state.display_name}
+          onChange={this.update('display_name')}
+          className="login-input"
+          placeholder="Display Name"
+        />
       );
+    }
+  }
+
+  submitButton() {
+    if (this.props.formType === 'login') {
+      return <input className="login-input session-submit" type="submit" value="Sign In" />;
+    } else {
+      return <input className="login-input session-submit" type="submit" value="Sign Up" />;
     }
   }
 
@@ -77,36 +89,37 @@ class SessionForm extends React.Component {
   render() {
 
     return (
-      <div className="login-form-container">
-        <h1>Message Me!</h1>
-        {this.welcomeText()}
+      <div className="session-form-container">
+        <div className="login-form-container">
+          <h1 className="message-me">Message Me!</h1>
+          {this.welcomeText()}
 
-        <form onSubmit={this.handleSubmit} className="login-form-box">
-          <br/>
-          <div className="login-form">
-            <br/>
-            {this.displayNameForm()}
-            <label>Email:
+          <form onSubmit={this.handleSubmit} className="login-form-box">
+            <div className="login-form">
+              {this.displayNameForm()}
+              <br/>
               <input type="text"
                 value={this.state.email}
                 onChange={this.update('email')}
                 className="login-input"
+                placeholder="Email"
               />
-            </label>
-            <br/>
-            <label>Password:
+              <br/>
               <input type="password"
                 value={this.state.password}
                 onChange={this.update('password')}
                 className="login-input"
+                placeholder="Password"
               />
-            </label>
-            <br/>
-            <input type="submit" value="Submit" />
-          </div>
-        </form>
-        {this.navLink()}
-        {this.renderErrors()}
+              <br/>
+              {this.submitButton()}
+            </div>
+          </form>
+          {this.navLink()}
+
+          {this.renderErrors()}
+        </div>
+        <img className="image-container" src="/assets/session_splash.jpg"/>
       </div>
     );
   }

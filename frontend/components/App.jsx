@@ -50,7 +50,7 @@ import { AuthRoute, ProtectedRoute } from '../util/route_util';
 import ConversationsContainer from './conversations/conversations_container';
 
 const App = () => (
-  <div>
+  <div className="app">
     <Switch>
       <AuthRoute path="/login" component={SessionFormContainer} />
       <AuthRoute path="/signup" component={SessionFormContainer} />

@@ -1,3 +1,89 @@
 // Place all the styles related to the api/sessions controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.session-form-container {
+  display: flex;
+  justify-content: space-around;
+  .image-container {
+    width: 600px;
+    height: 550px;
+  }
+}
+
+.login-form-container {
+  border: 1px solid black;
+  display: table-cell;
+  padding: 0 40px;
+  margin-top: 20px;
+
+  width: 320px;
+  height: 480px;
+  vertical-align: middle;
+
+}
+.message-me {
+  display: block;
+  color: rgba(0, 0, 0, .88);
+  font-size: 36px;
+  font-weight: 300;
+  text-align: center;
+  margin-bottom: 0;
+}
+
+.welcome-text {
+  display: block;
+  font-size: 17px;
+  font-weight: 200;
+  margin-bottom: 25px;
+  margin-top: 12px;
+  text-align: center;
+  width: 320px;
+}
+
+.login-form-box {
+  display: block;
+  margin-top: 10px;
+  line-height: normal;
+  border: 1px solid black;
+  margin: 0 2px;
+  padding: 0 2px;
+}
+
+.login-input {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  border: 1px solid rgba(0, 0, 0, .20);
+  border-radius: 4px;
+  font-size: 16px;
+  height:42px;
+
+  font-weight: 150;
+  margin-left: auto;
+  margin-right: auto;
+  width: 275px;
+  padding: 0 16px;
+
+}
+
+.session-submit {
+  color: white;
+  font-weight: 300;
+  background-color: #0084ff;
+  text-align: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-shadow: none;
+  margin-bottom: 15px;
+}
+
+.navlink-text {
+  font-size: 14px;
+  text-align: center;
+  color: #9b9b9b;
+  margin: 10px 0;
+}
+
+.navlink-link {
+  color: #0084ff;
+}
