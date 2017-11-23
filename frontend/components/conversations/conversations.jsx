@@ -19,6 +19,7 @@ class Conversations extends React.Component {
       <div>
         <h1>You are logged in!</h1>
         <button onClick={logout}>Log Out</button>
+
       </div>
     );
   }

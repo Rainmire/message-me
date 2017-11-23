@@ -78,7 +78,12 @@
   overflow: hidden;
   text-overflow: ellipsis;
   text-shadow: none;
-  margin-bottom: 15px;
+  //margin-bottom: 15px;
+}
+
+.demo-submit {
+  color: #38ff70;
+  //text-transform: uppercase;
 }
 
 .navlink-text {
@@ -90,6 +95,13 @@
 
 .navlink-link {
   color: #0084ff;
+}
+
+.session-errors li {
+  color: red;
+  display: list-item;
+  list-style-type: disc;
+  //list-style-position: inside;
 }
 
 .footer {

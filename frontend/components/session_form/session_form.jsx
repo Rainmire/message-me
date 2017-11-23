@@ -12,13 +12,8 @@ class SessionForm extends React.Component {
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.displayNameForm = this.displayNameForm.bind(this);
+    this.demoUser = this.demoUser.bind(this);
   }
-
-  // componentWillReceiveProps(nextProps) {
-  //   if (nextProps.loggedIn) {
-  //     this.props.history.push('/conversations');
-  //   }
-  // }
 
   update(field) {
     return e => this.setState({
@@ -74,9 +69,22 @@ class SessionForm extends React.Component {
     }
   }
 
+  demoUser(e) {
+    e.preventDefault();
+    const demoUser = "Guest".concat(Math.round(10000* Math.random(0,1)));
+    const demoEmail = demoUser.concat("@email.com");
+    this.props.demoSignup(
+      {
+        display_name: demoUser,
+        password: "password",
+        email: demoEmail
+      }
+    );
+  }
+
   renderErrors() {
     return(
-      <ul>
+      <ul className="session-errors">
         {this.props.errors.map((error, i) => (
           <li key={`error-${i}`}>
             {error}
@@ -113,6 +121,7 @@ class SessionForm extends React.Component {
               />
               <br/>
               {this.submitButton()}
+              <button className="login-input session-submit demo-submit" onClick={this.demoUser}>Demo User</button>
             </div>
           </form>
           {this.navLink()}
