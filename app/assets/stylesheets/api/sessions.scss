@@ -5,7 +5,7 @@
 .session-form-container {
   display: flex;
   justify-content: space-around;
-  .image-container {
+  .session-splash {
     width: 600px;
     height: 550px;
   }
@@ -20,7 +20,12 @@
   width: 320px;
   height: 480px;
   vertical-align: middle;
-
+  .logo {
+    display: block;
+    margin: auto;
+    width: 90px;
+    height: auto;
+  }
 }
 .message-me {
   display: block;
@@ -67,7 +72,7 @@
 }
 
 .session-submit {
-  color: white;
+  color: #fff;
   font-weight: 300;
   background-color: #0084ff;
   text-align: center;
@@ -86,4 +91,25 @@
 
 .navlink-link {
   color: #0084ff;
+}
+
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #0084ff;
+  height: 50px;
+  color: #fff;
+  text-align: center;
+}
+
+.footer a {
+  display: inline-block;
+  vertical-align: middle;
+  margin: 10px 0;
+}
+
+.footer a:first-child {
+  padding-right: 40px;
 }

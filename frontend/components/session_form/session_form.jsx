@@ -88,12 +88,12 @@ class SessionForm extends React.Component {
 
   render() {
     return (
+    <div className="session-page">
       <div className="session-form-container">
         <div className="login-form-container">
-          <img />
+          <img className="logo" src="http://res.cloudinary.com/rainmire/image/upload/v1511401475/logo_vqkrai.png"/>
           <h1 className="message-me">Message Me!</h1>
           {this.welcomeText()}
-
           <form onSubmit={this.handleSubmit} className="login-form-box">
             <div className="login-form">
               {this.displayNameForm()}
@@ -119,8 +119,13 @@ class SessionForm extends React.Component {
 
           {this.renderErrors()}
         </div>
-        <img className="image-container" src="/assets/session_splash.jpg"/>
+        <img className="session-splash" src="http://res.cloudinary.com/rainmire/image/upload/v1511401468/session_splash_y0i6kw.jpg"/>
       </div>
+      <div className="footer">
+        <a href="https://github.com/Rainmire">Github</a>
+        <a href="">LinkedIn</a>
+      </div>
+    </div>
     );
   }
 }
