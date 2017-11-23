@@ -17,5 +17,12 @@
     "redux-thunk": "^2.2.0",
     "url-loader": "^0.6.2",
     "webpack": "^3.8.1"
+  },
+  "engines": {
+    "node": "6.10.1",
+    "npm": "3.10.10"
+  },
+  "scripts": {
+    "postinstall": "webpack"
   }
 }

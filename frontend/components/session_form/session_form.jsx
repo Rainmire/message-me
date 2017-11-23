@@ -91,6 +91,7 @@ class SessionForm extends React.Component {
     return (
       <div className="session-form-container">
         <div className="login-form-container">
+          <img />
           <h1 className="message-me">Message Me!</h1>
           {this.welcomeText()}
 
