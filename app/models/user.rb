@@ -9,7 +9,14 @@ class User < ApplicationRecord
   after_initialize :ensure_session_token
 
   has_many :messages
-  has_many :conversations, through: :messages
+  # has_many :conversations, through: :messages
+  has_many :conversation_memberships
+  has_many :conversations, through: :conversation_memberships
+
+  has_many :owned_conversations,
+  primary_key: :id,
+  foreign_key: :author_id,
+  class_name: :Conversation
 
   def self.find_by_credentials(email, password)
     user = User.find_by(email: email)
