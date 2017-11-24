@@ -10,6 +10,12 @@ class Api::UsersController < ApplicationController
     end
   end
 
+  def conversations
+    @conversations = current_user.conversations
+    render "api/users/conversations"
+  end
+
+
   private
 
   def user_params

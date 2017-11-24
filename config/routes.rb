@@ -1,27 +1,28 @@
 Rails.application.routes.draw do
   namespace :api, defaults: {format: :json} do
 
-    resources :users, only: [:create, :show]
+    resources :users, only: [:create]
 
-    resources :conversations, only: [:create, :destroy, :show, :update] do
-      get 'messages', on: :collection
+    resources :conversations, only: [:create, :destroy, :show, :index, :update] do
+      # resources :messages, only: [:create]  TODO: put this back later
     end
 
+    resources :messages, only: [:create, :index]  #TODO: remove index and nest under convos
 
-
-
-
-    resources :users, only: [:create] do
-      get 'conversations', on: :collection
-    end
 
     resource :session, only: [:create, :destroy]
 
-
-
-
-    resources :messages, only: [:create]
-
+    # resources :users, only: [:create] do
+    #   get 'conversations', on: :collection
+    # end
+    #
+    # resource :session, only: [:create, :destroy]
+    #
+    #
+    #
+    #
+    # resources :messages, only: [:create]
+    #
 
 
 

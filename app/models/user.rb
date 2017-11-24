@@ -10,12 +10,20 @@ class User < ApplicationRecord
 
   has_many :messages
 
-  has_many :memberships,
+  # has_many :memberships,
+  # primary_key: :id,
+  # foreign_key: :member_id,
+  # class_name: :ConversationMembership
+  #
+  # has_many :conversations, through: :memberships
+
+  has_many :conversation_memberships,
   primary_key: :id,
   foreign_key: :member_id,
   class_name: :ConversationMembership
 
-  has_many :conversations, through: :memberships
+  has_many :conversations, through: :conversation_memberships
+
 
   has_many :owned_conversations,
   primary_key: :id,
