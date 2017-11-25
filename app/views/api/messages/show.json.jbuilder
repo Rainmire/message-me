@@ -1,3 +1,3 @@
 #TODO only simple render right now
 
-json.extract! @message, :body, :created_at, :user_id, :conversation_id
+json.partial! 'message', message: @message

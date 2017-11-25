@@ -2,6 +2,6 @@
 
 @messages.each do |message|
   json.set! message do
-    json.extract! message, :body, :created_at, :user_id, :conversation_id
+    json.partial! 'message', message: message
   end
 end

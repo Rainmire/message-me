@@ -4,11 +4,14 @@ import React from 'react';
 
 class Conversations extends React.Component {
 
-  // constructor(props) {
-  //   super(props);
-  //   //this.handleSubmit = this.handleSubmit.bind(this);
-  //   // this.props.fetchMessages();
-  // }
+  constructor(props) {
+    super(props);
+    this.state = {
+      body: ''
+    };
+    this.handleSubmit = this.handleSubmit.bind(this);
+    // this.props.fetchMessages();
+  }
 
   // handleSubmit(logout) {
   //   debugger;
@@ -16,19 +19,22 @@ class Conversations extends React.Component {
   //   this.props.logout();
   // }
 
+  handleSubmit(e) {
+    e.preventDefault();
+    const body = this.state;
+    this.props.createMessage(body);
+  }
+
   componentWillMount() {
     this.props.fetchMessages();
   }
 
-  // componentDidMount() {
-  //   debugger
-  //   this.props.fetchMessages();
-  // }
 
-  // componentWillReceiveProps(nextProps) {
-  //   debugger
-  //   this.nextProps.fetchMessages();
-  // }
+  update(field) {
+    return e => this.setState({
+      [field]: e.currentTarget.value
+    });
+  }
 
   render() {
     const {logout, messages} = this.props;
@@ -45,6 +51,13 @@ class Conversations extends React.Component {
               <li>{message.body}</li>
             ))}
           </ul>
+          <form onSubmit={this.handleSubmit}>
+            <input type="text"
+              onChange={this.update('body')}
+              className="message-input"
+              placeholder="input message here..."
+            />
+          </form>
         </div>
 
       </div>
