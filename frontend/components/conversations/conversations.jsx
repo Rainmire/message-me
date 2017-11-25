@@ -4,10 +4,11 @@ import React from 'react';
 
 class Conversations extends React.Component {
 
-  constructor(props) {
-    super(props);
-    //this.handleSubmit = this.handleSubmit.bind(this);
-  }
+  // constructor(props) {
+  //   super(props);
+  //   //this.handleSubmit = this.handleSubmit.bind(this);
+  //   // this.props.fetchMessages();
+  // }
 
   // handleSubmit(logout) {
   //   debugger;
@@ -15,14 +16,22 @@ class Conversations extends React.Component {
   //   this.props.logout();
   // }
 
-  componentDidMount() {
+  componentWillMount() {
     this.props.fetchMessages();
   }
 
-  render() {
-    const {logout} = this.props;
+  // componentDidMount() {
+  //   debugger
+  //   this.props.fetchMessages();
+  // }
 
-    const {messages} = this.props;
+  // componentWillReceiveProps(nextProps) {
+  //   debugger
+  //   this.nextProps.fetchMessages();
+  // }
+
+  render() {
+    const {logout, messages} = this.props;
 
     return(
       <div>
@@ -33,7 +42,7 @@ class Conversations extends React.Component {
           <h1>MESSAGES: </h1>
           <ul>
             {messages.map(message => (
-              <li>message.body</li>
+              <li>{message.body}</li>
             ))}
           </ul>
         </div>

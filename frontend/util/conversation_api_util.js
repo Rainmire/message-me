@@ -12,3 +12,15 @@ export const fetchMessages = () => (
     url: '/api/messages'
   })
 );
+
+// export const fetchMessages = () => {
+//   let foo = $.ajax({
+//     method: 'GET',
+//     url: '/api/messages',
+//     success: function(d){
+//       console.log(d);
+//     }
+//   });
+//   debugger;
+//   return foo;
+// };

@@ -3,9 +3,10 @@ import { logout } from '../../actions/session_actions';
 import Conversations from './conversations';
 
 import { fetchMessages } from '../../actions/conversation_actions';
+import { selectAllMessages } from '../../reducers/selectors';
 
 const mapStateToProps = (state) => ({
-  messages: state.entities.messages
+  messages: selectAllMessages(state)
 });
 
 const mapDispatchToProps = (dispatch) => ({
@@ -14,6 +15,6 @@ const mapDispatchToProps = (dispatch) => ({
 });
 
 export default connect(
-  null,
+  mapStateToProps,
   mapDispatchToProps
 )(Conversations);

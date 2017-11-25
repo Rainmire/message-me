@@ -14,8 +14,9 @@ class Api::MessagesController < ApplicationController
   end
 
   def index
-    @messages = Message.all
-    render :index
+    # @messages = Message.all
+    # render :index
+    render json: Message.all
   end
 
   private
