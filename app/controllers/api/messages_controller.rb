@@ -13,10 +13,14 @@ class Api::MessagesController < ApplicationController
 
   end
 
+  def show
+    @message = Message.find(params[:id])
+  end
+
   def index
-    # @messages = Message.all
+    @messages = Message.all
     # render :index
-    render json: Message.all
+    # render json: Message.all
   end
 
   private

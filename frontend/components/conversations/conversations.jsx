@@ -21,8 +21,12 @@ class Conversations extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    const body = this.state;
-    this.props.createMessage(body);
+    const message = Object.assign({}, this.state);
+    this.props.createMessage(message).then(
+      () => this.setState({
+        body: ''
+      })
+    );
   }
 
   componentWillMount() {
