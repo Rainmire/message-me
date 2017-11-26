@@ -1,4 +1,4 @@
-class MessagesChannel < ApplicationCable::Channel
+class ChannelChannel < ApplicationCable::Channel
   def subscribed
     stream_from "channel_#{params[:channel_name]}"
   end
