@@ -15,7 +15,8 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
   logout: () => dispatch(logout()),
   fetchMessages: () => dispatch(fetchMessages()),
-  createMessage: (message) => dispatch(createMessage(message))
+  createMessage: (message) => dispatch(createMessage(message)),
+  setSocket: (channelName) => dispatch(setSocket(channelName))
 });
 
 export default connect(

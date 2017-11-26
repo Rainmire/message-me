@@ -30,7 +30,9 @@ class Conversations extends React.Component {
   }
 
   componentWillMount() {
+    debugger;
     this.props.fetchMessages();
+    this.props.setSocket("channel_test");
   }
 
 

@@ -1,8 +1,9 @@
 import { receiveMessage } from './conversation_actions';
 
-const setSocket = channelName => dispatch => {
+export const setSocket = channelName => dispatch => {
   if (window.App.channel) {
-    removeSocket();
+    return;
+    // removeSocket();
   }
   addSocket(channelName, dispatch);
 };
