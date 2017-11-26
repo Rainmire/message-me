@@ -10,6 +10,7 @@ class Conversations extends React.Component {
       body: ''
     };
     this.handleSubmit = this.handleSubmit.bind(this);
+    // this.handleSendSuccess = this.handleSendSuccess.bind(this);
     // this.props.fetchMessages();
   }
 
@@ -19,14 +20,28 @@ class Conversations extends React.Component {
   // }
 
   handleSubmit(e) {
+    // debugger;
     e.preventDefault();
     const message = Object.assign({}, this.state);
-    this.props.createMessage(message).then(
-      () => this.setState({
-        body: ''
-      })
-    );
+    // this.props.createMessage(message).then(
+    //   () => this.setState({
+    //     body: ''
+    //   })
+    //   // () => this.handleSendSuccess(e)
+    // );
+    this.props.createMessage(message);
+    this.setState({
+      body: ''
+    });
+    e.currentTarget.reset();
   }
+
+  // handleSendSuccess(e) {
+  //   this.setState({
+  //     body: ''
+  //   });
+  //   e.currentTarget.reset();
+  // }
 
   componentWillMount() {
     this.props.fetchMessages();
