@@ -5,6 +5,8 @@ import Conversations from './conversations';
 import { fetchMessages, createMessage } from '../../actions/conversation_actions';
 import { selectAllMessages } from '../../reducers/selectors';
 
+import { setSocket } from '../../actions/actioncable_actions';
+
 
 const mapStateToProps = (state) => ({
   messages: selectAllMessages(state)
