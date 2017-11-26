@@ -4,9 +4,9 @@ import Root from './components/root';
 import configureStore from './store/store';
 
 // import { login, logout, signup } from './actions/session_actions';
-import { createMessage, fetchMessages } from './actions/conversation_actions';
+import { createMessage } from './actions/conversation_actions';
 import { logout } from './util/session_api_util';
-
+import { fetchMessages } from './util/conversation_api_util';
 
 document.addEventListener('DOMContentLoaded', () => {
   const root = document.getElementById('root');
