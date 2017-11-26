@@ -14,7 +14,6 @@ class Conversations extends React.Component {
   }
 
   // handleSubmit(logout) {
-  //   debugger;
   //   //e.preventDefault();
   //   this.props.logout();
   // }
@@ -30,9 +29,8 @@ class Conversations extends React.Component {
   }
 
   componentWillMount() {
-    debugger;
     this.props.fetchMessages();
-    this.props.setSocket("channel_test");
+    this.props.setSocket("test");
   }
 
 

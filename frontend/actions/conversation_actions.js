@@ -12,9 +12,15 @@ export const receiveMessages = messages => ({
   messages
 });
 
+// export const createMessage = formMessage => dispatch => (
+//   APIUtil.createMessage(formMessage).then(message => (
+//     dispatch(receiveMessage(message))
+//   ))
+// );
+
 export const createMessage = formMessage => dispatch => (
   APIUtil.createMessage(formMessage).then(message => (
-    dispatch(receiveMessage(message))
+    console.log(`message sent: ${message}`)
   ))
 );
 

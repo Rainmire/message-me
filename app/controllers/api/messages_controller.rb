@@ -5,11 +5,13 @@ class Api::MessagesController < ApplicationController
     @message.user_id = current_user.id
     @message.conversation_id = 1 #TODO change to params[:id] after nesting route under convo
 
-    if @message.save
-      render :show
-    else
-      render json: @message.errors.full_messages , status: 422
-    end
+    # if @message.save
+    #   render :show
+    # else
+    #   render json: @message.errors.full_messages , status: 422
+    # end
+
+    @message.save
 
   end
 
