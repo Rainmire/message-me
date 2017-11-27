@@ -29,4 +29,14 @@ class Api::ConversationsController < ApplicationController
   def update
   end
 
+  def members
+    # @conversation = Conversation.joins(:conversation_memberships).find_by(member_id: params[:id])
+    @conversation = current_user.conversations.find_by_id(params[:id])
+    if @conversation
+      @users = @conversation.members
+      render "/api/users/index"
+    else
+      render json: "Conversation does not exist", status: 400
+    end
+  end
 end

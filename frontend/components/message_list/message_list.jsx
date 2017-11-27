@@ -8,6 +8,7 @@ class MessageList extends React.Component {
   }
 
   componentWillMount() {
+    this.props.fetchMembers();
     this.props.fetchMessages();
     this.props.setSocket("test");
   }

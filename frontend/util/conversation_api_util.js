@@ -12,3 +12,10 @@ export const fetchMessages = () => (
     url: '/api/messages'
   })
 );
+
+export const fetchMembers = (conversationId) => (
+  $.ajax({
+    method: 'GET',
+    url: `/api/conversations/${conversationId}/members`
+  })
+);
