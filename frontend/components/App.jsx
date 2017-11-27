@@ -22,7 +22,7 @@ const App = () => (
     <Route exact path="/" render={()=>(<Redirect to="/login"/>)} />
 
     <ProtectedRoute path="/conversations" component={ConversationListContainer} />
-    <ProtectedRoute path="/conversations" component={MessageListContainer} />
+    <ProtectedRoute path="/conversations/:conversationId" component={MessageListContainer} />
     <ProtectedRoute path="/conversations" component={MessageInputContainer} />
 
   </div>
@@ -32,3 +32,5 @@ export default App;
 
 // <ProtectedRoute path="/conversations" component={ConversationsContainer} />
 // <ProtectedRoute path="/conversations" component={MessageInputContainer} />
+
+// <EnsureSelectConvoRoute exact path="/conversations" />

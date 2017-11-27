@@ -43,9 +43,8 @@ class ConversationList extends React.Component {
     const { conversations } = this.props;
 
     return(
-      <div>
-        <h1>CONVERSATIONS: </h1>
-        <ul>
+      <div className = "navbar">
+        <ul className = "conversation-list">
           {conversations.map(conversation => (
             <li>{conversation.title}</li>
           ))}

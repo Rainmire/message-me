@@ -1,0 +1,22 @@
+// Place all the styles related to the api/conversations controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.navbar {
+  margin-right: -15px;
+  padding-right: 30px;
+  overflow-x: hidden;
+  position: relative;
+  font-size: 14px;
+}
+
+.navbar .conversation-list {
+  margin: 0;
+  padding: 0;
+  border: 1px solid black;
+}
+
+.navbar .conversation-list li {
+  display: flex;
+  border: .5px solid blue;
+  height: 64px;
+}

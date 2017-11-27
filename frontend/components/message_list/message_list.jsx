@@ -2,10 +2,19 @@ import React from 'react';
 
 class MessageList extends React.Component {
 
+  constructor(props) {
+    super(props);
+    // this.getMessageAuthor = this.getMessageAuthor.bind(this);
+  }
+
   componentWillMount() {
     this.props.fetchMessages();
     this.props.setSocket("test");
   }
+
+  // getMessageAuthor(message) {
+  //   this.state
+  // }
 
   render() {
     const {logout, messages} = this.props;
@@ -18,7 +27,12 @@ class MessageList extends React.Component {
         <h1 className="message-list">MESSAGES: </h1>
         <ul>
           {messages.map(message => (
-            <li>{message.body}</li>
+            <li>
+              <div className="message-body">
+                {message.body}
+              </div>
+
+            </li>
           ))}
         </ul>
 
@@ -28,3 +42,5 @@ class MessageList extends React.Component {
 }
 
 export default MessageList;
+
+// <div className="message-author">{this.getMessageAuthor(message)}</div>
