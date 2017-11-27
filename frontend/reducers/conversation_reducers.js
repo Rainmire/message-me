@@ -9,7 +9,8 @@ const conversationReducer = (state = {}, action) => {
       const newMessage = {[action.message.id]: action.message};
       return merge({}, state, newMessage);
     case RECEIVE_MESSAGES:
-      return Object.values(action.messages);
+      // return Object.values(action.messages);
+      return action.messages;
     default:
       return state;
   }

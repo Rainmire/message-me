@@ -21,6 +21,9 @@ class Api::ConversationsController < ApplicationController
   end
 
   def index
+    @conversations = Conversation.where(author_id: current_user.id)
+    #TODO Order by created_at of newest message
+    # render json: @conversations
   end
 
   def update

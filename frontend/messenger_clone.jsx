@@ -8,6 +8,9 @@ import { createMessage } from './actions/conversation_actions';
 import { logout } from './util/session_api_util';
 import { fetchMessages } from './util/conversation_api_util';
 
+import { fetchConversations } from './actions/conversation_list_actions';
+// import { fetchConversations } from './util/conversation_list_api_util';
+
 document.addEventListener('DOMContentLoaded', () => {
   const root = document.getElementById('root');
 
@@ -30,6 +33,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   window.logout = logout;
   // window.utilLogout = utilLogout;
+
+  window.fetchConversations = fetchConversations;
 
   // ReactDOM.render(<h1>Welcome to Messenger</h1>,root);
   ReactDOM.render(<Root store={store}/>, root);
