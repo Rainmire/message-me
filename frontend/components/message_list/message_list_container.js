@@ -1,8 +1,8 @@
 import { connect } from 'react-redux';
 import { logout } from '../../actions/session_actions';
-import Conversations from './conversations';
+import MessageList from './message_list';
 
-import { fetchMessages, createMessage } from '../../actions/conversation_actions';
+import { fetchMessages } from '../../actions/conversation_actions';
 import { selectAllMessages } from '../../reducers/selectors';
 
 import { setSocket } from '../../actions/actioncable_actions';
@@ -15,11 +15,10 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
   logout: () => dispatch(logout()),
   fetchMessages: () => dispatch(fetchMessages()),
-  createMessage: (message) => dispatch(createMessage(message)),
   setSocket: (channelName) => dispatch(setSocket(channelName))
 });
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Conversations);
+)(MessageList);
