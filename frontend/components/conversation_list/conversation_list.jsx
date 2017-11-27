@@ -27,7 +27,7 @@ class ConversationList extends React.Component {
   //   e.currentTarget.reset();
   // }
 
-  componentWillMount() {
+  componentDidMount() {
     this.props.fetchConversations();
     // this.props.setSocket("test");
   }

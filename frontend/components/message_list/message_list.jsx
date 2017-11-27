@@ -7,11 +7,13 @@ class MessageList extends React.Component {
     // this.getMessageAuthor = this.getMessageAuthor.bind(this);
   }
 
-  componentWillMount() {
-    this.props.fetchMembers();
+  componentDidMount() {
+    this.props.fetchMembers(1);
     this.props.fetchMessages();
     this.props.setSocket("test");
   }
+
+  // componentWillRe
 
   // getMessageAuthor(message) {
   //   this.state
