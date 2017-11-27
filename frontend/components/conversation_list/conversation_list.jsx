@@ -10,23 +10,6 @@ class ConversationList extends React.Component {
     // this.props.fetchMessages();
   }
 
-  // handleSubmit(e) {
-  //   // debugger;
-  //   e.preventDefault();
-  //   const message = Object.assign({}, this.state);
-  //   // this.props.createMessage(message).then(
-  //   //   () => this.setState({
-  //   //     body: ''
-  //   //   })
-  //   //   // () => this.handleSendSuccess(e)
-  //   // );
-  //   this.props.createMessage(message);
-  //   this.setState({
-  //     body: ''
-  //   });
-  //   e.currentTarget.reset();
-  // }
-
   componentDidMount() {
     this.props.fetchConversations();
     // this.props.setSocket("test");

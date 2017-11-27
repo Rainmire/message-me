@@ -6,5 +6,5 @@ test:
 
 production:
   adapter: redis
-  url: redis://localhost:6379/1
-  channel_prefix: message-me_production
+  url: redis://redistogo:623a5edfaedf584160ac7269cd1489ef@greeneye.redistogo.com:9598/
+  # channel_prefix: message-me_production

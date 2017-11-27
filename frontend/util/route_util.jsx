@@ -22,13 +22,6 @@ const Protected = ({ component: Component, path, loggedIn }) => (
   )} />
 );
 
-// const EnsureSelectConvo = ({ component: Component, path, conversations }) => {
-//   const conversationId = Object.keys(conversations)[0];
-//   debugger;
-//   return <Route path={path} render={(props) => (
-//     <Redirect to={`/conversations/${conversationId}`} />
-//   )} />;
-// };
 
 const mapStateToProps = state => (
   {

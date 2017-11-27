@@ -12,10 +12,3 @@ export const fetchConversations = () => dispatch => (
     dispatch(receiveConversations(conversations))
   ))
 );
-
-// export const fetchConversations = () => dispatch => (
-//   APIUtil.fetchConversations().then(conversations => {
-//     debugger;
-//     return dispatch(receiveConversations(conversations));
-//   })
-// );
