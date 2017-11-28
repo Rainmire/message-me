@@ -5,12 +5,18 @@ class MessageList extends React.Component {
   constructor(props) {
     super(props);
     // this.getMessageAuthor = this.getMessageAuthor.bind(this);
+    this.state = {
+      loading: true
+    };
   }
 
   componentDidMount() {
-    this.props.fetchMembers(1);
-    this.props.fetchMessages();
-    this.props.setSocket("test");
+    //set state to loading
+    Promise.all([
+      this.props.fetchMembers(1),
+      this.props.fetchMessages(),
+      this.props.setSocket("test")
+    ]).then(()=>(this.setState({loading: false})));
   }
 
   // componentWillRe
@@ -20,27 +26,42 @@ class MessageList extends React.Component {
   // }
 
   render() {
-    const {logout, messages} = this.props;
+    const {logout, messages, members} = this.props;
+    if( !this.state.loading ) {
+      return(
+        <div>
+          <h1>You are logged in!</h1>
+          <button onClick={logout}>Log Out</button>
 
-    return(
-      <div>
-        <h1>You are logged in!</h1>
-        <button onClick={logout}>Log Out</button>
+          <h1>MESSAGES: </h1>
+          <ul className="message-list">
+            {
+              messages.map(message => {
+                const author = members[message.user_id];
+                return (
+                  <li>
+                    <div className="author-name">
+                      {author.display_name}
+                    </div>
+                    <div className="timestamp">
+                      {message.created_at}
+                    </div>
+                    <div className="message-body">
+                      {message.body}
+                    </div>
 
-        <h1 className="message-list">MESSAGES: </h1>
-        <ul>
-          {messages.map(message => (
-            <li>
-              <div className="message-body">
-                {message.body}
-              </div>
-
-            </li>
-          ))}
-        </ul>
-
-      </div>
+                  </li>
+                );
+              })
+            }
+          </ul>
+        </div>
+      );
+    }
+    return (
+      <div>Loading...</div>
     );
+
   }
 }
 

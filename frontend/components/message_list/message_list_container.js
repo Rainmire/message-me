@@ -10,7 +10,7 @@ import { setSocket } from '../../actions/actioncable_actions';
 
 
 const mapStateToProps = (state) => ({
-  // members: state.entities.users
+  members: state.entities.members,
   messages: selectAllMessages(state)
 });
 
