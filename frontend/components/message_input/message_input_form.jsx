@@ -30,7 +30,6 @@ class MessageInputForm extends React.Component {
 
     return(
       <div className="message-input-box">
-        <h1>MESSAGE INPUT FORM: </h1>
         <form onSubmit={this.handleSubmit}>
           <input type="text"
             onChange={this.update('body')}

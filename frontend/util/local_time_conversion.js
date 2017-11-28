@@ -1,4 +1,5 @@
 export const toLocalTime = (utc) => {
   const date = new Date(Date.parse(utc));
-  return date.toLocaleTimeString().slice(0, -6);
+  const timeString = date.toLocaleTimeString();
+  return timeString.slice(0, -6).concat(timeString.slice(-3));
 };

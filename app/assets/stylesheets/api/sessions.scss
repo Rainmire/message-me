@@ -3,18 +3,19 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .session-form-container {
+  padding-top: 80px;
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   .session-splash {
     padding-right: 150px;
-    width: 600px;
-    height: 550px;
+    width: 650px;
+    height: 525px;
   }
 }
 
 .login-form-container {
   display: table-cell;
-  padding-left: 150px;
+  // padding-left: 150px;
   margin-top: 20px;
 
   width: 320px;
@@ -52,9 +53,11 @@
   line-height: normal;
   margin: 0 2px;
   padding: 0 2px;
+  text-align: center;
 }
 
 .login-input {
+  text-align: left;
   margin-top: 5px;
   margin-bottom: 5px;
   border: 1px solid rgba(0, 0, 0, .20);
@@ -82,7 +85,7 @@
 }
 
 .demo-submit {
-  color: #38ff70;
+  // color: #38ff70;
   //text-transform: uppercase;
 }
 

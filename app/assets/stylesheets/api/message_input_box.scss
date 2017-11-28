@@ -1,8 +1,12 @@
 .message-input-box {
+  // clear: both;
   position: fixed;
   bottom: 0;
   height: 50px;
   z-index: 100;
   background-color: white;
-  width: 66%;
+  width: inherit;
+  // width: 100px;
+  border: 1px solid rgba(0, 0, 0, .40);
+  padding: 10px;
 }

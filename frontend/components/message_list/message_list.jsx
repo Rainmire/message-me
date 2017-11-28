@@ -13,6 +13,7 @@ class MessageList extends React.Component {
 
   componentDidMount() {
     //set state to loading
+    //TODO combine into fetchConversation
     Promise.all([
       this.props.fetchMembers(1),
       this.props.fetchMessages(),
@@ -30,35 +31,30 @@ class MessageList extends React.Component {
     const {logout, messages, members, currentUserId} = this.props;
     if( !this.state.loading ) {
       return(
-        <div>
-          <h1>You are logged in!</h1>
-          <button onClick={logout}>Log Out</button>
+        <ul className="message-list">
+          {
+            messages.map(message => {
+              const author = members[message.user_id];
+              const messageClass = author.id===currentUserId ? "message-item my-message" : "message-item their-message";
+              const timestamp = toLocalTime(message.created_at);
+              return (
+                <li className={messageClass}>
+                  <div className="author-name">
+                    {author.display_name}
+                  </div>
+                  <div className="timestamp">
+                    {timestamp}
+                  </div>
+                  <div className="message-body">
+                    {message.body}
+                  </div>
 
-          <h1>MESSAGES: </h1>
-          <ul className="message-list">
-            {
-              messages.map(message => {
-                const author = members[message.user_id];
-                const messageClass = author.id===currentUserId ? "message-item my-message" : "message-item their-message";
-                const timestamp = toLocalTime(message.created_at);
-                return (
-                  <li className={messageClass}>
-                    <div className="author-name">
-                      {author.display_name}
-                    </div>
-                    <div className="timestamp">
-                      {timestamp}
-                    </div>
-                    <div className="message-body">
-                      {message.body}
-                    </div>
+                </li>
+              );
+            })
+          }
+        </ul>
 
-                  </li>
-                );
-              })
-            }
-          </ul>
-        </div>
       );
     }
     return (
@@ -71,3 +67,8 @@ class MessageList extends React.Component {
 export default MessageList;
 
 // <div className="message-author">{this.getMessageAuthor(message)}</div>
+
+// <h1>You are logged in!</h1>
+// <button onClick={logout}>Log Out</button>
+//
+// <h1>MESSAGES: </h1>
