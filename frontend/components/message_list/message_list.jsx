@@ -39,7 +39,7 @@ class MessageList extends React.Component {
               messages.map(message => {
                 const author = members[message.user_id];
                 return (
-                  <li>
+                  <li className="message-list-item">
                     <div className="author-name">
                       {author.display_name}
                     </div>

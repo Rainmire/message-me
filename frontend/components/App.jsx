@@ -20,11 +20,13 @@ const App = () => (
     <AuthRoute path="/login" component={SessionFormContainer} />
     <AuthRoute path="/signup" component={SessionFormContainer} />
     <Route exact path="/" render={()=>(<Redirect to="/login"/>)} />
-
-    <ProtectedRoute path="/conversations" component={ConversationListContainer} />
-    <ProtectedRoute path="/conversations/:conversationId" component={MessageListContainer} />
-    <ProtectedRoute path="/conversations" component={MessageInputContainer} />
-
+    <div className="main-content">
+      <ProtectedRoute path="/conversations" component={ConversationListContainer} />
+      <div>
+        <ProtectedRoute path="/conversations/:conversationId" component={MessageListContainer} />
+        <ProtectedRoute path="/conversations" component={MessageInputContainer} />
+      </div>
+    </div>
   </div>
 );
 
