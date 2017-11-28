@@ -1,4 +1,5 @@
 import React from 'react';
+import {toLocalTime} from '../../util/local_time_conversion';
 
 class MessageList extends React.Component {
 
@@ -26,7 +27,7 @@ class MessageList extends React.Component {
   // }
 
   render() {
-    const {logout, messages, members} = this.props;
+    const {logout, messages, members, currentUserId} = this.props;
     if( !this.state.loading ) {
       return(
         <div>
@@ -38,13 +39,15 @@ class MessageList extends React.Component {
             {
               messages.map(message => {
                 const author = members[message.user_id];
+                const messageClass = author.id===currentUserId ? "message-item my-message" : "message-item their-message";
+                const timestamp = toLocalTime(message.created_at);
                 return (
-                  <li className="message-list-item">
+                  <li className={messageClass}>
                     <div className="author-name">
                       {author.display_name}
                     </div>
                     <div className="timestamp">
-                      {message.created_at}
+                      {timestamp}
                     </div>
                     <div className="message-body">
                       {message.body}

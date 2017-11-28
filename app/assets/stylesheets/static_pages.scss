@@ -10,8 +10,18 @@
   width: 100%;
   display: block;
   direction: ltr;
+  // width: 100%;
 }
 
 .main-content {
+  // width: 100%;
   display: flex;
+}
+
+.message-container {
+  width: 50%;
+  display: flex;
+  position: relative;
+  font-size: 14px;
+  // flex-direction: column;
 }

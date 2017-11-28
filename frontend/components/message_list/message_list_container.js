@@ -11,7 +11,8 @@ import { setSocket } from '../../actions/actioncable_actions';
 
 const mapStateToProps = (state) => ({
   members: state.entities.members,
-  messages: selectAllMessages(state)
+  messages: selectAllMessages(state),
+  currentUserId: state.session.currentUser.id
 });
 
 const mapDispatchToProps = (dispatch) => ({
