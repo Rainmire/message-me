@@ -35,3 +35,11 @@ export const fetchMembers = (conversationId) => dispatch => (
     dispatch(receiveMembers(members))
   ))
 );
+
+export const fetchConversations = (conversationId) => dispatch => (
+  APIUtil.fetchConversation(conversationId).then(conversation => (
+    dispatch(receiveMembers(conversation.members))
+  )).then(conversation => (
+    dispatch(receiveMessages(conversation.messages))
+  ))
+);

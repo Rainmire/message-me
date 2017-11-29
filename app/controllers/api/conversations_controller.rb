@@ -18,6 +18,15 @@ class Api::ConversationsController < ApplicationController
   end
 
   def show
+    # @conversation = current_user.conversations.find(params[:id])
+    @conversation = Conversation.find(params[:id])
+    if @conversation
+      @members = @conversation.members
+      @messages = @conversation.messages
+      # render json: show
+    else
+      render json: "Conversation does not exist", status: 400
+    end
   end
 
   def index
