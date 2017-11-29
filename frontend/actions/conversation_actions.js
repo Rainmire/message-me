@@ -36,10 +36,17 @@ export const fetchMembers = (conversationId) => dispatch => (
   ))
 );
 
-export const fetchConversations = (conversationId) => dispatch => (
-  APIUtil.fetchConversation(conversationId).then(conversation => (
-    dispatch(receiveMembers(conversation.members))
-  )).then(conversation => (
-    dispatch(receiveMessages(conversation.messages))
-  ))
+// export const fetchConversation = (conversationId) => dispatch => (
+//   APIUtil.fetchConversation(conversationId).then(conversation => (
+//     dispatch(receiveMembers(conversation.members))
+//   )).then(conversation => (
+//     dispatch(receiveMessages(conversation.messages))
+//   ))
+// );
+
+export const fetchConversation = (conversationId) => dispatch => (
+  APIUtil.fetchConversation(conversationId).then(conversation => {
+    dispatch(receiveMembers(conversation.members));
+    dispatch(receiveMessages(conversation.messages));
+  })
 );
