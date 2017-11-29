@@ -30,7 +30,7 @@ const mapDispatchToProps = (dispatch) => ({
   logout: () => dispatch(logout()),
   fetchMessages: () => dispatch(fetchMessages()),
   setSocket: (channelName) => dispatch(setSocket(channelName)),
-  fetchMembers: (conversationId) => dispatch(fetchMembers(conversationId)),
+  // fetchMembers: (conversationId) => dispatch(fetchMembers(conversationId)),
   fetchConversation: (conversationId) => dispatch(fetchConversation(conversationId))
 });
 

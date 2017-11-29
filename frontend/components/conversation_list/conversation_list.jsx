@@ -11,7 +11,17 @@ class ConversationList extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchConversations();
+    this.props.fetchConversations().then(
+      (action)=>{
+        console.log(this.props);
+        if(Object.keys(action.conversations).length===0) {
+          this.props.history.push('/conversations/new');
+        }
+        else {
+          this.props.history.push('/conversations/1');
+        }
+      }
+    );
     // this.props.setSocket("test");
   }
 

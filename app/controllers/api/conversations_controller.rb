@@ -1,28 +1,36 @@
 class Api::ConversationsController < ApplicationController
 
   def create
-    # @conversation = Conversation.new(
-    #   params[:conversation][:title],
-    #   params[:conversation][:author_id]
-    # )
-    #
-    # if @conversation.save
-    #   (@conversation)
-    #   render "api/conversations/show"
-    # else
-    #   render json: @conversation.errors.full_messages, status: 422
-    # end
+    title = current_user.display_name
+    author_id = current_user.id
+    @conversation = Conversation.new( :title, :author_id )
+
+    if @conversation.save
+      @conversation_membership = ConversationMembership.new(
+        member_id: author_id, conversation_id: @conversation.id )
+        if @conversation_membership.save
+          render 'api/conversations/show'
+        else
+          render json: @conversation_membership.errors.full_messages, status: 422
+        end
+    else
+      render json: @conversation.errors.full_messages, status: 422
+    end
+  end
+
+  def addMember
+    @conversationMembership = ConversationMembership.new(member_id:
+      params[:conversation]
+    )
   end
 
   def destroy
   end
 
   def show
-    # @conversation = current_user.conversations.find(params[:id])
-    @conversation = Conversation.find(params[:id])
+    @conversation = current_user.conversations.find(params[:id])
+    # @conversation = Conversation.find(params[:id])
     if @conversation
-      @members = @conversation.members
-      @messages = @conversation.messages
       # render json: show
     else
       render json: "Conversation does not exist", status: 400
@@ -38,16 +46,16 @@ class Api::ConversationsController < ApplicationController
   def update
   end
 
-  def members
-    # @conversation = current_user.conversations.find_by_id(params[:id])
-    # if @conversation
-    #   @users = @conversation.members
-    #   render "/api/users/index"
-    # else
-    #   render json: "Conversation does not exist", status: 400
-    # end
-    #TODO use above after conversations redirect properly
-    @users = User.all
-    render "/api/users/index"
-  end
+  # def members
+  #   # @conversation = current_user.conversations.find_by_id(params[:id])
+  #   # if @conversation
+  #   #   @users = @conversation.members
+  #   #   render "/api/users/index"
+  #   # else
+  #   #   render json: "Conversation does not exist", status: 400
+  #   # end
+  #   #TODO use above after conversations redirect properly
+  #   @users = User.all
+  #   render "/api/users/index"
+  # end
 end

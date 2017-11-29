@@ -1,4 +1,6 @@
 import * as APIUtil from '../util/conversation_api_util';
+import { browserHistory } from 'react-router';
+
 export const RECEIVE_MESSAGE = 'RECEIVE_MESSAGE';
 export const RECEIVE_MESSAGES = 'RECEIVE_MESSAGES';
 export const RECEIVE_MEMBERS = 'RECEIVE_MEMBERS';
@@ -45,8 +47,21 @@ export const fetchMembers = (conversationId) => dispatch => (
 // );
 
 export const fetchConversation = (conversationId) => dispatch => (
-  APIUtil.fetchConversation(conversationId).then(conversation => {
+  APIUtil.fetchConversation(conversationId).then(
+    (conversation) => {
+      dispatch(receiveMembers(conversation.members));
+      dispatch(receiveMessages(conversation.messages));
+    },
+    (err) => {
+      // browserHistory.push('/conversations/new');  //QUESTION browserHistory undefined?
+    }
+  )
+);
+//QUESTION multiple dispatch in a then, does it wait until both are finished?
+
+export const createConversation = formConversation => dispatch => (
+  APIUtil.createConversation(formConversation).then(conversation => {
     dispatch(receiveMembers(conversation.members));
-    dispatch(receiveMessages(conversation.messages));
+    // dispatch(receiveConversation)
   })
 );

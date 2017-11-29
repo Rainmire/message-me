@@ -1,5 +1,6 @@
 import React from 'react';
 import {toLocalTime} from '../../util/local_time_conversion';
+import MessageInputContainer from '../message_input/message_input_container';
 
 class MessageList extends React.Component {
 
@@ -35,32 +36,34 @@ class MessageList extends React.Component {
     const {logout, messages, members, currentUserId} = this.props;
     if( !this.state.loading ) {
       return(
-        <ul className="message-list">
-          {
-            messages.map(message => {
-              const author = members[message.user_id];
-              const messageClass = author.id===currentUserId ? "message-item my-message" : "message-item their-message";
-              const timestamp = toLocalTime(message.created_at);
-              return (
-                <li className={messageClass}>
-                  <div className="message-info">
-                    <div className="author-name">
-                      {author.display_name}
+        <div className="message-container">
+          <ul className="message-list">
+            {
+              messages.map(message => {
+                const author = members[message.user_id];
+                const messageClass = author.id===currentUserId ? "message-item my-message" : "message-item their-message";
+                const timestamp = toLocalTime(message.created_at);
+                return (
+                  <li className={messageClass}>
+                    <div className="message-info">
+                      <div className="author-name">
+                        {author.display_name}
+                      </div>
+                      <div className="timestamp">
+                        {timestamp}
+                      </div>
                     </div>
-                    <div className="timestamp">
-                      {timestamp}
+                    <div className="message-body">
+                      {message.body}
                     </div>
-                  </div>
-                  <div className="message-body">
-                    {message.body}
-                  </div>
 
-                </li>
-              );
-            })
-          }
-        </ul>
-
+                  </li>
+                );
+              })
+            }
+          </ul>
+          <MessageInputContainer />
+        </div>
       );
     }
     return (

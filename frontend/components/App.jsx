@@ -14,6 +14,8 @@ import { AuthRoute, ProtectedRoute } from '../util/route_util';
 import MessageListContainer from './message_list/message_list_container';
 import ConversationListContainer from './conversation_list/conversation_list_container';
 import MessageInputContainer from './message_input/message_input_container';
+import NewConversationContainer from './new_conversation/new_conversation_container';
+
 
 const App = () => (
   <div className="app">
@@ -21,14 +23,14 @@ const App = () => (
     <AuthRoute path="/signup" component={SessionFormContainer} />
     <Route exact path="/" render={()=>(<Redirect to="/login"/>)} />
 
-    <Route exact path="/conversations" render={()=>(<Redirect to="/conversations/1" />)} />
+    <Route exact path="/conversations" render={()=><div>Loading</div>} />
 
     <div className="main-content">
       <ProtectedRoute path="/conversations" component={ConversationListContainer} />
-      <div className="message-container">
-        <ProtectedRoute path="/conversations/:id" component={MessageListContainer} />
-        <ProtectedRoute path="/conversations" component={MessageInputContainer} />
-      </div>
+      <Switch>
+        <ProtectedRoute exact path="/conversations/new" component={NewConversationContainer} />
+        <ProtectedRoute exact path="/conversations/:id" component={MessageListContainer} />
+      </Switch>
     </div>
   </div>
 );
@@ -39,3 +41,5 @@ export default App;
 // <ProtectedRoute path="/conversations" component={MessageInputContainer} />
 
 // <EnsureSelectConvoRoute exact path="/conversations" />
+
+// <ProtectedRoute exact path="/conversations/:id" component={MessageInputContainer} />

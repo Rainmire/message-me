@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     resources :users, only: [:create]
 
     resources :conversations, only: [:create, :destroy, :show, :index, :update] do
-      get 'members', on: :member
+      # get 'members', on: :member
       # resources :messages, only: [:create]  TODO: put this back later
     end
 
