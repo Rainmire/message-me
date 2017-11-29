@@ -20,6 +20,9 @@ const App = () => (
     <AuthRoute path="/login" component={SessionFormContainer} />
     <AuthRoute path="/signup" component={SessionFormContainer} />
     <Route exact path="/" render={()=>(<Redirect to="/login"/>)} />
+
+    <Route exact path="/conversations" render={()=>(<Redirect to="/conversations/1" />)} />
+
     <div className="main-content">
       <ProtectedRoute path="/conversations" component={ConversationListContainer} />
       <div className="message-container">
