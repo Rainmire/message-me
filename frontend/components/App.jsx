@@ -23,7 +23,7 @@ const App = () => (
     <div className="main-content">
       <ProtectedRoute path="/conversations" component={ConversationListContainer} />
       <div className="message-container">
-        <ProtectedRoute path="/conversations/:conversationId" component={MessageListContainer} />
+        <ProtectedRoute path="/conversations" component={MessageListContainer} />
         <ProtectedRoute path="/conversations" component={MessageInputContainer} />
       </div>
     </div>
