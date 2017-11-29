@@ -6,7 +6,7 @@ class Api::ConversationsController < ApplicationController
     targetUserId = params[:targetUser][:targetUserId]  #TODO change this later
 
     @conversation = Conversation.new( title: title, author_id: author_id )
-    
+
     if @conversation.save
       conversation_membership = ConversationMembership.new(
         member_id: author_id, conversation_id: @conversation.id )

@@ -1,5 +1,6 @@
 import * as APIUtil from '../util/conversation_api_util';
 import { browserHistory } from 'react-router';
+import {receiveConversation} from './conversation_list_actions';
 
 export const RECEIVE_MESSAGE = 'RECEIVE_MESSAGE';
 export const RECEIVE_MESSAGES = 'RECEIVE_MESSAGES';
@@ -38,30 +39,34 @@ export const fetchMembers = (conversationId) => dispatch => (
   ))
 );
 
-export const fetchConversation = (conversationId) => dispatch => (
-  APIUtil.fetchConversation(conversationId).then(conversation => (
-    dispatch(receiveMembers(conversation.members))
-  )).then(conversation => (
-    dispatch(receiveMessages(conversation.messages))
-  ))
-);
-
 // export const fetchConversation = (conversationId) => dispatch => (
-//   APIUtil.fetchConversation(conversationId).then(
-//     (conversation) => {
-//       dispatch(receiveMembers(conversation.members));
-//       dispatch(receiveMessages(conversation.messages));
-//     },
-//     (err) => {
-//       // browserHistory.push('/conversations/new'); 
-//     }
-//   )
+//   APIUtil.fetchConversation(conversationId).then(conversation => (
+//     dispatch(receiveMembers(conversation.members))
+//   )).then(conversation => (
+//     dispatch(receiveMessages(conversation.messages))
+//   ))
 // );
+
+export const fetchConversationDetails = (conversationId) => dispatch => (
+  APIUtil.fetchConversationDetails(conversationId).then(
+    (conversation) => {
+      dispatch(receiveMembers(conversation.members));
+      dispatch(receiveMessages(conversation.messages));
+    }
+  )
+);
 //QUESTION multiple dispatch in a then, does it wait until both are finished?
 
 export const createConversation = formConversation => dispatch => (
   APIUtil.createConversation(formConversation).then(conversation => {
     dispatch(receiveMembers(conversation.members));
-    // dispatch(receiveConversation)
+    dispatch(receiveMessages(null));
+    dispatch(receiveConversation({[conversation.id]: {title: conversation.title}}));
+    return conversation.id;
   })
 );
+
+// export const receiveConversation = conversation => ({
+//   type: RECEIVE_MESSAGES,
+//   messages
+// });

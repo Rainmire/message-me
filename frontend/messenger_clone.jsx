@@ -4,7 +4,7 @@ import Root from './components/root';
 import configureStore from './store/store';
 
 // import { login, logout, signup } from './actions/session_actions';
-import { createMessage, fetchConversation } from './actions/conversation_actions';
+import { createMessage, fetchConversationDetails } from './actions/conversation_actions';
 import { logout } from './util/session_api_util';
 import { fetchMessages } from './util/conversation_api_util';
 
@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   window.fetchMembers = fetchMembers;
 
-  window.fetchConversation = fetchConversation;
+  window.fetchConversationDetails = fetchConversationDetails;
   // ReactDOM.render(<h1>Welcome to Messenger</h1>,root);
   ReactDOM.render(<Root store={store}/>, root);
 });

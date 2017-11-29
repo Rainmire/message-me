@@ -13,3 +13,5 @@ json.messages do
     end
   end
 end
+
+json.extract! @conversation, :id, :title

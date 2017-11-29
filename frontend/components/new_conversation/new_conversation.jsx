@@ -14,11 +14,11 @@ class NewConversation extends React.Component {
     e.preventDefault();
     const targetUser = this.state;
     this.props.createConversation(targetUser).then(
-      (action)=>{
+      (id)=>{
         debugger;
         console.log("conversation created");
-        console.log(action.conversation);
-        this.props.history.push(`/conversations/${action.conversation.id}`);  //QUESTION No action?
+        console.log(id);
+        this.props.history.push(`/conversations/${id}`);  //QUESTION No action?
       },
       (action)=>{
         console.log("conversation failed");

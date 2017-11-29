@@ -7,7 +7,7 @@ import { fetchMembers } from '../../actions/conversation_actions';
 
 import { setSocket } from '../../actions/actioncable_actions';
 
-import { fetchConversation } from '../../actions/conversation_actions';
+import { fetchConversationDetails } from '../../actions/conversation_actions';
 
 const mapStateToProps = (state, ownProps) => ({
   conversation_id: ownProps.match.params.id,
@@ -30,7 +30,7 @@ const mapDispatchToProps = (dispatch) => ({
   // fetchMessages: () => dispatch(fetchMessages()),
   setSocket: (channelName) => dispatch(setSocket(channelName)),
   // fetchMembers: (conversationId) => dispatch(fetchMembers(conversationId)),
-  fetchConversation: (conversationId) => dispatch(fetchConversation(conversationId))
+  fetchConversationDetails: (conversationId) => dispatch(fetchConversationDetails(conversationId))
 });
 
 export default connect(

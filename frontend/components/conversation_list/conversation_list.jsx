@@ -37,12 +37,12 @@ class ConversationList extends React.Component {
     const { conversations, logout } = this.props;
 
     return(
-      <div className = "navbar">
-        <div>
+      <div className="navbar">
+        <div className="conversation-settings">
           <button onClick={logout}>Log Out</button>
           <Link to="/conversations/new">Create Conversation</Link>
-
         </div>
+
         <ul className = "conversation-list">
           {conversations.map(conversation => (
             <li>{conversation.title}</li>

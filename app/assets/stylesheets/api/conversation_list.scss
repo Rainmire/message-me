@@ -2,8 +2,10 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .navbar {
-  margin-right: -15px;
-  padding-right: 30px;
+  // margin-right: -15px;
+  // padding-right: 30px;
+  display: flex;
+  flex-direction: column;
   overflow-x: hidden;
   position: relative;
   font-size: 14px;
@@ -12,7 +14,17 @@
   border: 1px solid black;
 }
 
+.conversation-settings {
+  display: flex;
+  position: absolute;
+  top: 0;
+  // bottom: 66px;
+  // max-height: 100%;
+  height: 64px;
+}
+
 .conversation-list {
+  overflow: auto;
   margin: 0;
   padding: 0;
   border: 1px solid black;

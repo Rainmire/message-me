@@ -21,7 +21,7 @@ class MessageList extends React.Component {
     //   this.props.setSocket("test")
     // ]).then(()=>(this.setState({loading: false})));
     Promise.all([
-      this.props.fetchConversation(this.props.conversation_id),
+      this.props.fetchConversationDetails(this.props.conversation_id),
       this.props.setSocket("test")
     ]).then(()=>(this.setState({loading: false})));
   }
@@ -39,12 +39,12 @@ class MessageList extends React.Component {
         <div className="message-container">
           <ul className="message-list">
             {
-              messages.map(message => {
+              messages.map((message, idx) => {
                 const author = members[message.user_id];
                 const messageClass = author.id===currentUserId ? "message-item my-message" : "message-item their-message";
                 const timestamp = toLocalTime(message.created_at);
                 return (
-                  <li className={messageClass}>
+                  <li key={idx} className={messageClass}>
                     <div className="message-info">
                       <div className="author-name">
                         {author.display_name}
