@@ -9,7 +9,11 @@ const messageReducer = (state = {}, action) => {
       const newMessage = {[action.message.id]: action.message};
       return merge({}, state, newMessage);
     case RECEIVE_MESSAGES:
+      if (action.messages == null)
+        return state;
+      else {
       return action.messages;
+      }
     default:
       return state;
   }
