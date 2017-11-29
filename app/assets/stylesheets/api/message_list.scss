@@ -4,7 +4,7 @@
 
 .message-list {
   border: 1px solid rgba(0, 0, 0, .40);
-
+  color: rgba(0, 0, 0, .40);
   display: flex;
   flex-direction: column;
   // justify-content: flex-start;
@@ -25,43 +25,66 @@
   // flex: 1 0 auto;
   // margin-bottom: 60px;
   overflow: auto;
+  font-size: 12px;
 }
 
 .message-item {
-  margin-bottom: 3px;
+  margin-bottom: 5px;
   max-width: 70%;
   // min-width: 0%
 }
 
+.message-info {
+  display: flex;
+  padding: 0 14px;
+}
+
 .my-message {
   margin-left: auto;
-
+  margin-right: 20px;
   // display: flex;
   // align-self: flex-end;
+}
+
+.my-message .author-name {
+  display: none;
+}
+
+.my-message .timestamp {
+  margin-left: auto;
+  // align-items: flex-end;
+  // text-align: right;
 }
 
 .my-message .message-body {
   color: white;
   background-color: #0084ff;
-  border-radius: 20px;
 
 }
 
 .their-message {
   margin-right: auto;
-
+  margin-left: 20px;
   // display: flex;
   // align-self: flex-start;
 }
 
+.their-message .timestamp {
+  padding-left: 20px;
+}
+
 .their-message .message-body {
+  color: black;
+  font-weight: 500;
   background-color: #f1f0f0;
-  border-radius: 20px;
 }
 
 .message-body {
   // width: 100%;
   // flex-wrap: wrap;
+  font-size: 14px;
+  border-radius: 20px;
+
   padding: 10px;
   word-wrap: break-word;
 }

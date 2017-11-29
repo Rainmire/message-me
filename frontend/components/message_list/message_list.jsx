@@ -39,11 +39,13 @@ class MessageList extends React.Component {
               const timestamp = toLocalTime(message.created_at);
               return (
                 <li className={messageClass}>
-                  <div className="author-name">
-                    {author.display_name}
-                  </div>
-                  <div className="timestamp">
-                    {timestamp}
+                  <div className="message-info">
+                    <div className="author-name">
+                      {author.display_name}
+                    </div>
+                    <div className="timestamp">
+                      {timestamp}
+                    </div>
                   </div>
                   <div className="message-body">
                     {message.body}
