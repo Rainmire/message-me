@@ -3,26 +3,30 @@ class Api::ConversationsController < ApplicationController
   def create
     title = current_user.display_name
     author_id = current_user.id
-    @conversation = Conversation.new( :title, :author_id )
+    targetUserId = params[:targetUser][:targetUserId]  #TODO change this later
 
+    @conversation = Conversation.new( title: title, author_id: author_id )
+    
     if @conversation.save
-      @conversation_membership = ConversationMembership.new(
+      conversation_membership = ConversationMembership.new(
         member_id: author_id, conversation_id: @conversation.id )
-        if @conversation_membership.save
-          render 'api/conversations/show'
-        else
-          render json: @conversation_membership.errors.full_messages, status: 422
-        end
+      target_conversation_membership = ConversationMembership.new(
+        member_id: targetUserId, conversation_id: @conversation.id )
+      if conversation_membership.save && target_conversation_membership.save
+        render 'api/conversations/show'
+      else
+        render json: conversation_membership.errors.full_messages, status: 422
+      end
     else
       render json: @conversation.errors.full_messages, status: 422
     end
   end
 
-  def addMember
-    @conversationMembership = ConversationMembership.new(member_id:
-      params[:conversation]
-    )
-  end
+  # def addMember
+  #   @conversationMembership = ConversationMembership.new(member_id:
+  #     params[:conversation]
+  #   )
+  # end
 
   def destroy
   end

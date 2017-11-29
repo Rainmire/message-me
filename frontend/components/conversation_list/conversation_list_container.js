@@ -5,6 +5,7 @@ import ConversationList from './conversation_list';
 import { selectAllConversations } from '../../reducers/selectors';
 
 import { fetchConversations } from '../../actions/conversation_list_actions';
+import { logout } from '../../actions/session_actions';
 
 // import { setSocket } from '../../actions/actioncable_actions';
 
@@ -14,11 +15,12 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  // logout: () => dispatch(logout()),
+  logout: () => dispatch(logout()),
   // fetchMessages: () => dispatch(fetchMessages()),
   // createMessage: (message) => dispatch(createMessage(message)),
   fetchConversations: () => dispatch(fetchConversations())
   // setSocket: (channelName) => dispatch(setSocket(channelName))
+  // createConversation: ()=> 
 });
 
 export default connect(

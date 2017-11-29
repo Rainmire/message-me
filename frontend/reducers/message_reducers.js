@@ -10,7 +10,7 @@ const messageReducer = (state = {}, action) => {
       return merge({}, state, newMessage);
     case RECEIVE_MESSAGES:
       if (action.messages == null)
-        return state;
+        return {};
       else {
       return action.messages;
       }

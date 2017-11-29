@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 
 class ConversationList extends React.Component {
 
@@ -33,10 +34,15 @@ class ConversationList extends React.Component {
   // }
 
   render() {
-    const { conversations } = this.props;
+    const { conversations, logout } = this.props;
 
     return(
       <div className = "navbar">
+        <div>
+          <button onClick={logout}>Log Out</button>
+          <Link to="/conversations/new">Create Conversation</Link>
+
+        </div>
         <ul className = "conversation-list">
           {conversations.map(conversation => (
             <li>{conversation.title}</li>
