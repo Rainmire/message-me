@@ -14,7 +14,8 @@ class ConversationList extends React.Component {
   componentDidMount() {
     this.props.fetchConversations().then(
       (action)=>{
-        if(Object.keys(action.conversations).length===0) {
+        console.log(this.props.conversations);
+        if(this.props.conversations.length===0) {
           this.props.history.push('/conversations/new');
         }
         else {
@@ -29,6 +30,10 @@ class ConversationList extends React.Component {
     );
     // this.props.setSocket("test");
   }
+
+  // componentWillReceiveProps(nextProps) {
+  //   debugger;
+  // }
 
 
   // update(field) {
@@ -49,7 +54,7 @@ class ConversationList extends React.Component {
 
         <ul className = "conversation-list">
           {conversations.map(conversation => {
-            return <li>{conversation.title}</li>;
+            return <li><a href={`/#/conversations/${conversation.id}`}>{conversation.title}</a></li>;
           })}
         </ul>
       </div>

@@ -1,24 +1,24 @@
-export const createMessage = message => (
+export const createMessage = (message, conversationId) => (
   $.ajax({
     method: 'POST',
-    url: '/api/messages',
+    url: `/api/conversations/${conversationId}/messages`,
     data: {message}
   })
 );
 
-export const fetchMessages = () => (
-  $.ajax({
-    method: 'GET',
-    url: '/api/messages'
-  })
-);
+// export const fetchMessages = () => (
+//   $.ajax({
+//     method: 'GET',
+//     url: '/api/messages'
+//   })
+// );
 
-export const fetchMembers = (conversationId) => (
-  $.ajax({
-    method: 'GET',
-    url: `/api/conversations/${conversationId}/members`
-  })
-);
+// export const fetchMembers = (conversationId) => (
+//   $.ajax({
+//     method: 'GET',
+//     url: `/api/conversations/${conversationId}/members`
+//   })
+// );
 
 export const fetchConversationDetails = (id) => (
   $.ajax({

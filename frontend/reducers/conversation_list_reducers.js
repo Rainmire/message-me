@@ -7,7 +7,6 @@ const conversationListReducer = (state = {}, action) => {
   Object.freeze(state);
   switch(action.type) {
     case RECEIVE_CONVERSATION:
-    debugger;
       return merge({}, state, action.conversation);
     case RECEIVE_CONVERSATIONS:
       return action.conversations;

@@ -16,7 +16,7 @@ users = User.create([
 
 conversations = Conversation.create([
   { title: 'user1, user2, user3', author_id: 1 },
-  { title: 'user3, user4, user5', author_id: 3 },
+  { title: 'user1, user3, user4, user5', author_id: 3 },
   { title: 'user1, user5', author_id: 1 }
   ])
 
@@ -36,6 +36,7 @@ end
 
 conversation_memberships = ConversationMembership.create([
   { member_id: 1, conversation_id: 1 },
+  { member_id: 1, conversation_id: 2 },
   { member_id: 1, conversation_id: 3 },
   { member_id: 2, conversation_id: 1 },
   { member_id: 3, conversation_id: 1 },

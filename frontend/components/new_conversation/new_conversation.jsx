@@ -15,7 +15,6 @@ class NewConversation extends React.Component {
     const targetUser = this.state;
     this.props.createConversation(targetUser).then(
       (id)=>{
-        debugger;
         console.log("conversation created");
         console.log(id);
         this.props.history.push(`/conversations/${id}`);  //QUESTION No action?

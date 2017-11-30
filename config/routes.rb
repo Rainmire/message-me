@@ -9,10 +9,9 @@ Rails.application.routes.draw do
 
     resources :conversations, only: [:create, :destroy, :show, :index, :update] do
       # get 'members', on: :member
-      # resources :messages, only: [:create]  TODO: put this back later
+      resources :messages, only: [:create]
     end
 
-    resources :messages, only: [:create, :index]  #TODO: remove index and nest under convos
 
 
     resource :session, only: [:create, :destroy]

@@ -3,7 +3,7 @@ class Api::MessagesController < ApplicationController
   def create
     @message = Message.new(message_params)
     @message.user_id = current_user.id
-    @message.conversation_id = 1 #TODO change to params[:id] after nesting route under convo
+    @message.conversation_id = params[:conversation_id] #TODO change to params[:id] after nesting route under convo
 
     # if @message.save
     #   render :show

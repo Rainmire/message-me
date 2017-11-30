@@ -14,13 +14,6 @@ class MessageList extends React.Component {
 
   componentDidMount() {
     //set state to loading
-    //TODO combine into fetchConversation
-    // Promise.all([
-    //   this.props.fetchMembers(1),
-    //   this.props.fetchMessages(),
-    //   this.props.setSocket("test")
-    // ]).then(()=>(this.setState({loading: false})));
-
     // Promise.all([
     //   this.props.fetchConversationDetails(this.props.conversation_id),
     //   this.props.setSocket("test")
@@ -29,7 +22,7 @@ class MessageList extends React.Component {
     this.props.fetchConversationDetails(convoId)
     .then(
       ()=>{
-        this.props.setSocket("convoId");
+        this.props.setSocket(convoId);
         this.setState({loading: false});
       },
       ()=>this.props.history.push('/conversations/new')
