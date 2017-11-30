@@ -32,7 +32,20 @@ class MessageList extends React.Component {
     // );
   }
 
-  // componentWillRe
+  componentWillReceiveProps(nextProps) {
+    const convoId = nextProps.match.params.id;
+    if(this.props.match.params.id!==convoId) {
+      this.setState({loading: true});
+      this.props.fetchConversationDetails(convoId)
+      .then(
+        ()=>{
+          this.props.setSocket(convoId);
+          this.setState({loading: false});
+        },
+        ()=>this.props.history.push('/conversations/new')
+      );
+    }
+  }
 
   // getMessageAuthor(message) {
   //   this.state
