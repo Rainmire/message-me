@@ -19,7 +19,10 @@ class ConversationList extends React.Component {
           this.props.history.push('/conversations/new');
         }
         else {
-          this.props.history.push('/conversations/1');
+          if (this.props.location.pathname==="/conversations" ||
+              this.props.location.pathname==="/conversations/") {
+            this.props.history.push('/conversations/1');
+          }
         }
       }
     );

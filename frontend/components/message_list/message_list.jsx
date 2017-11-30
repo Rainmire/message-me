@@ -20,10 +20,23 @@ class MessageList extends React.Component {
     //   this.props.fetchMessages(),
     //   this.props.setSocket("test")
     // ]).then(()=>(this.setState({loading: false})));
-    Promise.all([
-      this.props.fetchConversationDetails(this.props.conversation_id),
-      this.props.setSocket("test")
-    ]).then(()=>(this.setState({loading: false})));
+
+    // Promise.all([
+    //   this.props.fetchConversationDetails(this.props.conversation_id),
+    //   this.props.setSocket("test")
+    // ]).then(()=>(this.setState({loading: false})));
+    const convoId = this.props.conversation_id;
+    this.props.fetchConversationDetails(convoId)
+    .then(
+      ()=>{
+        this.props.setSocket("convoId");
+        this.setState({loading: false});
+      },
+      ()=>this.props.history.push('/conversations/new')
+    );
+    // .then(
+    //   ()=>(this.setState({loading: false}))
+    // );
   }
 
   // componentWillRe
