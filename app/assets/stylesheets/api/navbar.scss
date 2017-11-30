@@ -6,10 +6,11 @@
   // padding-right: 30px;
   display: flex;
   flex-direction: column;
-  overflow-x: hidden;
+  // overflow-x: hidden;
   position: relative;
   font-size: 14px;
-  width: 300px;
+  width: 40%;
+  max-width: 420px;
   height: 100%;
   // border: 1px solid black;
 }
