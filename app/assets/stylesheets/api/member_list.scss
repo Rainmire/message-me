@@ -1,0 +1,42 @@
+.member-box {
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+}
+
+.member-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.member-list li {
+  // border: 1px solid black;
+  height: 44px;
+  text-align: center;
+  text-overflow: ellipsis;
+  padding-top: 12px;
+}
+
+.member-list-title {
+  margin-right: auto;
+  padding-left: 15px;
+  color: rgba(0, 0, 0, .40);
+}
+
+.add-member {
+  display: flex;
+  justify-content: space-around;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.add-member .add-member-plus {
+  margin-top: -15px;
+  // padding-top: -60px;
+  font-size: 35px;
+  color: #0084ff;
+}
+
+.member-list-item:hover{
+  background-color: #f2f2f2;
+}
