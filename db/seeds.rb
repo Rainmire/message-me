@@ -30,6 +30,10 @@ messages = Message.create([
   # { body: 'message7', user_id: 5, conversation_id: 3 },
   ])
 
+messages.each.with_index do |message, idx|
+  message.update_attribute :created_at, (messages.length-idx).minutes.ago
+end
+
 conversation_memberships = ConversationMembership.create([
   { member_id: 1, conversation_id: 1 },
   { member_id: 1, conversation_id: 3 },
