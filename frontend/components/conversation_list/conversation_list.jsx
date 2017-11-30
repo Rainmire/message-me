@@ -53,9 +53,9 @@ class ConversationList extends React.Component {
         </div>
 
         <ul className = "conversation-list">
-          {conversations.map(conversation => {
-            return <li><a href={`/#/conversations/${conversation.id}`}>{conversation.title}</a></li>;
-          })}
+          {conversations.map((conversation, idx) => (
+            <li key={idx} className="conversation-list-item"><a href={`/#/conversations/${conversation.id}`}>{conversation.title}</a></li>
+          ))}
         </ul>
       </div>
     );

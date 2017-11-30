@@ -8,3 +8,5 @@ export const selectAllConversations = state => {
   const conversations = state.entities.conversations;
   return Object.keys(conversations).map(id=>({id,title:conversations[id].title}));
 };
+
+export const selectAllMembers = state => values(state.entities.members);

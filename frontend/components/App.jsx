@@ -15,7 +15,7 @@ import MessageListContainer from './message_list/message_list_container';
 import ConversationListContainer from './conversation_list/conversation_list_container';
 import MessageInputContainer from './message_input/message_input_container';
 import NewConversationContainer from './new_conversation/new_conversation_container';
-// import MemberListContainer from './members_list/members_list_container';
+import MemberListContainer from './member_list/member_list_container';
 
 const App = () => (
   <div className="app">
@@ -31,6 +31,7 @@ const App = () => (
         <ProtectedRoute exact path="/conversations/new" component={NewConversationContainer} />
         <ProtectedRoute exact path="/conversations/:id" component={MessageListContainer} />
       </Switch>
+      <ProtectedRoute path="/conversations" component={MemberListContainer} />
     </div>
   </div>
 );
@@ -43,5 +44,3 @@ export default App;
 // <EnsureSelectConvoRoute exact path="/conversations" />
 
 // <ProtectedRoute exact path="/conversations/:id" component={MessageInputContainer} />
-
-// <ProtectedRoute path="/conversations" component={MemberListContainer} />
