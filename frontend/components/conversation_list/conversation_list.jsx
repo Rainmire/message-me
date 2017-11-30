@@ -14,14 +14,15 @@ class ConversationList extends React.Component {
   componentDidMount() {
     this.props.fetchConversations().then(
       (action)=>{
-        console.log(this.props);
         if(Object.keys(action.conversations).length===0) {
           this.props.history.push('/conversations/new');
         }
         else {
           if (this.props.location.pathname==="/conversations" ||
               this.props.location.pathname==="/conversations/") {
-            this.props.history.push('/conversations/1');
+                console.log(this.props);
+                const id = this.props.conversations[0].id;
+                this.props.history.push(`/conversations/${id}`);
           }
         }
       }
@@ -47,9 +48,9 @@ class ConversationList extends React.Component {
         </div>
 
         <ul className = "conversation-list">
-          {conversations.map(conversation => (
-            <li>{conversation.title}</li>
-          ))}
+          {conversations.map(conversation => {
+            return <li>{conversation.title}</li>;
+          })}
         </ul>
       </div>
     );

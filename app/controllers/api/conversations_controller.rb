@@ -42,7 +42,7 @@ class Api::ConversationsController < ApplicationController
   end
 
   def index
-    @conversations = Conversation.where(author_id: current_user.id)
+    @conversations = current_user.conversations
     #TODO Order by created_at of newest message
     # render json: @conversations
   end

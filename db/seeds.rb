@@ -24,10 +24,10 @@ messages = Message.create([
   { body: 'message1', user_id: 1, conversation_id: 1 },
   { body: 'message2', user_id: 2, conversation_id: 1 },
   { body: 'message3', user_id: 3, conversation_id: 1 },
-  # { body: 'message4', user_id: 3, conversation_id: 2 },
-  # { body: 'message5', user_id: 4, conversation_id: 2 },
-  # { body: 'message6', user_id: 1, conversation_id: 3 },
-  # { body: 'message7', user_id: 5, conversation_id: 3 },
+  { body: 'message4', user_id: 3, conversation_id: 2 },
+  { body: 'message5', user_id: 4, conversation_id: 2 },
+  { body: 'message6', user_id: 1, conversation_id: 3 },
+  { body: 'message7', user_id: 5, conversation_id: 3 },
   ])
 
 messages.each.with_index do |message, idx|
