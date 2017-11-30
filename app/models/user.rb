@@ -30,6 +30,13 @@ class User < ApplicationRecord
   foreign_key: :author_id,
   class_name: :Conversation
 
+  def self.top_five_results(query_param, curr_user)
+    curr_user_id = curr_user.id if curr_user
+    param = '%' + query_param.downcase + '%'
+    User.where.not(id: curr_user_id).
+      where('lower(display_name) LIKE ?', param).limit(5)
+  end
+
   def self.find_by_credentials(email, password)
     user = User.find_by(email: email)
     return nil unless user

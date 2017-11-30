@@ -1,4 +1,10 @@
 class Api::UsersController < ApplicationController
+
+  def index
+    @users = User.top_five_results(search_params[:query], current_user)
+    render :index
+  end
+
   def create
     @user = User.new(user_params)
 
@@ -10,10 +16,10 @@ class Api::UsersController < ApplicationController
     end
   end
 
-  def conversations
-    @conversations = current_user.conversations
-    render "api/users/conversations"
-  end
+  # def conversations #TODO I guess I don't need this anymore?
+  #   @conversations = current_user.conversations
+  #   render "api/users/conversations"
+  # end
 
   def create_guest
     @user = User.new(user_params)
@@ -35,5 +41,9 @@ class Api::UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(:display_name, :email, :password)
+  end
+
+  def search_params
+    params.require(:search).permit(:query)
   end
 end

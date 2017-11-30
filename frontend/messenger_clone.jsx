@@ -12,6 +12,7 @@ import { fetchConversations } from './actions/conversation_list_actions';
 // import { fetchConversations } from './util/conversation_list_api_util';
 import { fetchMembers } from './actions/conversation_actions';
 
+import { searchUserDatabase } from './util/user_api_util';
 
 document.addEventListener('DOMContentLoaded', () => {
   const root = document.getElementById('root');
@@ -41,6 +42,9 @@ document.addEventListener('DOMContentLoaded', () => {
   window.fetchMembers = fetchMembers;
 
   window.fetchConversationDetails = fetchConversationDetails;
+
+  window.searchUserDatabase = searchUserDatabase;
+
   // ReactDOM.render(<h1>Welcome to Messenger</h1>,root);
   ReactDOM.render(<Root store={store}/>, root);
 });
