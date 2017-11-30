@@ -21,6 +21,14 @@ export const signup = formUser => dispatch => (
   ))
 );
 
+export const demoSignup = formGuest => dispatch => (
+  APIUtil.demoSignup(formGuest).then(guest => (
+    dispatch(receiveCurrentUser(guest))
+  ), err => (
+    dispatch(receiveErrors(err.responseJSON))
+  ))
+);
+
 export const login = formUser => dispatch => (
   APIUtil.login(formUser).then(user => (
     dispatch(receiveCurrentUser(user))

@@ -7,6 +7,8 @@ Rails.application.routes.draw do
 
     resources :users, only: [:create]
 
+    post '/users/create_guest', :to => 'users#create_guest'
+
     resources :conversations, only: [:create, :destroy, :show, :index, :update] do
       # get 'members', on: :member
       resources :messages, only: [:create]
