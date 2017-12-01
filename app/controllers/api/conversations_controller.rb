@@ -50,13 +50,15 @@ class Api::ConversationsController < ApplicationController
   def update
     @conversation = current_user.conversations.find(params[:id])
     if @conversation
-      @users = params[:users]
-      @users.keys.each do |id|
+      @users = []
+      params[:users].keys.each do |id|
         if !ConversationMembership.exists?(['member_id = ? and conversation_id = ?', id, @conversation.id])
           membership = ConversationMembership.new(member_id: id, conversation_id: @conversation.id)
           membership.save
+          @users << User.find(id)
         end
       end
+      render "api/users/index"
     else
       render json: "Conversation does not exist", status: 400
     end

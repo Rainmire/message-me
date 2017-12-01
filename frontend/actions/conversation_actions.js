@@ -71,8 +71,16 @@ export const createConversation = formConversation => dispatch => (
 //   messages
 // });
 
+export const UPDATE_MEMBERS = 'UPDATE_MEMBERS';
+
+const updateMembers = members => ({
+  type: UPDATE_MEMBERS,
+  members
+});
+
 export const addMembers = (users, id) => dispatch => (
-  APIUtil.addMembers(users, id).then(message => (
-    console.log(`USERS ADDED`)
-  ))
+  APIUtil.addMembers(users, id).then(members => (
+      dispatch(updateMembers(members))
+    )
+  )
 );
