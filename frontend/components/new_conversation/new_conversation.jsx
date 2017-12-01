@@ -34,7 +34,7 @@ class NewConversation extends React.Component {
       <form className="message-container" onSubmit={this.handleSubmit}>
         <input type="text"
           onChange={this.update('targetUserId')}
-          placeholder="enter user"
+          placeholder="enter target user id"
         />
       </form>
     );
