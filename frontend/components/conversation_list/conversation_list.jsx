@@ -14,14 +14,12 @@ class ConversationList extends React.Component {
   componentDidMount() {
     this.props.fetchConversations().then(
       (action)=>{
-        console.log(this.props.conversations);
         if(this.props.conversations.length===0) {
           this.props.history.push('/conversations/new');
         }
         else {
           if (this.props.location.pathname==="/conversations" ||
               this.props.location.pathname==="/conversations/") {
-                console.log(this.props);
                 const id = this.props.conversations[0].id;
                 this.props.history.push(`/conversations/${id}`);
           }
@@ -31,9 +29,13 @@ class ConversationList extends React.Component {
     // this.props.setSocket("test");
   }
 
-  // componentWillReceiveProps(nextProps) {
-  //   debugger;
-  // }
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.location.pathname==="/conversations" ||
+        nextProps.location.pathname==="/conversations/") {
+          const id = nextProps.conversations[0].id;
+          nextProps.history.push(`/conversations/${id}`);
+    }
+  }
 
 
   // update(field) {

@@ -10,3 +10,5 @@ export const selectAllConversations = state => {
 };
 
 export const selectAllMembers = state => values(state.entities.members);
+
+export const selectAllUserSearchResults = state => values(state.entities.userSearchResults);
