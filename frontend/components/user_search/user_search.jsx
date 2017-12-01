@@ -57,7 +57,7 @@ class UserSearch extends React.Component {
           </form>
           <ul className="selected-users">
             {userSelectionsArr.map((user) => (
-              <div id="selected-user-item">
+              <div key={user.id} id="selected-user-item">
 
                   {user.display_name}
 

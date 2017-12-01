@@ -86,7 +86,7 @@ class MessageList extends React.Component {
       );
     }
     return (
-      <div>Loading...</div>
+      <div className="message-container">Loading...</div>
     );
 
   }

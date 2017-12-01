@@ -23,9 +23,11 @@ const App = () => (
     <AuthRoute path="/signup" component={SessionFormContainer} />
     <Route exact path="/" render={()=>(<Redirect to="/login"/>)} />
 
-    <Route exact path="/conversations" render={()=><div>Loading</div>} />
-
     <div className="main-content">
+      <Route exact path="/conversations" render={
+          ()=><div className="navbar">Loading</div>
+      } />
+
       <ProtectedRoute path="/conversations" component={ConversationListContainer} />
       <Switch>
         <ProtectedRoute exact path="/conversations/new" component={NewConversationContainer} />
