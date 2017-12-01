@@ -1,0 +1,18 @@
+.search-bar {
+  display: flex;
+  border: 1px solid black;
+  height: 40px;
+  flex-wrap: wrap;
+  overflow: hidden;
+}
+
+.selected-users {
+  display: flex;
+  border: 1px solid black;
+}
+
+.user-search-input {
+  position: relative;
+  border: 1px solid black;
+
+}

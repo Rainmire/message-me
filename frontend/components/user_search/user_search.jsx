@@ -34,19 +34,22 @@ class UserSearch extends React.Component {
   render(){
     const { userSelections } = this.props;
     return (
-      <div className="UserSearch">
-        <ul className="selected-users">
-          {userSelections.map((user) => (
-              <li>
-                {user.display_name}
-              </li>
-            )
-          )}
-        </ul>
-        <input className="UserSearchInput" onChange={this.handleChange} type="text"
-          placeholder="Search for user..."
-          value={this.state.searchVal}
-        />
+      <div className="user-search">
+        <div className="search-bar">
+          <ul className="selected-users">
+            {userSelections.map((user) => (
+                <li>
+                  {user.display_name}
+                </li>
+              )
+            )}
+          </ul>
+          <input className="user-search-input" onChange={this.handleChange} type="text"
+            placeholder="Search for user..."
+            value={this.state.searchVal}
+          />
+        </div>
+
         <UserSearchIndex className="user-search-list"
           firstTime={this.state.firstTime}
           searchItems={this.props.userSearchResults}
