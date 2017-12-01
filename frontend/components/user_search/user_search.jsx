@@ -36,21 +36,26 @@ class UserSearch extends React.Component {
     return (
       <div className="user-search">
         <div className="search-bar">
+          <form className="user-search-form">
+            <input className="user-search-input" onChange={this.handleChange} type="text"
+              placeholder="Search for user..."
+              value={this.state.searchVal}
+            />
+          </form>
           <ul className="selected-users">
             {userSelections.map((user) => (
-                <li>
+              <div id="selected-user-item">
+
                   {user.display_name}
-                </li>
+
+              </div>
               )
             )}
           </ul>
-          <input className="user-search-input" onChange={this.handleChange} type="text"
-            placeholder="Search for user..."
-            value={this.state.searchVal}
-          />
+
         </div>
 
-        <UserSearchIndex className="user-search-list"
+        <UserSearchIndex className="user-search-index"
           firstTime={this.state.firstTime}
           searchItems={this.props.userSearchResults}
           searchVal={this.state.searchVal}

@@ -1,18 +1,95 @@
+.user-search {
+  padding: 0;
+  margin-top: -10px;
+}
+
 .search-bar {
   display: flex;
-  border: 1px solid black;
+  // border: 1px solid black;
   height: 40px;
-  flex-wrap: wrap;
+  // flex-wrap: wrap;
   overflow: hidden;
+  direction: rtl;
 }
 
 .selected-users {
   display: flex;
-  border: 1px solid black;
+  // border: 1px solid black;
+  // overflow: hidden;
+  // text-overflow: ellipsis;
+  // direction: rtl;
+  // text-overflow: ellipsis;
+
+}
+//QUESTION Items push container to the left
+#selected-user-item {
+  color: white;
+  direction: ltr;
+  // box-sizing: content-box;
+  position: relative;
+  display: inline-block;
+  font-size: 14px;
+  margin-top: 5px;
+  margin-right: 3px;
+  padding-left: 6px;
+  padding-top: 6px;
+  height: 28px;
+  // border: 1px solid black;
+  color: #0084ff;
+  background-color: #cbe6fe;
+  border-radius: 5px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 90px;
+}
+
+// #selected-user-item p {
+//   white-space: nowrap;
+//
+//   text-overflow: ellipsis;
+//   width: 50px;
+//   display: block;
+// }
+.user-search-form{
+  margin-top: -5px;
+
+  display: flex;
+  // flex-wrap: wrap;
+  overflow: hidden;
+  direction: ltr;
+
 }
 
 .user-search-input {
+  // direction: ltr;
+  width: 120px;
+  // position: relative;
+  // border: 1px solid black;
+
+  // background-color: blue;
+  // z-index: 100;
+}
+
+.user-search-list {
+  position: fixed;
+  right: 0;
+  // text-align: right;
+  // margin-left: 50px;
+  width: 20%;
+  max-width: 200px;
+  background-color: #fff;
+  border: 1 px solid rgba(0, 0, 0, .20);
+  box-shadow: 0 1px 6px 0 rgba(0, 0, 0, .20);
+}
+
+.user-search-list li {
   position: relative;
-  border: 1px solid black;
+  z-index: 100;
+  padding-left: 10px;
+}
+
+.user-search-list li:hover {
+  background-color: #f2f2f2;
 
 }

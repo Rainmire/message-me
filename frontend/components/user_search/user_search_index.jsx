@@ -33,7 +33,7 @@ export default ({searchItems, firstTime, searchVal, clearState, receiveUserSelec
 
 
   return(
-    <ul className="UserSearchIndex">
+    <ul className="user-search-list">
       {listItems}
     </ul>
   );
