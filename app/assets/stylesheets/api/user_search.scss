@@ -6,14 +6,17 @@
 .search-bar {
   display: flex;
   // border: 1px solid black;
-  height: 40px;
+  min-height: 40px;
   // flex-wrap: wrap;
   overflow: hidden;
   direction: rtl;
+  align-items: flex-start;
 }
 
 .selected-users {
   display: flex;
+  flex-wrap: wrap;
+  flex: 1;
 }
 
 #selected-user-item {
@@ -39,8 +42,8 @@
 }
 
 .user-search-form{
-  margin-top: -5px;
-
+  // margin-top: -5px;
+  margin-top: 10px;
   display: flex;
   // flex-wrap: wrap;
   overflow: hidden;
