@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import UserSearch from './user_search';
 import {withRouter} from 'react-router-dom';
 
-import { searchDatabase, receiveUserSelection } from '../../actions/user_actions.js';
+import { searchDatabase, receiveUserSelection, clearUserSelections } from '../../actions/user_actions.js';
 import { selectAllUserSearchResults, selectAllUserSelections } from '../../reducers/selectors';
 
 import { addMembers } from '../../actions/conversation_actions';
@@ -15,7 +15,8 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch, {match}) => ({
   searchDatabase: (query) => dispatch(searchDatabase(query)),
   receiveUserSelection: (user) => dispatch(receiveUserSelection(user)),
-  addMembers: (users) => dispatch(addMembers(users, match.params.id))
+  addMembers: (users) => dispatch(addMembers(users, match.params.id)),
+  clearUserSelections: () => dispatch(clearUserSelections())
 });
 
 export default withRouter(connect(

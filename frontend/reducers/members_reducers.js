@@ -7,7 +7,6 @@ const membersReducers = (state = {}, action) => {
     case RECEIVE_MEMBERS:
       return action.members;
     case UPDATE_MEMBERS:
-      debugger;
       return merge({}, state, action.members);
     default:
       return state;

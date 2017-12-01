@@ -2,43 +2,39 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .navbar {
-  // margin-right: -15px;
-  // padding-right: 30px;
+  flex-grow: 1;
+  min-width: 200px;
+  max-width: 420px;
+
+
   display: flex;
   flex-direction: column;
-  // overflow-x: hidden;
-  position: relative;
-  font-size: 14px;
-  width: 40%;
-  max-width: 420px;
-  height: 100%;
-  // border: 1px solid black;
+
+  border-right: 1px solid rgba(0, 0, 0, .20);
+
 }
 
 .conversation-settings {
   display: flex;
-  position: absolute;
-  top: 0;
-  // bottom: 66px;
-  // max-height: 100%;
-  height: 64px;
   width: 100%;
+  flex: 0 0 64px;
+  border-bottom: 1px solid rgba(0, 0, 0, .20);
+
 }
 
 .conversation-list {
   display: flex;
   flex-direction: column;
-  position: absolute;
-  top: 64px;
   overflow: auto;
-  margin: 0;
-  padding: 0;
-  border: 1px solid black;
   width: 100%;
 }
 
-.conversation-list li {
-  display: flex;
-  border: .5px solid blue;
-  height: 64px;
+.conversation-list-item {
+  padding-top: 25px;
+  padding-left: 25px;
+  flex: 0 0 64px;
+}
+
+.conversation-list-item:hover{
+  background-color: #f2f2f2;
 }

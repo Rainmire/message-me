@@ -14,26 +14,36 @@ class ConversationList extends React.Component {
   componentDidMount() {
     this.props.fetchConversations().then(
       (action)=>{
-        if(this.props.conversations.length===0) {
-          this.props.history.push('/conversations/new');
-        }
-        else {
-          if (this.props.location.pathname==="/conversations" ||
-              this.props.location.pathname==="/conversations/") {
-                const id = this.props.conversations[0].id;
-                this.props.history.push(`/conversations/${id}`);
+        const path = this.props.location.pathname;
+
+        if (path!=='/conversations/new') {
+          if(this.props.conversations.length===0) {
+            this.props.history.push('/conversations/new');
+          }
+          else {
+            if (path==="/conversations" || path==="/conversations/") {
+              const id = this.props.conversations[0].id;
+              this.props.history.push(`/conversations/${id}`);
+            }
           }
         }
       }
     );
-    // this.props.setSocket("test");
   }
 
   componentWillReceiveProps(nextProps) {
-    if (nextProps.location.pathname==="/conversations" ||
-        nextProps.location.pathname==="/conversations/") {
+    const path = nextProps.location.pathname;
+
+    if (path!=='/conversations/new') {
+      if(nextProps.conversations.length===0) {
+        nextProps.history.push('/conversations/new');
+      }
+      else {
+        if (path==="/conversations" || path==="/conversations/") {
           const id = nextProps.conversations[0].id;
           nextProps.history.push(`/conversations/${id}`);
+        }
+      }
     }
   }
 
@@ -56,7 +66,12 @@ class ConversationList extends React.Component {
 
         <ul className = "conversation-list">
           {conversations.map((conversation, idx) => (
-            <li key={idx} className="conversation-list-item"><a href={`/#/conversations/${conversation.id}`}>{conversation.title}</a></li>
+            <li key={idx} className="conversation-list-item">
+              <a href={`/#/conversations/${conversation.id}`}>
+                {conversation.title}
+              </a>
+
+              </li>
           ))}
         </ul>
       </div>

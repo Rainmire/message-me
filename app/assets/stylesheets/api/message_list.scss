@@ -2,39 +2,29 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .message-container {
-  width: 50%;
-  // height: %;
+  flex-grow: 1;
+
   display: flex;
-  position: relative;
-  font-size: 14px;
-  // flex-direction: column;
-  // padding-bottom: 60px;
-  // overflow: scroll;
-  padding-top: 50px;
+  flex-direction: column;
+  border-right: 1px solid rgba(0, 0, 0, .20);
+
 }
 .message-list {
-  border: 1px solid rgba(0, 0, 0, .40);
+  border-bottom: 1px solid rgba(0, 0, 0, .20);
+
+  flex: 1;
   color: rgba(0, 0, 0, .40);
   display: flex;
   flex-direction: column;
-  // justify-content: flex-start;
-  // flex: 0 0 100%;
-  position: absolute;
-  top: 0;
-  bottom: 50px;
-
-  // height: 100%;
   width: 100%;
-  max-height: 100%;
-
   overflow: auto;
   font-size: 12px;
+  padding-top: 10px;
 }
 
 .message-item {
   margin-bottom: 5px;
   max-width: 70%;
-  // min-width: 0%
 }
 
 .message-info {
@@ -45,8 +35,6 @@
 .my-message {
   margin-left: auto;
   margin-right: 20px;
-  // display: flex;
-  // align-self: flex-end;
 }
 
 .my-message .author-name {
@@ -55,8 +43,6 @@
 
 .my-message .timestamp {
   margin-left: auto;
-  // align-items: flex-end;
-  // text-align: right;
 }
 
 .my-message .message-body {
@@ -68,8 +54,6 @@
 .their-message {
   margin-right: auto;
   margin-left: 20px;
-  // display: flex;
-  // align-self: flex-start;
 }
 
 .their-message .timestamp {

@@ -16,20 +16,8 @@ const mapStateToProps = (state, ownProps) => ({
   currentUserId: state.session.currentUser.id
 });
 
-// const mapStateToProps = (state, ownProps) => {
-//   debugger;
-//   return {
-//   members: state.entities.members,
-//   messages: selectAllMessages(state),
-//   currentUserId: state.session.currentUser.id
-// };
-// };
-
 const mapDispatchToProps = (dispatch) => ({
-  // logout: () => dispatch(logout()),
-  // fetchMessages: () => dispatch(fetchMessages()),
   setSocket: (channelName) => dispatch(setSocket(channelName)),
-  // fetchMembers: (conversationId) => dispatch(fetchMembers(conversationId)),
   fetchConversationDetails: (conversationId) => dispatch(fetchConversationDetails(conversationId))
 });
 

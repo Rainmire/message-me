@@ -14,14 +14,8 @@
 
 .selected-users {
   display: flex;
-  // border: 1px solid black;
-  // overflow: hidden;
-  // text-overflow: ellipsis;
-  // direction: rtl;
-  // text-overflow: ellipsis;
-
 }
-//QUESTION Items push container to the left
+
 #selected-user-item {
   color: white;
   direction: ltr;
@@ -44,13 +38,6 @@
   width: 90px;
 }
 
-// #selected-user-item p {
-//   white-space: nowrap;
-//
-//   text-overflow: ellipsis;
-//   width: 50px;
-//   display: block;
-// }
 .user-search-form{
   margin-top: -5px;
 
@@ -62,20 +49,12 @@
 }
 
 .user-search-input {
-  // direction: ltr;
   width: 120px;
-  // position: relative;
-  // border: 1px solid black;
-
-  // background-color: blue;
-  // z-index: 100;
 }
 
 .user-search-list {
   position: fixed;
   right: 0;
-  // text-align: right;
-  // margin-left: 50px;
   width: 20%;
   max-width: 200px;
   background-color: #fff;

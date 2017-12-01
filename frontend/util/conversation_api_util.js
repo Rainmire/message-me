@@ -37,7 +37,6 @@ export const createConversation = (targetUser) => (
 
 
 export const addMembers = (users, id) => {
-  debugger;
   return $.ajax({
     method: 'PATCH',
     url: `/api/conversations/${id}`,

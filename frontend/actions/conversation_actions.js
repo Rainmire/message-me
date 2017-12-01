@@ -55,7 +55,6 @@ export const fetchConversationDetails = (conversationId) => dispatch => (
     }
   )
 );
-//QUESTION multiple dispatch in a then, does it wait until both are finished?
 
 export const createConversation = formConversation => dispatch => (
   APIUtil.createConversation(formConversation).then(conversation => {

@@ -17,7 +17,7 @@ class NewConversation extends React.Component {
       (id)=>{
         console.log("conversation created");
         console.log(id);
-        this.props.history.push(`/conversations/${id}`);  //QUESTION No action?
+        this.props.history.push(`/conversations/${id}`);
       },
       (action)=>{
         console.log("conversation failed");
@@ -35,7 +35,7 @@ class NewConversation extends React.Component {
 
   render() {
     return(
-      <form onSubmit={this.handleSubmit}>
+      <form className="message-container" onSubmit={this.handleSubmit}>
         <input type="text"
           onChange={this.update('targetUserId')}
           placeholder="enter user"

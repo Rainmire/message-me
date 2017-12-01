@@ -1,4 +1,4 @@
-import { RECEIVE_USER_SELECTION } from '../actions/user_actions';
+import { RECEIVE_USER_SELECTION, CLEAR_USER_SELECTIONS } from '../actions/user_actions';
 import merge from 'lodash/merge';
 
 const UserSelectionReducer = (state = {}, action) => {
@@ -7,6 +7,8 @@ const UserSelectionReducer = (state = {}, action) => {
     case RECEIVE_USER_SELECTION:
       const newSelection = {[action.user.id]: action.user};
       return merge({}, state, newSelection);
+    case CLEAR_USER_SELECTIONS:
+      return {};
     default:
       return state;
   }

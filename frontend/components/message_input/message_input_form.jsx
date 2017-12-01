@@ -29,15 +29,13 @@ class MessageInputForm extends React.Component {
   render() {
 
     return(
-      <div className="message-input-box">
-        <form onSubmit={this.handleSubmit}>
-          <input type="text"
-            onChange={this.update('body')}
-            className="message-input"
-            placeholder="write message here..."
-          />
-        </form>
-      </div>
+      <form className="message-input-form" onSubmit={this.handleSubmit}>
+        <input type="text"
+          onChange={this.update('body')}
+          className="message-input"
+          placeholder="Type message here..."
+        />
+      </form>
     );
   }
 }
