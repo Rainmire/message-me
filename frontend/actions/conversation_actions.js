@@ -22,9 +22,7 @@ export const receiveMembers = members => ({
 });
 
 export const createMessage = (formMessage, conversationId) => dispatch => (
-  APIUtil.createMessage(formMessage, conversationId).then(message => (
-    console.log(`message sent: ${message}`)
-  ))
+  APIUtil.createMessage(formMessage, conversationId)
 );
 
 // export const fetchMessages = () => dispatch => (
