@@ -31,7 +31,7 @@ const App = () => (
         <ProtectedRoute exact path="/conversations/new" component={NewConversationContainer} />
         <ProtectedRoute exact path="/conversations/:id" component={MessageListContainer} />
       </Switch>
-      <ProtectedRoute path="/conversations" component={MemberListContainer} />
+      <ProtectedRoute path="/conversations/:id" component={MemberListContainer} />
     </div>
   </div>
 );

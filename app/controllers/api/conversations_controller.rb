@@ -48,7 +48,12 @@ class Api::ConversationsController < ApplicationController
   end
 
   def update
+    @conversation = current_user.conversations.find(params[:id])
+    debugger
+    @users = params[:users]
+    @users.keys.each do |id|
+      user = @users[id]
+    end
   end
-
 
 end

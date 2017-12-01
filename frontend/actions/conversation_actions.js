@@ -70,3 +70,9 @@ export const createConversation = formConversation => dispatch => (
 //   type: RECEIVE_MESSAGES,
 //   messages
 // });
+
+export const addMembers = (users, id) => dispatch => (
+  APIUtil.addMembers(users, id).then(message => (
+    console.log(`USERS ADDED`)
+  ))
+);

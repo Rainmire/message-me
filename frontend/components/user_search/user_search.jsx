@@ -1,5 +1,8 @@
 import React from 'react';
 import UserSearchIndex from './user_search_index';
+import values from 'lodash/values';
+// import { selectAllUserSelections } from '../../reducers/selectors';
+
 // import onClickOutside from 'react-onclickoutside';
 
 //state.entities.userSelections
@@ -12,6 +15,8 @@ class UserSearch extends React.Component {
     this.state = { searchVal: '', firstTime: true };
     this.handleChange = this.handleChange.bind(this);
     this.clearState = this.clearState.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+
   }
 
   handleChange(e) {
@@ -27,23 +32,28 @@ class UserSearch extends React.Component {
     this.setState({ searchVal: '', firstTime: false });
   }
 
-  // handleClickOutside() {
-  //   this.clearState();
-  // }
+  handleSubmit(e) {
+    e.preventDefault();
+    const users = this.props.userSelections;
+    this.props.addMembers(users);
+  }
 
   render(){
     const { userSelections } = this.props;
+    const userSelectionsArr = values(userSelections);
     return (
       <div className="user-search">
         <div className="search-bar">
-          <form className="user-search-form">
-            <input className="user-search-input" onChange={this.handleChange} type="text"
+          <form className="user-search-form" onSubmit={this.handleSubmit}>
+            <input className="user-search-input"
+              onChange={this.handleChange}
+              type="text"
               placeholder="Search for user..."
               value={this.state.searchVal}
             />
           </form>
           <ul className="selected-users">
-            {userSelections.map((user) => (
+            {userSelectionsArr.map((user) => (
               <div id="selected-user-item">
 
                   {user.display_name}
