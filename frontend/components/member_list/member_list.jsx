@@ -16,15 +16,15 @@ class ConversationList extends React.Component {
 
   addMemberButton() {
     if (this.state.clickAddMember) {
-      return (
-        <form onSubmit={this.handleSubmit}>
-          <input type="text"
-            onChange={this.update('memberId')}
-            placeholder= "Enter user id..."
-          />
-        </form>
-      );
-      // <UserSearchContainer />
+      // return (
+      //   <form onSubmit={this.handleSubmit}>
+      //     <input type="text"
+      //       onChange={this.update('memberId')}
+      //       placeholder= "Enter user id..."
+      //     />
+      //   </form>
+      // );
+      return <UserSearchContainer />;
     }
     else {
       return (

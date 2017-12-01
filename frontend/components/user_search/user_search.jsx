@@ -2,6 +2,9 @@ import React from 'react';
 import UserSearchIndex from './user_search_index';
 // import onClickOutside from 'react-onclickoutside';
 
+//state.entities.userSelections
+//dispatch(receiveUserSelection)
+
 class UserSearch extends React.Component {
   constructor(props) {
     super(props);
@@ -24,21 +27,32 @@ class UserSearch extends React.Component {
     this.setState({ searchVal: '', firstTime: false });
   }
 
-  handleClickOutside() {
-    this.clearState();
-  }
+  // handleClickOutside() {
+  //   this.clearState();
+  // }
 
   render(){
+    const { userSelections } = this.props;
     return (
       <div className="UserSearch">
+        <ul className="selected-users">
+          {userSelections.map((user) => (
+              <li>
+                {user.display_name}
+              </li>
+            )
+          )}
+        </ul>
         <input className="UserSearchInput" onChange={this.handleChange} type="text"
           placeholder="Search for user..."
           value={this.state.searchVal}
         />
-      <UserSearchIndex className="user-search-list" firstTime={this.state.firstTime}
+        <UserSearchIndex className="user-search-list"
+          firstTime={this.state.firstTime}
           searchItems={this.props.userSearchResults}
           searchVal={this.state.searchVal}
           clearState={this.clearState}
+          receiveUserSelection={this.props.receiveUserSelection}
         />
       </div>
     );

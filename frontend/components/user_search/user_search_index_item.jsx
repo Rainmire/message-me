@@ -5,8 +5,8 @@ class UserSearchIndexItem extends React.Component {
   constructor(props) {
     super(props);
 
-    this.user = props.user;
-    this.state = { following: this.user.followed_by_current_user };
+    // this.user = props.user;
+    // this.state = { following: this.user.followed_by_current_user };
   }
 
   handleClick(action) {
@@ -29,6 +29,14 @@ class UserSearchIndexItem extends React.Component {
   }
 
   render() {
+    const {user} = this.props;
+    return (
+      <li>
+        <button>
+          {user.display_name}
+        </button>
+      </li>
+    );
     // let followButton;
     // if (this.state.following) {
     //   // Unfollow button
