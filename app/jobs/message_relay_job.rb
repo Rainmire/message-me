@@ -6,7 +6,5 @@ class MessageRelayJob < ApplicationJob
     )
     ActionCable.server.broadcast("channel_#{conversation.id}",
                                  message: JSON.parse(message))
-    # ActionCable.server.broadcast("channel_test",
-    #                              message: JSON.parse(message))
   end
 end
