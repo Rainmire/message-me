@@ -1,6 +1,7 @@
 import React from 'react';
 import {toLocalTime} from '../../util/local_time_conversion';
 import MessageInputContainer from '../message_input/message_input_container';
+import { ClipLoader } from 'react-spinners';
 
 class MessageList extends React.Component {
 
@@ -86,9 +87,15 @@ class MessageList extends React.Component {
       );
     }
     return (
-      <div className="message-container">Loading...</div>
+      <div className="message-container">
+        <div className = "message-loader">
+          <ClipLoader
+            color={'#123abc'}
+            loading={this.state.loading}
+          />
+        </div>
+      </div>
     );
-
   }
 }
 
