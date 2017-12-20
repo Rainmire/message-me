@@ -194,8 +194,6 @@ class Api::ConversationsController < ApplicationController
 end
 ```
 
-
-
 ## User Search
 
 Users can search for other users when using the add members function. A list of up to 5 users will be displayed with names matching the search input. The matches are updated for each keystroke. Clicking returned results adds them to a list of users to be added. Hitting return in the search field sends a request to add all selected users to the current conversation.
