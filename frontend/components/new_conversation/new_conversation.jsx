@@ -1,4 +1,5 @@
 import React from 'react';
+import UserSearchContainer from '../user_search/user_search_container';
 
 class NewConversation extends React.Component {
 
@@ -39,6 +40,14 @@ class NewConversation extends React.Component {
       </form>
     );
   }
+
+  // render() {
+  //   return(
+  //     <div className="message-container">
+  //       <UserSearchContainer />
+  //     </div>
+  //   );
+  // }
 
 }
 
