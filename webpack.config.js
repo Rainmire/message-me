@@ -30,7 +30,11 @@ module.exports = {
     filename: 'bundle.js'
   },
   resolve: {
-    extensions: ['.js', '.jsx', '*']
+    extensions: ['.js', '.jsx', '*'],
+    modules: [
+    path.resolve('./frontend'),
+    path.resolve('./node_modules')
+  ]
   },
   plugins: plugins,
   module: {
