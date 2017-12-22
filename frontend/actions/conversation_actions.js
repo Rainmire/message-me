@@ -54,19 +54,20 @@ export const fetchConversationDetails = (conversationId) => dispatch => (
   )
 );
 
-export const createConversation = formConversation => dispatch => (
-  APIUtil.createConversation(formConversation).then(conversation => {
-    dispatch(receiveMembers(conversation.members));
-    dispatch(receiveMessages(null));
-    dispatch(receiveConversation({[conversation.id]: {title: conversation.title}}));
-    return conversation.id;
+// export const createConversation = users => dispatch => (
+//   APIUtil.createConversation(users).then(conversation => {
+//     dispatch(receiveMembers(conversation.members));
+//     dispatch(receiveMessages(null));
+//     dispatch(receiveConversation({[conversation.id]: {title: conversation.title}}));
+//     return conversation.id;
+//   })
+// );
+export const createConversation = users => dispatch => (
+  APIUtil.createConversation(users).then((conversation_id) => {
+    debugger;
+    return conversation_id;
   })
 );
-
-// export const receiveConversation = conversation => ({
-//   type: RECEIVE_MESSAGES,
-//   messages
-// });
 
 export const UPDATE_MEMBERS = 'UPDATE_MEMBERS';
 
