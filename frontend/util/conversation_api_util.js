@@ -27,11 +27,11 @@ export const fetchConversationDetails = (id) => (
   })
 );
 
-export const createConversation = (targetUser) => (
+export const createConversation = (users) => (
   $.ajax({
     method: 'POST',
     url: `/api/conversations`,
-    data: {targetUser}
+    data: {users}
   })
 );
 

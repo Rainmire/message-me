@@ -35,13 +35,14 @@ class UserSearch extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     const users = this.props.userSelections;
-    this.props.addMembers(users).then(
-      ()=>this.props.clearUserSelections()
-    );
+    this.props.userSearchAction(users);
+    // this.props.addMembers(users).then(
+    //   ()=>this.props.clearUserSelections()
+    // );
     this.clearState();
   }
 
-  render(){
+  render() {
     const { userSelections } = this.props;
     const userSelectionsArr = values(userSelections);
     return (
@@ -77,6 +78,9 @@ class UserSearch extends React.Component {
         />
       </div>
     );
+  }
+  componentWillUnmount() {
+    this.props.clearUserSelections();
   }
 }
 

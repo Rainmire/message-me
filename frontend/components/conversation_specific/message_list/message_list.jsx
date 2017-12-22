@@ -1,6 +1,6 @@
 import React from 'react';
-import {toLocalTime} from '../../util/local_time_conversion';
-import MessageInputContainer from '../message_input/message_input_container';
+import {toLocalTime} from 'util/local_time_conversion';
+import MessageInputContainer from 'components/message_input/message_input_container';
 import { ClipLoader } from 'react-spinners';
 
 class MessageList extends React.Component {
@@ -82,7 +82,7 @@ class MessageList extends React.Component {
               })
             }
           </ul>
-          <MessageInputContainer />
+          <MessageInputContainer/>
         </div>
       );
     }
