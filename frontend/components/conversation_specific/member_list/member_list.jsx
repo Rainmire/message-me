@@ -1,5 +1,5 @@
 import React from 'react';
-import UserSearchContainer from '../user_search/user_search_container';
+import UserSearchContainer from 'components/user_search/user_search_container';
 
 class ConversationList extends React.Component {
 
@@ -24,7 +24,7 @@ class ConversationList extends React.Component {
       //     />
       //   </form>
       // );
-      return <UserSearchContainer />;
+      return <UserSearchContainer userSearchAction={this.props.addMembers} />;
     }
     else {
       return (

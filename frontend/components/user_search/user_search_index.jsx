@@ -20,7 +20,12 @@ export default ({searchItems, firstTime, searchVal, clearState, receiveUserSelec
       searchItems.map(
         (user) => (
           <li key={user.id}>
-            <button onClick={()=>receiveUserSelection(user)}>
+            <button onClick={
+              ()=>{
+                receiveUserSelection(user);
+                clearState();
+              }
+            }>
               {user.display_name}
             </button>
           </li>

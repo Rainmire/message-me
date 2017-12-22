@@ -11,11 +11,12 @@ import {
 } from 'react-router-dom';
 import SessionFormContainer from './session_form/session_form_container';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
-import MessageListContainer from './message_list/message_list_container';
+// import MessageListContainer from './message_list/message_list_container';
 import ConversationListContainer from './conversation_list/conversation_list_container';
 import MessageInputContainer from './message_input/message_input_container';
 import NewConversationContainer from './new_conversation/new_conversation_container';
-import MemberListContainer from './member_list/member_list_container';
+// import MemberListContainer from './member_list/member_list_container';
+import ConversationSpecific from './conversation_specific/conversation_specific';
 
 const App = () => (
   <div className="app">
@@ -31,14 +32,18 @@ const App = () => (
       <ProtectedRoute path="/conversations" component={ConversationListContainer} />
       <Switch>
         <ProtectedRoute exact path="/conversations/new" component={NewConversationContainer} />
-        <ProtectedRoute exact path="/conversations/:id" component={MessageListContainer} />
+        <ProtectedRoute exact path="/conversations/:id" component={ConversationSpecific} />
+
       </Switch>
-      <ProtectedRoute path="/conversations/:id" component={MemberListContainer} />
+
     </div>
   </div>
 );
 
 export default App;
+
+// <ProtectedRoute path="/conversations" component={MessageInputContainer} />
+
 
 // <ProtectedRoute path="/conversations" component={ConversationsContainer} />
 // <ProtectedRoute path="/conversations" component={MessageInputContainer} />
