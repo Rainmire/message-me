@@ -82,6 +82,7 @@ class MessageList extends React.Component {
               })
             }
           </ul>
+          <MessageInputContainer/>
         </div>
       );
     }

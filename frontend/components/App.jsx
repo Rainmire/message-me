@@ -36,12 +36,14 @@ const App = () => (
 
       </Switch>
 
-      <ProtectedRoute path="/conversations" component={MessageInputContainer} />
     </div>
   </div>
 );
 
 export default App;
+
+// <ProtectedRoute path="/conversations" component={MessageInputContainer} />
+
 
 // <ProtectedRoute path="/conversations" component={ConversationsContainer} />
 // <ProtectedRoute path="/conversations" component={MessageInputContainer} />
