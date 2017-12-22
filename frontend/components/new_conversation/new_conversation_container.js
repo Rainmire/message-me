@@ -3,7 +3,7 @@ import { createConversation } from '../../actions/conversation_actions';
 import NewConversation from './new_conversation';
 
 const mapDispatchToProps = (dispatch) => ({
-  createConversation: (formConversation) => dispatch(createConversation(formConversation))
+  createConversation: (users) => dispatch(createConversation(users))
 });
 
 export default connect(

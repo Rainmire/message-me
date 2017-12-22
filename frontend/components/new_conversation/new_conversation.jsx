@@ -5,19 +5,31 @@ class NewConversation extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = {
-      targetUserId: ''
-    };
+    // this.state = {
+    //   targetUserId: ''
+    // };
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  handleSubmit(e) {
-    e.preventDefault();
-    const targetUser = this.state;
-    this.props.createConversation(targetUser).then(
-      (id)=>(
-        this.props.history.push(`/conversations/${id}`)
-      ),
+  // handleSubmit(e) {
+  //   e.preventDefault();
+  //   const targetUser = this.state;
+  //   this.props.createConversation(targetUser).then(
+  //     (id)=>(
+  //       this.props.history.push(`/conversations/${id}`)
+  //     ),
+  //     (action)=>(
+  //       this.props.history.push('/conversations/new')
+  //     )
+  //   );
+  // }
+
+  handleSubmit(users) {
+    this.props.createConversation(users).then(
+      (id)=>{
+        debugger;
+        this.props.history.push(`/conversations/${id}`);
+      },
       (action)=>(
         this.props.history.push('/conversations/new')
       )
@@ -30,24 +42,24 @@ class NewConversation extends React.Component {
     });
   }
 
-  render() {
-    return(
-      <form className="message-container" onSubmit={this.handleSubmit}>
-        <input type="text"
-          onChange={this.update('targetUserId')}
-          placeholder="enter target user id"
-        />
-      </form>
-    );
-  }
-
   // render() {
   //   return(
-  //     <div className="message-container">
-  //       <UserSearchContainer />
-  //     </div>
+  //     <form className="message-container" onSubmit={this.handleSubmit}>
+  //       <input type="text"
+  //         onChange={this.update('targetUserId')}
+  //         placeholder="enter target user id"
+  //       />
+  //     </form>
   //   );
   // }
+
+  render() {
+    return(
+      <div className="message-container">
+        <UserSearchContainer userSearchAction={ this.handleSubmit } />
+      </div>
+    );
+  }
 
 }
 

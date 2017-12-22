@@ -24,7 +24,7 @@ class ConversationList extends React.Component {
       //     />
       //   </form>
       // );
-      return <UserSearchContainer />;
+      return <UserSearchContainer userSearchAction={this.props.addMembers} />;
     }
     else {
       return (
