@@ -2,10 +2,11 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .navbar {
-  flex-grow: 1;
-  min-width: 200px;
-  max-width: 420px;
+  // flex-grow: 1;
+  // min-width: 200px;
+  // max-width: 420px;
 
+  flex: 0 0 220px;
 
   display: flex;
   flex-direction: column;

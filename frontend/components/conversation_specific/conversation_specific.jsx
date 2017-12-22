@@ -6,7 +6,7 @@ import {
 } from 'react-router-dom';
 
 const ConversationSpecific = () => (
-  <div>
+  <div className="conversation-specific">
     <Route exact path="/conversations/:id" component={MessageListContainer} />
     <Route exact path="/conversations/:id" component={MemberListContainer} />
   </div>
