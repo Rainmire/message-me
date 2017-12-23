@@ -1,4 +1,5 @@
 import React from 'react';
+import NavbarFunctions from './navbar_functions';
 import {Link} from 'react-router-dom';
 
 class ConversationList extends React.Component {
@@ -59,11 +60,9 @@ class ConversationList extends React.Component {
 
     return(
       <div className="navbar">
-        <div className="conversation-settings">
-          <button onClick={logout}>Log Out</button>
-          <Link to="/conversations/new">Create Conversation</Link>
-        </div>
 
+        <NavbarFunctions />
+        
         <ul className = "conversation-list">
           {conversations.map((conversation, idx) => (
             <li key={idx} className="conversation-list-item">
@@ -80,3 +79,8 @@ class ConversationList extends React.Component {
 }
 
 export default ConversationList;
+
+// <div className="conversation-settings">
+//   <button onClick={logout}>Log Out</button>
+//   <Link to="/conversations/new">Create Conversation</Link>
+// </div>
