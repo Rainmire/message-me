@@ -1,5 +1,5 @@
-import { RECEIVE_CONVERSATIONS } from '../actions/conversation_list_actions';
-import { RECEIVE_CONVERSATION } from '../actions/conversation_list_actions';
+import { RECEIVE_CONVERSATIONS } from 'actions/conversation_list_actions';
+import { RECEIVE_CONVERSATION } from 'actions/conversation_list_actions';
 import merge from 'lodash/merge';
 
 

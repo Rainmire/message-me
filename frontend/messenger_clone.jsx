@@ -1,18 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Root from './components/root';
-import configureStore from './store/store';
+import Root from 'components/root';
+import configureStore from 'store/store';
 
-// import { login, logout, signup } from './actions/session_actions';
 import { createMessage, fetchConversationDetails } from './actions/conversation_actions';
-import { logout } from './util/session_api_util';
-import { fetchMessages } from './util/conversation_api_util';
+import { logout } from 'util/session_api_util';
+import { fetchMessages } from 'util/conversation_api_util';
 
-import { fetchConversations } from './actions/conversation_list_actions';
-// import { fetchConversations } from './util/conversation_list_api_util';
-import { fetchMembers } from './actions/conversation_actions';
+import { fetchConversations } from 'actions/conversation_list_actions';
+import { fetchMembers } from 'actions/conversation_actions';
 
-import { searchUserDatabase } from './util/user_api_util';
+import { searchUserDatabase } from 'util/user_api_util';
 
 document.addEventListener('DOMContentLoaded', () => {
   const root = document.getElementById('root');
