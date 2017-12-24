@@ -2,14 +2,14 @@ import React from 'react';
 
 const UserSettings = ({logout})=>{
 	return (
-		<ul id="gear-dropdown" className="gear-dropdown hidden">
+		<ul className="gear-dropdown">
 		  <li>
-		    <ul className="editions">
+		    <ul className="user-settings">
 					<li><a href="#">User Settings</a></li>
 				</ul>
 			</li>
 			<li>
-				<ul className="help">
+				<ul className="session-settings">
 					<li><button onClick={logout}>Log Out</button></li>
 				</ul>
 			</li>

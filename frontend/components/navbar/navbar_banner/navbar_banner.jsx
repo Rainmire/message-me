@@ -1,6 +1,7 @@
 import React from 'react';
 import UserSettings from './user_settings';
 import CreateConversationButton from './create_conversation_button';
+import { Link } from 'react-router-dom';
 
 class NavbarBanner extends React.Component {
 
@@ -33,6 +34,9 @@ class NavbarBanner extends React.Component {
           <i className="fa fa-cog" aria-hidden="true" />
         </button>
         {this.dropdown()}
+        <Link to="/conversations/new">
+          <i className="fa fa-pencil-square-o" aria-hidden="true" />
+        </Link>
       </div>
     );
   }
