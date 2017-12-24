@@ -1,5 +1,5 @@
 import React from 'react';
-import UserSearchContainer from '../user_search/user_search_container';
+import UserSearchContainer from 'components/user_search/user_search_container';
 
 class NewConversation extends React.Component {
 
