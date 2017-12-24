@@ -29,11 +29,10 @@ class NavbarBanner extends React.Component {
 
     return (
       <div className="navbar-banner">
-        <i className="fa fa-cog" aria-hidden="true">
-          <button onClick={this.toggleDropdown}/>
-        </i>
+        <button onClick={this.toggleDropdown}>
+          <i className="fa fa-cog" aria-hidden="true" />
+        </button>
         {this.dropdown()}
-        <CreateConversationButton />
       </div>
     );
   }
@@ -42,3 +41,4 @@ class NavbarBanner extends React.Component {
 export default NavbarBanner;
 
 // <NewConversationContainer />
+// <CreateConversationButton />
