@@ -15,12 +15,18 @@
 
 }
 
-.conversation-settings {
+.navbar-banner {
   display: flex;
   width: 100%;
-  flex: 0 0 64px;
+  flex: 0 0 44px;
   border-bottom: 1px solid rgba(0, 0, 0, .20);
+}
 
+.navbar-banner .fa-cog {
+  color: $deep-blue;
+  font-size: 25px;
+  margin-left: 10px;
+  margin-top: 10px;
 }
 
 .conversation-list {
