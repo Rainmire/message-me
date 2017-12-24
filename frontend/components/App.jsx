@@ -12,12 +12,12 @@ import {
 import SessionFormContainer from './session_form/session_form_container';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 // import MessageListContainer from './message_list/message_list_container';
-import ConversationListContainer from './navbar/conversation_list_container';
+// import ConversationListContainer from './navbar/conversation_list_container';
 import MessageInputContainer from './message_input/message_input_container';
 import NewConversationContainer from './new_conversation/new_conversation_container';
 // import MemberListContainer from './member_list/member_list_container';
 import ConversationSpecific from './conversation_specific/conversation_specific';
-
+import Navbar from './navbar/navbar';
 const App = () => (
   <div className="app">
     <AuthRoute path="/login" component={SessionFormContainer} />
@@ -29,7 +29,7 @@ const App = () => (
           ()=><div className="navbar">Loading</div>
       } />
 
-      <ProtectedRoute path="/conversations" component={ConversationListContainer} />
+    <ProtectedRoute path="/conversations" component={Navbar} />
       <Switch>
         <ProtectedRoute exact path="/conversations/new" component={NewConversationContainer} />
         <ProtectedRoute exact path="/conversations/:id" component={ConversationSpecific} />

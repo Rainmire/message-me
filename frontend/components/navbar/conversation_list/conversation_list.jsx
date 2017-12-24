@@ -1,6 +1,6 @@
 import React from 'react';
-import NavbarFunctions from './navbar_functions';
-import {Link} from 'react-router-dom';
+// import NavbarFunctions from './navbar_functions';
+// import {Link} from 'react-router-dom';
 
 class ConversationList extends React.Component {
 
@@ -33,21 +33,35 @@ class ConversationList extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
+    // debugger;
     const path = nextProps.location.pathname;
 
-    if (path!=='/conversations/new') {
-      if(nextProps.conversations.length===0) {
-        nextProps.history.push('/conversations/new');
-      }
-      else {
-        if (path==="/conversations" || path==="/conversations/") {
-          const id = nextProps.conversations[0].id;
-          nextProps.history.push(`/conversations/${id}`);
-        }
+    if(nextProps.conversations.length===0) {
+      nextProps.history.push('/conversations/new');
+    }
+    else {
+      if (path==="/conversations" || path==="/conversations/") {
+        const id = nextProps.conversations[0].id;
+        nextProps.history.push(`/conversations/${id}`);
       }
     }
   }
 
+  // componentWillReceiveProps(nextProps) {
+  //   const path = nextProps.location.pathname;
+  //
+  //   if (path!=='/conversations/new') {
+  //     if(nextProps.conversations.length===0) {
+  //       nextProps.history.push('/conversations/new');
+  //     }
+  //     else {
+  //       if (path==="/conversations" || path==="/conversations/") {
+  //         const id = nextProps.conversations[0].id;
+  //         nextProps.history.push(`/conversations/${id}`);
+  //       }
+  //     }
+  //   }
+  // }
 
   // update(field) {
   //   return e => this.setState({
@@ -59,21 +73,16 @@ class ConversationList extends React.Component {
     const { conversations, logout } = this.props;
 
     return(
-      <div className="navbar">
+      <ul className = "conversation-list">
+        {conversations.map((conversation, idx) => (
+          <li key={idx} className="conversation-list-item">
+            <a href={`/#/conversations/${conversation.id}`}>
+              {conversation.title}
+            </a>
 
-        <NavbarFunctions />
-        
-        <ul className = "conversation-list">
-          {conversations.map((conversation, idx) => (
-            <li key={idx} className="conversation-list-item">
-              <a href={`/#/conversations/${conversation.id}`}>
-                {conversation.title}
-              </a>
-
-              </li>
-          ))}
-        </ul>
-      </div>
+            </li>
+        ))}
+      </ul>
     );
   }
 }

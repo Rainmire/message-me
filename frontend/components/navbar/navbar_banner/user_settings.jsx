@@ -1,10 +1,10 @@
 import React from 'react';
 
-const NavbarGear = ()=>(
+const UserSettings = ()=>(
 	<ul id="gear-dropdown" className="gear-dropdown hidden">
 	  <li>
-	    <ul class="editions">
-			<span class="dropdown-subtitle">Edition</span>
+	    <ul className="editions">
+			<span className="dropdown-subtitle">Edition</span>
 			<li><a href="#">CSS</a></li>
 			<li><a href="#">HTML</a></li>
 			<li><a href="#">Javascript</a></li>
@@ -12,8 +12,8 @@ const NavbarGear = ()=>(
 		</ul>
 	</li>
 	<li>
-		<span class="dropdown-subtitle">Help</span>
-		<ul class="help">
+		<span className="dropdown-subtitle">Help</span>
+		<ul className="help">
 			<li><a href="#">FAQ</a></li>
 			<li><a href="#">Contact Us</a></li>
 		</ul>
@@ -21,4 +21,4 @@ const NavbarGear = ()=>(
 </ul>
 );
 
-export default NavbarGear;
+export default UserSettings;
