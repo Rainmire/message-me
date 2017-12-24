@@ -1,7 +1,7 @@
 .gear-dropdown {
 	position: absolute;
-	top: 30px;
-	right: 0;
+	top: 40px;
+	left: 0;
 	background-color: #fff;
 	border: 1px solid $light-gray;
 	border-radius: 3px;
@@ -34,7 +34,7 @@
 
 .editions a {
 	text-decoration: none;
-	text-transform: uppercase;
+	// text-transform: uppercase;
 }
 
 .gear-dropdown .help li {
@@ -54,7 +54,7 @@
 	display: block;
 }
 
-.editions li:first-of-type {
-	color: #000;
-	background-color: $light-gray;
-}
+// .editions li:first-of-type {
+// 	color: #000;
+// 	background-color: $light-gray;
+// }

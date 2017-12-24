@@ -21,7 +21,7 @@ class NavbarBanner extends React.Component {
 
   dropdown() {
     if (this.state.clickGear) {
-      return <UserSettings/>;
+      return <UserSettings logout={this.props.logout}/>;
     }
   }
 
