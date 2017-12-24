@@ -20,6 +20,7 @@
   width: 100%;
   flex: 0 0 44px;
   border-bottom: 1px solid rgba(0, 0, 0, .20);
+  justify-content: space-between;
 }
 
 .navbar-banner .fa-cog {
@@ -27,6 +28,13 @@
   font-size: 22px;
   margin-left: 10px;
   margin-top: 0px;
+}
+
+.navbar-banner .fa-pencil-square-o {
+  color: $deep-blue;
+  font-size: 22px;
+  margin-right: 10px;
+  margin-top: 10px;
 }
 
 .conversation-list {

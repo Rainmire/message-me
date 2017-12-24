@@ -15,12 +15,12 @@
 	font-weight: initial;
 }
 
-.gear-dropdown .editions  {
+.gear-dropdown .user-settings  {
 	border-bottom: 1px solid $light-gray;
 }
 
-.gear-dropdown .editions li,
-.gear-dropdown .help li {
+.gear-dropdown .user-settings li,
+.gear-dropdown .session-settings li {
 	margin: 5px 0;
 	cursor: pointer;
 	border-radius: 3px;
@@ -29,32 +29,15 @@
 
 .gear-dropdown a {
 	display: block;
+	text-decoration: none;
 	padding: 5px 5px;
 }
 
-.editions a {
-	text-decoration: none;
-	// text-transform: uppercase;
-}
-
-.gear-dropdown .help li {
+.gear-dropdown .session-settings li {
 	color: $blue;
+	padding: 5px 5px;
 }
 
-.gear-dropdown .editions li:hover {
+.gear-dropdown .user-settings li:hover {
 	background-color: $light-gray;
 }
-
-.dropdown-subtitle {
-	text-transform: uppercase;
-	font-family: $sans-serif;
-	font-size: 11px;
-	font-weight: bolder;
-	margin: 10px 5px;
-	display: block;
-}
-
-// .editions li:first-of-type {
-// 	color: #000;
-// 	background-color: $light-gray;
-// }
