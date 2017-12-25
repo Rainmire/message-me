@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Provider } from 'react-redux';
 import {
@@ -11,11 +10,7 @@ import {
 } from 'react-router-dom';
 import SessionFormContainer from './session_form/session_form_container';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
-// import MessageListContainer from './message_list/message_list_container';
-// import ConversationListContainer from './navbar/conversation_list_container';
-import MessageInputContainer from './message_input/message_input_container';
 import NewConversationContainer from './new_conversation/new_conversation_container';
-// import MemberListContainer from './member_list/member_list_container';
 import ConversationSpecific from './conversation_specific/conversation_specific';
 import Navbar from './navbar/navbar';
 const App = () => (
@@ -41,13 +36,3 @@ const App = () => (
 );
 
 export default App;
-
-// <ProtectedRoute path="/conversations" component={MessageInputContainer} />
-
-
-// <ProtectedRoute path="/conversations" component={ConversationsContainer} />
-// <ProtectedRoute path="/conversations" component={MessageInputContainer} />
-
-// <EnsureSelectConvoRoute exact path="/conversations" />
-
-// <ProtectedRoute exact path="/conversations/:id" component={MessageInputContainer} />
