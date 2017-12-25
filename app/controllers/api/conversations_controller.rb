@@ -65,10 +65,9 @@ class Api::ConversationsController < ApplicationController
         author_name = last_message.user.display_name
         message_body = last_message.body
       end
-      @conversations << Hash[title: conversation.title, author_name: author_name, message_body: message_body, message_created_at: message_created_at, conversation_id: conversation.id]
+      @conversations << Hash[title: conversation.title, author_name: author_name, message_body: message_body, message_created_at: message_created_at, id: conversation.id]
     end
     @conversations.sort! {|x,y| y[:message_created_at] <=> x[:message_created_at] }
-
     # @conversations = current_user.conversations
   end
 

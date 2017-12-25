@@ -28,7 +28,6 @@ class ConversationList extends React.Component {
 
   componentWillReceiveProps(nextProps) {
     const path = nextProps.location.pathname;
-
     if(nextProps.conversations.length===0) {
       nextProps.history.push('/conversations/new');
     }
@@ -41,7 +40,7 @@ class ConversationList extends React.Component {
   }
 
   render() {
-    const { conversations, logout } = this.props;
+    const { conversations } = this.props;
     return(
       <ul className = "conversation-list">
         {conversations.map((conversation, idx) => (
