@@ -5,22 +5,22 @@ class Api::ConversationsController < ApplicationController
     author_id = current_user.id
     members = params[:users]
 
-    @conversation = Conversation.new( title: title, author_id: author_id )
+    conversation = Conversation.new( title: title, author_id: author_id )
 
-    if @conversation.save
+    if conversation.save
       #add current_user
       membership = ConversationMembership.new(
-        member_id: author_id, conversation_id: @conversation.id )
+        member_id: author_id, conversation_id: conversation.id )
       membership.save
       members.keys.each do |id|
         membership = ConversationMembership.new(
-          member_id: id, conversation_id: @conversation.id )
+          member_id: id, conversation_id: conversation.id )
         membership.save
       end
-      render json: @conversation.id, status: :ok
+      render json: conversation.id, status: :ok
 
     else
-      render json: @conversation.errors.full_messages, status: 422
+      render json: conversation.errors.full_messages, status: 422
     end
 
     # if @conversation.save
@@ -59,7 +59,7 @@ class Api::ConversationsController < ApplicationController
 
   def index
     @conversations = current_user.conversations
-    #TODO Order by created_at of newest message
+    #TODO Order by created_at of newest message, empty convos at top ordered by created_at of convo
     # render json: @conversations
   end
 

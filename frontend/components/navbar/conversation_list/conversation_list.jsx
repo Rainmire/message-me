@@ -1,15 +1,9 @@
 import React from 'react';
-// import NavbarFunctions from './navbar_functions';
-// import {Link} from 'react-router-dom';
 
 class ConversationList extends React.Component {
 
   constructor(props) {
     super(props);
-
-    // this.handleSubmit = this.handleSubmit.bind(this);
-    // this.handleSendSuccess = this.handleSendSuccess.bind(this);
-    // this.props.fetchMessages();
   }
 
   componentDidMount() {
@@ -33,7 +27,6 @@ class ConversationList extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    // debugger;
     const path = nextProps.location.pathname;
 
     if(nextProps.conversations.length===0) {
@@ -46,28 +39,6 @@ class ConversationList extends React.Component {
       }
     }
   }
-
-  // componentWillReceiveProps(nextProps) {
-  //   const path = nextProps.location.pathname;
-  //
-  //   if (path!=='/conversations/new') {
-  //     if(nextProps.conversations.length===0) {
-  //       nextProps.history.push('/conversations/new');
-  //     }
-  //     else {
-  //       if (path==="/conversations" || path==="/conversations/") {
-  //         const id = nextProps.conversations[0].id;
-  //         nextProps.history.push(`/conversations/${id}`);
-  //       }
-  //     }
-  //   }
-  // }
-
-  // update(field) {
-  //   return e => this.setState({
-  //     [field]: e.currentTarget.value
-  //   });
-  // }
 
   render() {
     const { conversations, logout } = this.props;
@@ -88,8 +59,3 @@ class ConversationList extends React.Component {
 }
 
 export default ConversationList;
-
-// <div className="conversation-settings">
-//   <button onClick={logout}>Log Out</button>
-//   <Link to="/conversations/new">Create Conversation</Link>
-// </div>

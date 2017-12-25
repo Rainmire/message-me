@@ -25,26 +25,6 @@ export const createMessage = (formMessage, conversationId) => dispatch => (
   APIUtil.createMessage(formMessage, conversationId)
 );
 
-// export const fetchMessages = () => dispatch => (
-//   APIUtil.fetchMessages().then(messages => (
-//     dispatch(receiveMessages(messages))
-//   ))
-// );
-
-// export const fetchMembers = (conversationId) => dispatch => (
-//   APIUtil.fetchMembers(conversationId).then(members => (
-//     dispatch(receiveMembers(members))
-//   ))
-// );
-
-// export const fetchConversation = (conversationId) => dispatch => (
-//   APIUtil.fetchConversation(conversationId).then(conversation => (
-//     dispatch(receiveMembers(conversation.members))
-//   )).then(conversation => (
-//     dispatch(receiveMessages(conversation.messages))
-//   ))
-// );
-
 export const fetchConversationDetails = (conversationId) => dispatch => (
   APIUtil.fetchConversationDetails(conversationId).then(
     (conversation) => {
@@ -54,18 +34,9 @@ export const fetchConversationDetails = (conversationId) => dispatch => (
   )
 );
 
-// export const createConversation = users => dispatch => (
-//   APIUtil.createConversation(users).then(conversation => {
-//     dispatch(receiveMembers(conversation.members));
-//     dispatch(receiveMessages(null));
-//     dispatch(receiveConversation({[conversation.id]: {title: conversation.title}}));
-//     return conversation.id;
-//   })
-// );
 export const createConversation = users => dispatch => (
-  APIUtil.createConversation(users).then((conversation_id) => {
-    debugger;
-    return conversation_id;
+  APIUtil.createConversation(users).then((conversationId) => {
+    return conversationId;
   })
 );
 
