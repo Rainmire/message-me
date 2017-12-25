@@ -22,20 +22,6 @@ class Api::ConversationsController < ApplicationController
     else
       render json: conversation.errors.full_messages, status: 422
     end
-
-    # if @conversation.save
-    #   conversation_membership = ConversationMembership.new(
-    #     member_id: author_id, conversation_id: @conversation.id )
-    #   target_conversation_membership = ConversationMembership.new(
-    #     member_id: targetUserId, conversation_id: @conversation.id )
-    #   if conversation_membership.save && target_conversation_membership.save
-    #     render 'api/conversations/show'
-    #   else
-    #     render json: conversation_membership.errors.full_messages, status: 422
-    #   end
-    # else
-    #   render json: @conversation.errors.full_messages, status: 422
-    # end
   end
 
   # def addMember
@@ -58,9 +44,32 @@ class Api::ConversationsController < ApplicationController
   end
 
   def index
-    @conversations = current_user.conversations
+    # user = current_user
+    # conversations = current_user.conversations.joins(:messages).group('messages.conversation_id')
+    # non_empty_conversations = conversations.having('COUNT(*) > 0').order()
+    # empty_conversations = conversations.having('COUNT(*) = 0')
     #TODO Order by created_at of newest message, empty convos at top ordered by created_at of convo
     # render json: @conversations
+
+    raw_conversations = current_user.conversations
+    @conversations = []
+    raw_conversations.each do |conversation|
+      last_message = conversation.messages.order("messages.created_at DESC").first
+      author_name = ""
+      message_body = ""
+      message_created_at = nil
+      if last_message.nil?
+        message_created_at = conversation.created_at
+      else
+        message_created_at = last_message.created_at
+        author_name = last_message.user.display_name
+        message_body = last_message.body
+      end
+      @conversations << Hash[title: conversation.title, author_name: author_name, message_body: message_body, message_created_at: message_created_at, conversation_id: conversation.id]
+    end
+    @conversations.sort! {|x,y| y[:message_created_at] <=> x[:message_created_at] }
+
+    # @conversations = current_user.conversations
   end
 
   def update
