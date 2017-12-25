@@ -42,13 +42,15 @@ class ConversationList extends React.Component {
 
   render() {
     const { conversations, logout } = this.props;
-
     return(
       <ul className = "conversation-list">
         {conversations.map((conversation, idx) => (
           <li key={idx} className="conversation-list-item">
             <a href={`/#/conversations/${conversation.id}`}>
               {conversation.title}
+              {conversation.author_name}
+              {conversation.message_body}
+              {conversation.message_created_at}
             </a>
 
             </li>
