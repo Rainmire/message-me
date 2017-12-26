@@ -64,7 +64,7 @@ class ConversationList extends React.Component {
         </li>
         {members.map((member,idx) => (
           <li key={idx} className="member-list-item">
-            <img className="member-list-pic" src={member.profile_pic}></img>
+            <img className="member-list-pic" src={member.profile_pic} />
             <div className="member-list-name">
               {member.display_name}
             </div>

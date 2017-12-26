@@ -65,18 +65,20 @@ class MessageList extends React.Component {
                 const timestamp = toLocalTime(message.created_at);
                 return (
                   <li key={idx} className={messageClass}>
-                    <div className="message-info">
-                      <div className="author-name">
-                        {author.display_name}
+                    <img className="author-pic" src={author.profile_pic} />
+                    <div className="message-text">
+                      <div className="message-info">
+                        <div className="author-name">
+                          {author.display_name}
+                        </div>
+                        <div className="timestamp">
+                          {timestamp}
+                        </div>
                       </div>
-                      <div className="timestamp">
-                        {timestamp}
+                      <div className="message-body">
+                        {message.body}
                       </div>
                     </div>
-                    <div className="message-body">
-                      {message.body}
-                    </div>
-
                   </li>
                 );
               })
