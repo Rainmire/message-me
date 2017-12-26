@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 class ConversationList extends React.Component {
 
@@ -45,12 +46,13 @@ class ConversationList extends React.Component {
       <ul className = "conversation-list">
         {conversations.map((conversation, idx) => (
           <li key={idx} className="conversation-list-item">
-            <a href={`/#/conversations/${conversation.id}`}>
+            <Link className="conversation-item-link" to={`/#/conversations/${conversation.id}`}>
+              <img className="latest-author-pic" src={conversation.author_pic}/>
               {conversation.title}
               {conversation.author_name}
               {conversation.message_body}
               {conversation.message_created_at}
-            </a>
+            </Link>
 
             </li>
         ))}
