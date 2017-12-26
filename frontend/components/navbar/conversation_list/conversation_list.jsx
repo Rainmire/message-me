@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import {toLocalTime} from 'util/local_time_conversion';
 
 class ConversationList extends React.Component {
 
@@ -49,9 +50,9 @@ class ConversationList extends React.Component {
             <Link className="conversation-item-link" to={`/#/conversations/${conversation.id}`}>
               <img className="latest-author-pic" src={conversation.author_pic}/>
               <div className="latest-message">
-                <div classname="conversation-item-header">
+                <div className="conversation-item-header">
                   <div className="conversation-title">{conversation.title}</div>
-                  <div className="latest-timestamp">{conversation.message_created_at}</div>
+                  <div className="conversation-timestamp">{toLocalTime(conversation.message_created_at)}</div>
                 </div>
                 <div className="latest-message-body">
                   {`${conversation.author_name}: ${conversation.message_body}`}
