@@ -48,13 +48,17 @@ class ConversationList extends React.Component {
           <li key={idx} className="conversation-list-item">
             <Link className="conversation-item-link" to={`/#/conversations/${conversation.id}`}>
               <img className="latest-author-pic" src={conversation.author_pic}/>
-              {conversation.title}
-              {conversation.author_name}
-              {conversation.message_body}
-              {conversation.message_created_at}
+              <div className="latest-message">
+                <div classname="conversation-item-header">
+                  <div className="conversation-title">{conversation.title}</div>
+                  <div className="latest-timestamp">{conversation.message_created_at}</div>
+                </div>
+                <div className="latest-message-body">
+                  {`${conversation.author_name}: ${conversation.message_body}`}
+                </div>
+              </div>
             </Link>
-
-            </li>
+          </li>
         ))}
       </ul>
     );
