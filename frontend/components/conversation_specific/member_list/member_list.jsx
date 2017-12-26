@@ -59,11 +59,16 @@ class ConversationList extends React.Component {
     return(
       <ul className="member-list">
         <li className="member-list-title">Members</li>
-        <li className="add-member">
+        <li>
           {this.addMemberButton()}
         </li>
         {members.map((member,idx) => (
-          <li key={idx} className="member-list-item">{member.display_name}</li>
+          <li key={idx} className="member-list-item">
+            <img className="member-list-pic" src={member.profile_pic}></img>
+            <div className="member-list-name">
+              {member.display_name}
+            </div>
+          </li>
         ))}
       </ul>
     );
