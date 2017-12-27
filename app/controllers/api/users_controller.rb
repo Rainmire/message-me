@@ -16,11 +16,6 @@ class Api::UsersController < ApplicationController
     end
   end
 
-  # def conversations #TODO I guess I don't need this anymore?
-  #   @conversations = current_user.conversations
-  #   render "api/users/conversations"
-  # end
-
   def create_guest
     @user = User.new(user_params)
     if @user.save
