@@ -55,13 +55,6 @@ class Api::ConversationsController < ApplicationController
   end
 
   def index
-    # user = current_user
-    # conversations = current_user.conversations.joins(:messages).group('messages.conversation_id')
-    # non_empty_conversations = conversations.having('COUNT(*) > 0').order()
-    # empty_conversations = conversations.having('COUNT(*) = 0')
-    #TODO Order by created_at of newest message, empty convos at top ordered by created_at of convo
-    # render json: @conversations
-
     raw_conversations = current_user.conversations
     @conversations = []
     raw_conversations.each do |conversation|
@@ -86,8 +79,6 @@ class Api::ConversationsController < ApplicationController
                              id: conversation.id]
     end
     @conversations.sort! {|x,y| y[:message_created_at] <=> x[:message_created_at] }
-    # @conversations = current_user.conversations
-    #TODO handle colon here
   end
 
   def update

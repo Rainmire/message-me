@@ -120,7 +120,7 @@ class Api::ConversationsController < ApplicationController
   def create
     title = current_user.display_name
     author_id = current_user.id
-    targetUserId = params[:targetUser][:targetUserId]  #TODO change this later
+    targetUserId = params[:targetUser][:targetUserId]
 
     @conversation = Conversation.new( title: title, author_id: author_id )
 
