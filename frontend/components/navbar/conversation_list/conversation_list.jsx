@@ -41,6 +41,15 @@ class ConversationList extends React.Component {
     }
   }
 
+  messageBody(conversation) {
+    if (conversation.message_body !== "") {
+      return conversation.message_body;
+    }
+    else {
+      return "New conversation";
+    }
+  }
+
   render() {
     const { conversations } = this.props;
     return(
@@ -55,7 +64,7 @@ class ConversationList extends React.Component {
                   <div className="conversation-timestamp">{toLocalTime(conversation.message_created_at)}</div>
                 </div>
                 <div className="latest-message-body">
-                  {`${conversation.author_name}: ${conversation.message_body}`}
+                  {this.messageBody(conversation)}
                 </div>
               </div>
             </Link>
