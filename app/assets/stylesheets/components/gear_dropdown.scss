@@ -27,15 +27,16 @@
 	font-size: 12px;
 }
 
-.gear-dropdown a {
+.gear-dropdown button {
 	display: block;
 	text-decoration: none;
 	padding: 5px 5px;
+	width: 100%;
 }
 
 .gear-dropdown .session-settings li {
 	color: $blue;
-	padding: 5px 5px;
+	// padding: 5px 5px;
 }
 
 .gear-dropdown .user-settings li:hover {

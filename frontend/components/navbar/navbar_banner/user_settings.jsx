@@ -1,11 +1,12 @@
 import React from 'react';
+import UploadButton from 'components/upload_image/upload_button';
 
 const UserSettings = ({logout})=>{
 	return (
 		<ul className="gear-dropdown">
 		  <li>
 		    <ul className="user-settings">
-					<li><a href="#">User Settings</a></li>
+					<li><UploadButton /></li>
 				</ul>
 			</li>
 			<li>
@@ -18,8 +19,3 @@ const UserSettings = ({logout})=>{
 };
 
 export default UserSettings;
-
-// <div className="conversation-settings">
-//   <button onClick={logout}>Log Out</button>
-//   <Link to="/conversations/new">Create Conversation</Link>
-// </div>
