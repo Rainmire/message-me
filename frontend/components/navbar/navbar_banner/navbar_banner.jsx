@@ -43,6 +43,3 @@ class NavbarBanner extends React.Component {
 }
 
 export default NavbarBanner;
-
-// <NewConversationContainer />
-// <CreateConversationButton />
