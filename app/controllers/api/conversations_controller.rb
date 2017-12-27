@@ -35,23 +35,12 @@ class Api::ConversationsController < ApplicationController
     end
   end
 
-  # def addMember
-  #   @conversationMembership = ConversationMembership.new(member_id:
-  #     params[:conversation]
-  #   )
-  # end
-
   def destroy
   end
 
   def show
     @conversation = current_user.conversations.find(params[:id])
-    # @conversation = Conversation.find(params[:id])
-    if @conversation
-      # render json: show
-    else
-      render json: "Conversation does not exist", status: 400
-    end
+    render json: "Conversation does not exist", status: 400 if !@conversation
   end
 
   def index
