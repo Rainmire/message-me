@@ -5,6 +5,17 @@ class Api::ConversationsController < ApplicationController
     author_id = current_user.id
     members = params[:users]
 
+    i = 1
+    members.keys.each do |id|
+      if i >= 3
+        title += ", etc..."
+        break
+      end
+      member_name = User.find(id).display_name
+      title += ", #{member_name}"
+      i += 1
+    end
+
     conversation = Conversation.new( title: title, author_id: author_id )
 
     if conversation.save
@@ -55,26 +66,28 @@ class Api::ConversationsController < ApplicationController
     @conversations = []
     raw_conversations.each do |conversation|
       last_message = conversation.messages.order("messages.created_at DESC").first
-      author_name = ""
+      # author_name = ""
       message_body = ""
       message_created_at = nil
       if last_message.nil?
         message_created_at = conversation.created_at
+        author_pic = current_user.profile_pic
       else
         message_created_at = last_message.created_at
-        author_name = last_message.user.display_name
+        # author_name = last_message.user.display_name
         author_pic = last_message.user.profile_pic
-        message_body = last_message.body
+        message_body = last_message.user.display_name + ": " + last_message.body
       end
       @conversations << Hash[title: conversation.title,
                              author_pic: author_pic,
-                             author_name: author_name,
+                             # author_name: author_name,
                              message_body: message_body,
                              message_created_at: message_created_at,
                              id: conversation.id]
     end
     @conversations.sort! {|x,y| y[:message_created_at] <=> x[:message_created_at] }
     # @conversations = current_user.conversations
+    #TODO handle colon here
   end
 
   def update
