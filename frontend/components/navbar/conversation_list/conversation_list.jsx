@@ -50,25 +50,31 @@ class ConversationList extends React.Component {
     }
   }
 
+  conversationListItem(conversation, idx) {
+    return (
+      <li key={idx} className="conversation-list-item">
+        <Link className="conversation-item-link" to={`/conversations/${conversation.id}`}>
+          <img className="latest-author-pic" src={conversation.author_pic}/>
+          <div className="latest-message">
+            <div className="conversation-item-header">
+              <div className="conversation-title">{conversation.title}</div>
+              <div className="conversation-timestamp">{toLocalTime(conversation.message_created_at)}</div>
+            </div>
+            <div className="latest-message-body">
+              {this.messageBody(conversation)}
+            </div>
+          </div>
+        </Link>
+      </li>
+    );
+  }
+
   render() {
     const { conversations } = this.props;
     return(
       <ul className = "conversation-list">
         {conversations.map((conversation, idx) => (
-          <li key={idx} className="conversation-list-item">
-            <Link className="conversation-item-link" to={`/conversations/${conversation.id}`}>
-              <img className="latest-author-pic" src={conversation.author_pic}/>
-              <div className="latest-message">
-                <div className="conversation-item-header">
-                  <div className="conversation-title">{conversation.title}</div>
-                  <div className="conversation-timestamp">{toLocalTime(conversation.message_created_at)}</div>
-                </div>
-                <div className="latest-message-body">
-                  {this.messageBody(conversation)}
-                </div>
-              </div>
-            </Link>
-          </li>
+          this.conversationListItem(conversation, idx)
         ))}
       </ul>
     );
