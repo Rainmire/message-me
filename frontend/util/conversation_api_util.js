@@ -6,20 +6,6 @@ export const createMessage = (message, conversationId) => (
   })
 );
 
-// export const fetchMessages = () => (
-//   $.ajax({
-//     method: 'GET',
-//     url: '/api/messages'
-//   })
-// );
-
-// export const fetchMembers = (conversationId) => (
-//   $.ajax({
-//     method: 'GET',
-//     url: `/api/conversations/${conversationId}/members`
-//   })
-// );
-
 export const fetchConversationDetails = (id) => (
   $.ajax({
     method: 'GET',

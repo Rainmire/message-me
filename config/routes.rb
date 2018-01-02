@@ -7,6 +7,8 @@ Rails.application.routes.draw do
 
     resources :users, only: [:create, :index]
 
+    patch '/users/update', :to => 'users#update'
+
     post '/users/create_guest', :to => 'users#create_guest'
 
     resources :conversations, only: [:create, :destroy, :show, :index, :update] do

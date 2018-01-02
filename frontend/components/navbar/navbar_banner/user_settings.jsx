@@ -1,12 +1,12 @@
 import React from 'react';
-import UploadButton from 'components/upload_image/upload_button';
+import UploadButtonContainer from 'components/upload_image/upload_button_container';
 
 const UserSettings = ({logout})=>{
 	return (
 		<ul className="gear-dropdown">
 		  <li>
 		    <ul className="user-settings">
-					<li><UploadButton /></li>
+					<li><UploadButtonContainer /></li>
 				</ul>
 			</li>
 			<li>

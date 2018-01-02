@@ -53,3 +53,11 @@ export const addMembers = (users, id) => dispatch => (
     )
   )
 );
+
+// export const RECEIVE_PROFILE_PIC = 'RECEIVE_PROFILE_PIC';
+
+// export const receiveProfilePic = (currentUserId, profile_pic) => ({
+//   type: RECEIVE_PROFILE_PIC,
+//   currentUserId,
+//   profile_pic
+// });

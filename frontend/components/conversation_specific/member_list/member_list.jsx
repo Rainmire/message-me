@@ -16,14 +16,6 @@ class ConversationList extends React.Component {
 
   addMemberButton() {
     if (this.state.clickAddMember) {
-      // return (
-      //   <form onSubmit={this.handleSubmit}>
-      //     <input type="text"
-      //       onChange={this.update('memberId')}
-      //       placeholder= "Enter user id..."
-      //     />
-      //   </form>
-      // );
       return <UserSearchContainer userSearchAction={this.props.addMembers} />;
     }
     else {
@@ -42,8 +34,6 @@ class ConversationList extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    // const memberId = this.state.memberId;
-    // this.props.processForm(memberId);
     this.setState({clickAddMember: false});
   }
 
@@ -54,13 +44,19 @@ class ConversationList extends React.Component {
   }
 
   render() {
-    const { members } = this.props;
+    const { members, currentUser } = this.props;
 
     return(
       <ul className="member-list">
         <li className="member-list-title">Members</li>
         <li>
           {this.addMemberButton()}
+        </li>
+        <li className = "member-list-item">
+          <img className="member-list-pic" src={currentUser.profile_pic} />
+          <div className="member-list-name">
+            {currentUser.display_name}
+          </div>
         </li>
         {members.map((member,idx) => (
           <li key={idx} className="member-list-item">

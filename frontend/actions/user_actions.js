@@ -24,7 +24,5 @@ export const searchDatabase = (query) => (dispatch) => (
 );
 
 export const updateProfilePic = (url) => (dispatch) => (
-  // APIUtil.updateProfilePic(url).then(
-  //   ()
-  // )
+  APIUtil.updateProfilePic(url)
 );
