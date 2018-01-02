@@ -56,7 +56,7 @@ class ConversationList extends React.Component {
       <ul className = "conversation-list">
         {conversations.map((conversation, idx) => (
           <li key={idx} className="conversation-list-item">
-            <Link className="conversation-item-link" to={`/#/conversations/${conversation.id}`}>
+            <Link className="conversation-item-link" to={`/conversations/${conversation.id}`}>
               <img className="latest-author-pic" src={conversation.author_pic}/>
               <div className="latest-message">
                 <div className="conversation-item-header">
