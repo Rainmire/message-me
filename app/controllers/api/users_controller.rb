@@ -9,7 +9,7 @@ class Api::UsersController < ApplicationController
     @user = User.new({display_name: params[:display_name],
                     email: params[:email],
                     password: params[:password],
-                    profile_pic: "v1514852231/message-me/user"})
+                    profile_pic: "v1514852231/message-me/default_user"})
     if @user.save
       login(@user)
       render "api/users/show"
@@ -31,7 +31,7 @@ class Api::UsersController < ApplicationController
     @user = User.new({display_name: params[:display_name],
                     email: params[:email],
                     password: "password",
-                    profile_pic: "v1514852231/message-me/user"})
+                    profile_pic: "v1514852231/message-me/default_user"})
     if @user.save
       membership1 = ConversationMembership.new(member_id: @user.id, conversation_id: 1)
       membership2 = ConversationMembership.new(member_id: @user.id, conversation_id: 2)

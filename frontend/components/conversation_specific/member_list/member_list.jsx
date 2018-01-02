@@ -14,20 +14,32 @@ class ConversationList extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+  componentWillReceiveProps(nextProps) {
+    if (this.props.match.params.id !== nextProps.match.params.id) {
+      this.setState({clickAddMember: false});
+    }
+  }
+
   addMemberButton() {
     if (this.state.clickAddMember) {
-      return <UserSearchContainer userSearchAction={this.props.addMembers} />;
+      return (
+        <li className="memberlist-search">
+          <UserSearchContainer userSearchAction={this.props.addMembers} />
+        </li>
+      );
     }
     else {
       return (
-        <button className="add-member-button" onClick={()=>this.setState({clickAddMember: true})} >
-          <div className="add-member-plus">
-            &#43;
-          </div>
-          <div className="add-member-text">
-            Add Member
-          </div>
-        </button>
+        <li>
+          <button className="add-member-button" onClick={()=>this.setState({clickAddMember: true})} >
+            <div className="add-member-plus">
+              &#43;
+            </div>
+            <div className="add-member-text">
+              Add Member
+            </div>
+          </button>
+        </li>
       );
     }
   }
@@ -62,9 +74,7 @@ class ConversationList extends React.Component {
     return(
       <ul className="member-list">
         <li className="member-list-title">Members</li>
-        <li>
-          {this.addMemberButton()}
-        </li>
+        {this.addMemberButton()}
         <li className = "member-list-item">
           <img className="member-list-pic" src={currentUser.profile_pic} />
           <div className="member-list-name">
