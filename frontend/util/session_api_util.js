@@ -18,7 +18,7 @@ export const demoSignup = user => (
   $.ajax({
     method: 'POST',
     url: '/api/users/create_guest',
-    data: {user}
+    data: user
   })
 );
 

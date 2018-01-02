@@ -6,8 +6,10 @@ class Api::UsersController < ApplicationController
   end
 
   def create
-    @user = User.new(new_user_params, profile_pic: "v1514852231/message-me/user.png")
-
+    @user = User.new({display_name: params[:display_name],
+                    email: params[:email],
+                    password: params[:password],
+                    profile_pic: "v1514852231/message-me/user"})
     if @user.save
       login(@user)
       render "api/users/show"
@@ -26,7 +28,10 @@ class Api::UsersController < ApplicationController
   end
 
   def create_guest
-    @user = User.new(new_user_params, profile_pic: "v1514852231/message-me/user.png")
+    @user = User.new({display_name: params[:display_name],
+                    email: params[:email],
+                    password: "password",
+                    profile_pic: "v1514852231/message-me/user"})
     if @user.save
       membership1 = ConversationMembership.new(member_id: @user.id, conversation_id: 1)
       membership2 = ConversationMembership.new(member_id: @user.id, conversation_id: 2)
@@ -43,9 +48,9 @@ class Api::UsersController < ApplicationController
 
   private
 
-  def new_user_params
-    params.require(:user).permit(:display_name, :email, :password)
-  end
+  # def new_user_params
+  #   params.require(:user).permit(:display_name, :email, :password)
+  # end
 
   def search_params
     params.require(:search).permit(:query)
