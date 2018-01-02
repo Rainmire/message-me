@@ -6,7 +6,7 @@ class User < ApplicationRecord
   validates :display_name, :email, uniqueness: true
   validates :password, length: { minimum: 6 }, allow_nil: true
 
-  after_initialize :ensure_session_token, :default_profile_pic
+  after_initialize :ensure_session_token
 
   has_many :messages
 
@@ -58,6 +58,10 @@ class User < ApplicationRecord
     self.session_token
   end
 
+  def profile_pic
+    "http://res.cloudinary.com/rainmire/image/upload/c_lfill,g_face,h_200,r_max,w_200/#{self[:profile_pic]}.png"
+  end
+
   private
 
   def ensure_session_token
@@ -76,8 +80,9 @@ class User < ApplicationRecord
     self.session_token
   end
 
-  def default_profile_pic
-    self.profile_pic = "http://res.cloudinary.com/rainmire/image/upload/v1514263249/message-me/user.png"
-  end
+  # def default_profile_pic
+  #   debugger
+  #   self.profile_pic = "v1514852231/message-me/user.png"
+  # end
 
 end

@@ -12,11 +12,15 @@ class UploadButton extends React.Component {
     e.preventDefault();
     cloudinary.openUploadWidget(
       window.cloudinary_options,
-      function(error, images){
+      (error, images) => {
         if (error === null) {
-          this.updateProfilePic(images[0].url);
+          this.props.updateProfilePic(images[0].public_id)
+          .then((currentUser)=>(
+            this.props.refreshConversations(currentUser)
+          ));
         }
-      });
+      }
+    );
   }
 
   render () {

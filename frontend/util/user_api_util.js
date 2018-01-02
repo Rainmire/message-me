@@ -5,3 +5,11 @@ export const searchUserDatabase = (query) => (
     data: {search: { query } }
   })
 );
+
+export const updateProfilePic = (url) => (
+  $.ajax({
+    method: 'PATCH',
+    url: 'api/users/update',
+    data: {url}
+  })
+);

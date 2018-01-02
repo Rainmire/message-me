@@ -8,6 +8,7 @@ const membersReducers = (state = {}, action) => {
       return action.members;
     case UPDATE_MEMBERS:
       return merge({}, state, action.members);
+    // case RECEIVE_PROFILE_PIC:
     default:
       return state;
   }

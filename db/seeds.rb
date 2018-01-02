@@ -7,13 +7,13 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 users = User.create([
-  { email:'mitch', display_name:'Mitch', password:'adminpass' },
-  { email:'iffybot@gmail.com', display_name:'Iffy Bot', password:'password' },
+  { email:'mitch', display_name:'Mitch', password:'adminpass', profile_pic: "v1514852231/message-me/default_user" },
+  { email:'iffybot@gmail.com', display_name:'Iffy Bot', password:'password', profile_pic: "v1514852231/message-me/default_user" },
 
-  { email:'rexxar@gmail.com', display_name:'Rexxar', password:'password' },
-  { email:'garrosh@gmail.com', display_name:'Garrosh', password:'password' },
-  { email:'thrall@gmail.com', display_name:'Thrall', password:'password' },
-  { email:'jaina@gmail.com', display_name:'Jaina', password:'password' },
+  { email:'rexxar@gmail.com', display_name:'Rexxar', password:'password', profile_pic: "v1514852231/message-me/default_user" },
+  { email:'garrosh@gmail.com', display_name:'Garrosh', password:'password', profile_pic: "v1514852231/message-me/default_user" },
+  { email:'thrall@gmail.com', display_name:'Thrall', password:'password', profile_pic: "v1514852231/message-me/default_user" },
+  { email:'jaina@gmail.com', display_name:'Jaina', password:'password', profile_pic: "v1514852231/message-me/default_user" },
   ])
 
 conversations = Conversation.create([
@@ -28,7 +28,7 @@ messages = Message.create([
   { body: 'Please don\'t break anything', user_id: 2, conversation_id: 1 },
   { body: 'Have fun!', user_id: 1, conversation_id: 2 },
   { body: 'Please don\'t break anything', user_id: 2, conversation_id: 2 },
-  
+
   { body: 'Greetings friend', user_id: 5, conversation_id: 1 },
   { body: 'Hello!', user_id: 6, conversation_id: 1 },
 
