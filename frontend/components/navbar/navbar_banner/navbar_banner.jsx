@@ -11,6 +11,14 @@ class NavbarBanner extends React.Component {
       clickGear: false
     };
     this.toggleDropdown = this.toggleDropdown.bind(this);
+    let that = this;
+    window.onclick = (e) => {
+      if (e.target.className !== "fa fa-cog navbar-gear" ) {
+        that.setState({
+          clickGear: false
+        });
+      }
+    };
   }
 
   toggleDropdown () {
@@ -31,7 +39,7 @@ class NavbarBanner extends React.Component {
     return (
       <div className="navbar-banner">
         <button onClick={this.toggleDropdown}>
-          <i className="fa fa-cog" aria-hidden="true" />
+          <i className="fa fa-cog navbar-gear" aria-hidden="true" />
         </button>
         {this.dropdown()}
         <Link to="/conversations/new">
