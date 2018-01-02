@@ -36,7 +36,7 @@ class ConversationList extends React.Component {
               &#43;
             </div>
             <div className="add-member-text">
-              Add Member
+              Add Members
             </div>
           </button>
         </li>
