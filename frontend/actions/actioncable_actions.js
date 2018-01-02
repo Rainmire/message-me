@@ -1,4 +1,5 @@
 import { receiveMessage } from './conversation_actions';
+import { fetchConversations } from './conversation_list_actions';
 
 export const setSocket = channelName => dispatch => {
   if (window.App.channel) {
@@ -20,6 +21,7 @@ const addSocket = (channelName, dispatch) => {
     disconnected: () => {},
     received: (data) => {
       dispatch(receiveMessage(data.message));
+      dispatch(fetchConversations());
     }
   });
 };

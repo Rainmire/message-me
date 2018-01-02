@@ -40,6 +40,7 @@ class Api::ConversationsController < ApplicationController
 
   def show
     @conversation = current_user.conversations.find(params[:id])
+    # debugger
     render json: "Conversation does not exist", status: 400 if !@conversation
   end
 

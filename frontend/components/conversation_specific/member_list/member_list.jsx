@@ -43,6 +43,19 @@ class ConversationList extends React.Component {
     });
   }
 
+  memberItem(member, idx, currentUser) {
+    if (member.id !== currentUser.id) {
+      return (
+        <li key={idx} className="member-list-item">
+          <img className="member-list-pic" src={member.profile_pic} />
+          <div className="member-list-name">
+            {member.display_name}
+          </div>
+        </li>
+      );
+    }
+  }
+
   render() {
     const { members, currentUser } = this.props;
 
@@ -59,12 +72,7 @@ class ConversationList extends React.Component {
           </div>
         </li>
         {members.map((member,idx) => (
-          <li key={idx} className="member-list-item">
-            <img className="member-list-pic" src={member.profile_pic} />
-            <div className="member-list-name">
-              {member.display_name}
-            </div>
-          </li>
+          this.memberItem(member, idx, currentUser)
         ))}
       </ul>
     );
