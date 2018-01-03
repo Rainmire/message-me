@@ -2,16 +2,21 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .session-page {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .session-form-container {
-  padding-top: 80px;
+  // padding-top: 80px;
   display: flex;
   justify-content: center;
+  align-items: center;
   .session-splash {
     padding-right: 140px;
-    width: 660px;
-    height: 525px;
+    width: 860px;
+    height: 625px;
   }
 }
 
