@@ -6,24 +6,22 @@
 // }
 
 html, body, #root, .app {
-  height: 100%;
+  height: 100vh;
+  width: 100vw;
 }
 
 .app {
   background-color: #fff;
-  // padding-top: 20px;
   font-family: "Helvetica";
   font-weight: 300;
-  // width: 100%;
-  // height: 100%;
   display: block;
   direction: ltr;
-  // width: 100%;
 }
 
 .main-content {
-  position: absolute;
-  height: 100vh;
+  position: fixed;
+  height: 100%;
+  width: 100%;
   display: flex;
   font-size: 14px;
 }
