@@ -48,10 +48,6 @@ class Api::UsersController < ApplicationController
 
   private
 
-  # def new_user_params
-  #   params.require(:user).permit(:display_name, :email, :password)
-  # end
-
   def search_params
     params.require(:search).permit(:query)
   end

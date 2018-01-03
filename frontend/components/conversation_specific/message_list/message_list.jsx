@@ -7,18 +7,12 @@ class MessageList extends React.Component {
 
   constructor(props) {
     super(props);
-    // this.getMessageAuthor = this.getMessageAuthor.bind(this);
     this.state = {
       loading: true
     };
   }
 
   componentDidMount() {
-    //set state to loading
-    // Promise.all([
-    //   this.props.fetchConversationDetails(this.props.conversation_id),
-    //   this.props.setSocket("test")
-    // ]).then(()=>(this.setState({loading: false})));
     const convoId = this.props.conversation_id;
     this.props.fetchConversationDetails(convoId)
     .then(
@@ -28,29 +22,11 @@ class MessageList extends React.Component {
       },
       ()=>this.props.history.push('/conversations/new')
     );
-    // .then(
-    //   ()=>(this.setState({loading: false}))
-    // );
   }
 
   componentWillReceiveProps(nextProps) {
-    const convoId = nextProps.match.params.id;
-    if(this.props.match.params.id!==convoId) {
-      this.setState({loading: true});
-      this.props.fetchConversationDetails(convoId)
-      .then(
-        ()=>{
-          this.props.setSocket(convoId);
-          this.setState({loading: false});
-        },
-        ()=>this.props.history.push('/conversations/new')
-      );
-    }
+    this.props.setSocket(nextProps.conversation_id);
   }
-
-  // getMessageAuthor(message) {
-  //   this.state
-  // }
 
   render() {
     const { messages, members, currentUserId} = this.props;
@@ -102,10 +78,3 @@ class MessageList extends React.Component {
 }
 
 export default MessageList;
-
-// <div className="message-author">{this.getMessageAuthor(message)}</div>
-
-// <h1>You are logged in!</h1>
-// <button onClick={logout}>Log Out</button>
-//
-// <h1>MESSAGES: </h1>
