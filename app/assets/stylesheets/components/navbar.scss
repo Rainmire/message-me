@@ -2,19 +2,11 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .navbar {
-  // flex-grow: 1;
-  // min-width: 200px;
-  // max-width: 420px;
-
-  // flex: 0 0 240px;
   width: 240px;
-  // flex: 0 0 340px;
-
   display: flex;
   flex-direction: column;
 
   border-right: $border-grey;
-
 }
 
 .navbar-banner {
@@ -47,17 +39,13 @@
 }
 
 .conversation-list-item {
-  // padding-top: 25px;
-  // padding-left: 25px;
   flex: 0 0 64px;
   display: flex;
-  // border: $border-grey;
 }
 
 .conversation-item-link {
   width: 100%;
   display: flex;
-  // justify-content: space-between;
 }
 
 .conversation-item-link:hover {
@@ -76,7 +64,6 @@
   flex-direction: column;
   justify-content: center;
   padding: 0 12px 0 0;
-  // min-width: 0;
   max-width: 100%;
   overflow: hidden;
   white-space: nowrap;
@@ -85,12 +72,9 @@
 .conversation-item-header {
   display: flex;
   justify-content: space-between;
-  // overflow: hidden;
 }
 
 .conversation-title {
-  // white-space: nowrap;
-  // display: flex;
   flex: 1 1 0%;
   min-width: 0;
   overflow: hidden;
@@ -100,8 +84,6 @@
 }
 
 .conversation-timestamp {
-  // white-space: nowrap;
-  // display: inline-block;
   font-size: 13px;
   text-align: right;
   color: $grey;
@@ -111,7 +93,6 @@
 .latest-message-body {
   font-size: 13px;
   color: $grey;
-  // white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
