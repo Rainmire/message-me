@@ -12,13 +12,17 @@ class NavbarBanner extends React.Component {
     };
     this.toggleDropdown = this.toggleDropdown.bind(this);
     let that = this;
-    window.onclick = (e) => {
-      if (e.target.className !== "fa fa-cog navbar-gear" ) {
-        that.setState({
-          clickGear: false
-        });
-      }
-    };
+
+    this.dismissDropdown = this.dismissDropdown.bind(this);
+    window.addEventListener('click', this.dismissDropdown, false);
+  }
+
+  dismissDropdown(e) {
+    if (e.target.className !== "fa fa-cog navbar-gear" ) {
+      this.setState({
+        clickGear: false
+      });
+    }
   }
 
   toggleDropdown () {
@@ -47,6 +51,10 @@ class NavbarBanner extends React.Component {
         </Link>
       </div>
     );
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('click', this.dismissDropdown, false);
   }
 }
 
