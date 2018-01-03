@@ -35,10 +35,7 @@ class ConversationList extends React.Component {
 
   componentWillReceiveProps(nextProps) {
     const path = nextProps.location.pathname;
-    if(nextProps.conversations.length===0) {
-      nextProps.history.push('/conversations/new');
-    }
-    else {
+    if(nextProps.conversations.length!==0) {
       if (path==="/conversations" || path==="/conversations/") {
         const id = nextProps.conversations[0].id;
         nextProps.history.push(`/conversations/${id}`);
