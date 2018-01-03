@@ -90,7 +90,7 @@ messages = Message.create([
   { body: 'Welcome to Message-Me!', user_id: 1, conversation_id: 1 },
   { body: 'You can switch between conversations you\'ve joined using the navigation bar on the left.', user_id: 1, conversation_id: 1 },
   { body: 'Click the pen icon on the top left to create a new conversation with other users.', user_id: 1, conversation_id: 1 },
-  { body: 'Feeling lonely? Use the Add Members button on the right to invite others to join your conversation!', user_id: 1, conversation_id: 1 },
+  { body: 'Use the Add Members button on the right to invite others to join your conversation!', user_id: 1, conversation_id: 1 },
 ])
 
 messages.each.with_index do |message, idx|
