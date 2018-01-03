@@ -1,11 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import {toLocalTime} from 'util/local_time_conversion';
+import { ClipLoader } from 'react-spinners';
 
 class ConversationList extends React.Component {
 
   constructor(props) {
     super(props);
+    this.state = {
+      loading: true
+    };
   }
 
   componentDidMount() {
@@ -24,6 +28,7 @@ class ConversationList extends React.Component {
             }
           }
         }
+        this.setState({loading: false});
       }
     );
   }
@@ -71,13 +76,27 @@ class ConversationList extends React.Component {
 
   render() {
     const { conversations } = this.props;
-    return(
-      <ul className = "conversation-list">
-        {conversations.map((conversation, idx) => (
-          this.conversationListItem(conversation, idx)
-        ))}
-      </ul>
-    );
+    if( !this.state.loading ) {
+      return(
+        <ul className = "conversation-list">
+          {conversations.map((conversation, idx) => (
+            this.conversationListItem(conversation, idx)
+          ))}
+        </ul>
+      );
+    }
+    else {
+      return(
+        <div className="conversation-list">
+          <div className = "conversation-loader">
+            <ClipLoader
+              color={'#123abc'}
+              loading={this.state.loading}
+            />
+          </div>
+        </div>
+      );
+    }
   }
 }
 
