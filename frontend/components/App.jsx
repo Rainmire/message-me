@@ -20,19 +20,17 @@ const App = () => (
     <Route exact path="/" render={()=>(<Redirect to="/login"/>)} />
 
     <div className="main-content">
-      <Route exact path="/conversations" render={
-          ()=><div className="navbar">Loading</div>
-      } />
-
-    <ProtectedRoute path="/conversations" component={Navbar} />
+      <ProtectedRoute path="/conversations" component={Navbar} />
       <Switch>
         <ProtectedRoute exact path="/conversations/new" component={NewConversationContainer} />
         <ProtectedRoute exact path="/conversations/:id" component={ConversationSpecific} />
-
       </Switch>
-
     </div>
   </div>
 );
 
 export default App;
+
+// <Route exact path="/conversations" render={
+//     ()=><div className="navbar">Loading</div>
+// } />
