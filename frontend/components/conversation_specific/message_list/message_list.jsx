@@ -24,8 +24,22 @@ class MessageList extends React.Component {
     );
   }
 
+  // componentWillReceiveProps(nextProps) {
+  //   const convoId = nextProps.conversation_id;
+  //   if (this.props.conversation_id !== convoId) {
+  //     this.props.fetchConversationDetails(convoId)
+  //     .then(
+  //       ()=>{
+  //         this.props.setSocket(convoId);
+  //         this.setState({loading: false});
+  //       },
+  //       ()=>this.props.history.push('/conversations/new')
+  //     );
+  //   }
+  // }
+
   componentWillReceiveProps(nextProps) {
-    this.props.setSocket(nextProps.conversation_id);
+    debugger;
   }
 
   render() {
