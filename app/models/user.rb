@@ -59,7 +59,7 @@ class User < ApplicationRecord
   end
 
   def profile_pic
-    "http://res.cloudinary.com/rainmire/image/upload/c_lfill,g_face,h_200,r_max,w_200/#{self[:profile_pic]}.png"
+    "https://res.cloudinary.com/rainmire/image/upload/c_lfill,g_face,h_200,r_max,w_200/#{self[:profile_pic]}.png"
   end
 
   private
