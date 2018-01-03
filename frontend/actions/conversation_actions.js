@@ -26,8 +26,7 @@ export const createMessage = (formMessage, conversationId) => dispatch => (
 );
 
 export const fetchConversationDetails = (conversationId) => dispatch => (
-  APIUtil.fetchConversationDetails(conversationId).then(
-    (conversation) => {
+  APIUtil.fetchConversationDetails(conversationId).then((conversation) => {
       dispatch(receiveMembers(conversation.members));
       dispatch(receiveMessages(conversation.messages));
     }

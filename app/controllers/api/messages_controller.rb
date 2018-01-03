@@ -6,7 +6,7 @@ class Api::MessagesController < ApplicationController
     @message.conversation_id = params[:conversation_id]
 
     @message.save
-
+    render 'api/messages/show'
   end
 
   private
