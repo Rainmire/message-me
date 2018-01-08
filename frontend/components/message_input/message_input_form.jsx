@@ -26,6 +26,23 @@ class MessageInputForm extends React.Component {
     });
   }
 
+  handleUploadPicture(e) {
+    e.preventDefault();
+    cloudinary.openUploadWidget(
+      window.cloudinary_options,
+      (error, images) => {
+        if (error === null) {
+          
+
+          // this.props.updateProfilePic(images[0].public_id)
+          // .then((currentUser)=>(
+          //   this.props.refreshConversations(currentUser)
+          // ));
+        }
+      }
+    );
+  }
+
   render() {
 
     return(
@@ -35,7 +52,7 @@ class MessageInputForm extends React.Component {
           className="message-input"
           placeholder="Type message here..."
         />
-        <button>
+      <button className="image-upload" onClick={this.handleUploadPicture}>
           <i className="fa fa-picture-o" aria-hidden="true" />
         </button>
       </form>
