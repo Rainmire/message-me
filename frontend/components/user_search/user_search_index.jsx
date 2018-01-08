@@ -1,5 +1,4 @@
 import React from 'react';
-import UserSearchIndexItem from './user_search_index_item';
 
 export default ({searchItems, firstTime, searchVal, clearState, receiveUserSelection}) => {
   if (searchVal === "") return (<ul className="UserSearchIndex"></ul>);

@@ -1,6 +1,6 @@
 import React from 'react';
-import {toLocalTime} from 'util/local_time_conversion';
 import MessageInputContainer from 'components/message_input/message_input_container';
+import MessageListItem from './message_list_item';
 import { ClipLoader } from 'react-spinners';
 
 class MessageList extends React.Component {
@@ -40,35 +40,15 @@ class MessageList extends React.Component {
   }
 
   render() {
-    const { messages, members, currentUserId} = this.props;
+    const { messages } = this.props;
     if( !this.state.loading ) {
       return(
         <div className="message-container">
           <ul className="message-list">
             {
-              messages.map((message, idx) => {
-                const author = members[message.user_id];
-                const messageClass = author.id===currentUserId ? "message-item my-message" : "message-item their-message";
-                const timestamp = toLocalTime(message.created_at);
-                return (
-                  <li key={idx} className={messageClass}>
-                    <img className="author-pic" src={author.profile_pic} />
-                    <div className="message-text">
-                      <div className="message-info">
-                        <div className="author-name">
-                          {author.display_name}
-                        </div>
-                        <div className="timestamp">
-                          {timestamp}
-                        </div>
-                      </div>
-                      <div className="message-body">
-                        {message.body}
-                      </div>
-                    </div>
-                  </li>
-                );
-              })
+              messages.map((message, idx) => (
+                <MessageListItem message={message} idx={idx} />
+              ))
             }
           </ul>
           <MessageInputContainer/>
