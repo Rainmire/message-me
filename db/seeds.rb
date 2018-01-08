@@ -79,25 +79,25 @@ conversation_memberships = ConversationMembership.create([
 ])
 
 messages = Message.create([
-  { body: 'Did you ever hear the tragedy of Darth Plagueis The Wise?', user_id: 2, conversation_id: 2 },
-  { body: 'No?', user_id: 3, conversation_id: 2 },
+  { body: 'Did you ever hear the tragedy of Darth Plagueis The Wise?', image: false, user_id: 2, conversation_id: 2 },
+  { body: 'No?', image: false, user_id: 3, conversation_id: 2 },
   { body: 'I thought not. It’s not a story the Jedi would tell you. '\
     'It’s a Sith legend. Darth Plagueis was a Dark Lord of the Sith, '\
     'so powerful and so wise he could use the Force to influence the midichlorians to create life… '\
     'He had such a knowledge of the dark side, he could even keep the ones he cared about from dying.',
-    user_id: 2, conversation_id: 2 },
-  { body: 'He could actually save people from death?', user_id: 3, conversation_id: 2 },
-  { body: 'The dark side of the Force is a pathway to many abilities some consider to be unnatural.', user_id: 2, conversation_id: 2 },
-  { body: 'What happened to him?', user_id: 3, conversation_id: 2 },
+    image: false, user_id: 2, conversation_id: 2 },
+  { body: 'He could actually save people from death?', image: false, user_id: 3, conversation_id: 2 },
+  { body: 'The dark side of the Force is a pathway to many abilities some consider to be unnatural.', image: false, user_id: 2, conversation_id: 2 },
+  { body: 'What happened to him?', image: false, user_id: 3, conversation_id: 2 },
   { body: 'He became so powerful… the only thing he was afraid of was losing his power, which eventually, of course, he did. '\
     'Unfortunately, he taught his apprentice everything he knew, then his apprentice killed him in his sleep. '\
     'Ironic. He could save others from death, but not himself.',
-    user_id: 2, conversation_id: 2 },
+    image: false, user_id: 2, conversation_id: 2 },
 
-  { body: 'Welcome to Message-Me!', user_id: 1, conversation_id: 1 },
-  { body: 'You can switch between conversations you\'ve joined using the navigation bar on the left.', user_id: 1, conversation_id: 1 },
-  { body: 'Click the pen icon on the top left to create a new conversation with other users.', user_id: 1, conversation_id: 1 },
-  { body: 'Use the Add Members button on the right to invite others to join your conversation!', user_id: 1, conversation_id: 1 },
+  { body: 'Welcome to Message-Me!', image: false, user_id: 1, conversation_id: 1 },
+  { body: 'You can switch between conversations you\'ve joined using the navigation bar on the left.', image: false, user_id: 1, conversation_id: 1 },
+  { body: 'Click the pen icon on the top left to create a new conversation with other users.', image: false, user_id: 1, conversation_id: 1 },
+  { body: 'Use the Add Members button on the right to invite others to join your conversation!', image: false, user_id: 1, conversation_id: 1 },
 ])
 
 messages.each.with_index do |message, idx|

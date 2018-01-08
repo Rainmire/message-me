@@ -5,7 +5,8 @@ class MessageInputForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      body: ''
+      body: '',
+      image: false
     };
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -15,7 +16,8 @@ class MessageInputForm extends React.Component {
     const message = Object.assign({}, this.state);
     this.props.createMessage(message);
     this.setState({
-      body: ''
+      body: '',
+      image: false
     });
     e.currentTarget.reset();
   }
@@ -32,7 +34,11 @@ class MessageInputForm extends React.Component {
       window.cloudinary_options,
       (error, images) => {
         if (error === null) {
-          
+          this.setState({
+            body: images[0].public_id,
+            image: true
+          })
+          this.handleSubmit(e);
 
           // this.props.updateProfilePic(images[0].public_id)
           // .then((currentUser)=>(
@@ -52,7 +58,7 @@ class MessageInputForm extends React.Component {
           className="message-input"
           placeholder="Type message here..."
         />
-      <button className="image-upload" onClick={this.handleUploadPicture}>
+        <button className="image-upload" onClick={this.handleUploadPicture}>
           <i className="fa fa-picture-o" aria-hidden="true" />
         </button>
       </form>
