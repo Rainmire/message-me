@@ -56,6 +56,7 @@ class ConversationList extends React.Component {
   }
 
   memberItem(member, idx, currentUser) {
+    debugger;
     if (member.id !== currentUser.id) {
       return (
         <li key={idx} className="member-list-item">

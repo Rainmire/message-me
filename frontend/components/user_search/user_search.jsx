@@ -35,11 +35,11 @@ class UserSearch extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     const users = this.props.userSelections;
-    this.props.userSearchAction(users);
-    // this.props.addMembers(users).then(
-    //   ()=>this.props.clearUserSelections()
-    // );
-    this.clearState();
+
+    if (Object.keys(users).length > 0) {
+      this.props.userSearchAction(users);
+      this.clearState();
+    }
   }
 
   render() {

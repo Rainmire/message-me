@@ -1,4 +1,7 @@
-import * as APIUtil from '../util/session_api_util';
+import * as APIUtil from 'util/session_api_util';
+import { receiveConversations } from 'actions/conversation_list_actions';
+import { clearMembers, receiveMessages } from 'actions/conversation_actions';
+import { clearUserSearchResults, clearUserSelections } from 'actions/user_actions';
 
 export const RECEIVE_CURRENT_USER = 'RECEIVE_CURRENT_USER';
 export const RECEIVE_SESSION_ERRORS = 'RECEIVE_SESSION_ERRORS';
@@ -13,11 +16,6 @@ export const receiveErrors = errors => ({
   type: RECEIVE_SESSION_ERRORS,
   errors
 });
-
-// export const receiveProfilePic = profilePic => ({
-//   type: RECEIVE_PROFILE_PIC,
-//   profilePic
-// });
 
 export const signup = formUser => dispatch => (
   APIUtil.signup(formUser).then(user => (
@@ -44,7 +42,12 @@ export const login = formUser => dispatch => (
 );
 
 export const logout = () => dispatch => (
-  APIUtil.logout().then(user => (
-    dispatch(receiveCurrentUser(null))
-  ))
+  APIUtil.logout().then(user => {
+    dispatch(receiveCurrentUser(null));
+    dispatch(receiveConversations([]));
+    dispatch(clearMembers());
+    dispatch(receiveMessages(null));
+    dispatch(clearUserSearchResults());
+    dispatch(clearUserSelections());
+  })
 );

@@ -5,6 +5,7 @@ import {receiveConversation} from './conversation_list_actions';
 export const RECEIVE_MESSAGE = 'RECEIVE_MESSAGE';
 export const RECEIVE_MESSAGES = 'RECEIVE_MESSAGES';
 export const RECEIVE_MEMBERS = 'RECEIVE_MEMBERS';
+export const CLEAR_MEMBERS = 'CLEAR_MEMBERS';
 
 export const receiveMessage = message => ({
   type: RECEIVE_MESSAGE,
@@ -19,6 +20,10 @@ export const receiveMessages = messages => ({
 export const receiveMembers = members => ({
   type: RECEIVE_MEMBERS,
   members
+});
+
+export const clearMembers = () => ({
+  type: CLEAR_MEMBERS
 });
 
 export const createMessage = (formMessage, conversationId) => dispatch => (
@@ -52,11 +57,3 @@ export const addMembers = (users, id) => dispatch => (
     )
   )
 );
-
-// export const RECEIVE_PROFILE_PIC = 'RECEIVE_PROFILE_PIC';
-
-// export const receiveProfilePic = (currentUserId, profile_pic) => ({
-//   type: RECEIVE_PROFILE_PIC,
-//   currentUserId,
-//   profile_pic
-// });
