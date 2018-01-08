@@ -40,15 +40,20 @@ class MessageList extends React.Component {
   }
 
   render() {
-    const { messages } = this.props;
+    const { messages, currentUserId, members } = this.props;
     if( !this.state.loading ) {
       return(
         <div className="message-container">
           <ul className="message-list">
             {
-              messages.map((message, idx) => (
-                <MessageListItem message={message} idx={idx} />
-              ))
+              messages.map((message, idx) => {
+                const author = members[message.user_id];
+                return <MessageListItem
+                  message={message}
+                  idx={idx}
+                  author={author}
+                  currentUserId={currentUserId} />;
+              })
             }
           </ul>
           <MessageInputContainer/>
