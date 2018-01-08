@@ -7,20 +7,11 @@ export default ({searchItems, firstTime, searchVal, clearState, receiveUserSelec
   let listItems;
 
   if (searchItems.length !== 0) {
-    // listItems =
-    //   searchItems.map(
-    //     (user) => (<UserSearchIndexItem
-    //       user={user}
-    //       key={user.id}
-    //       clearState={clearState}
-    //       />)
-    //   );
-
     listItems =
       searchItems.map(
         (user) => (
           <li key={user.id}>
-            <button onClick={
+            <button className="user-search-button" onClick={
               ()=>{
                 receiveUserSelection(user);
                 clearState();

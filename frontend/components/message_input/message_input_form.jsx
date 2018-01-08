@@ -35,6 +35,9 @@ class MessageInputForm extends React.Component {
           className="message-input"
           placeholder="Type message here..."
         />
+        <button>
+          <i className="fa fa-picture-o" aria-hidden="true" />
+        </button>
       </form>
     );
   }
