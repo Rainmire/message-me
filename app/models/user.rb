@@ -10,13 +10,6 @@ class User < ApplicationRecord
 
   has_many :messages
 
-  # has_many :memberships,
-  # primary_key: :id,
-  # foreign_key: :member_id,
-  # class_name: :ConversationMembership
-  #
-  # has_many :conversations, through: :memberships
-
   has_many :conversation_memberships,
   primary_key: :id,
   foreign_key: :member_id,
@@ -32,6 +25,8 @@ class User < ApplicationRecord
 
   def self.top_five_results(query_param, curr_user)
     curr_user_id = curr_user.id if curr_user
+    # debugger
+    return User.none if query_param.empty?
     param = '%' + query_param.downcase + '%'
     User.where.not(id: curr_user_id).
       where('lower(display_name) LIKE ?', param).limit(5)
@@ -79,10 +74,5 @@ class User < ApplicationRecord
     end
     self.session_token
   end
-
-  # def default_profile_pic
-  #   debugger
-  #   self.profile_pic = "v1514852231/message-me/user.png"
-  # end
 
 end

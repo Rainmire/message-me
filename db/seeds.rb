@@ -55,8 +55,15 @@
 users = User.create([
   { email:'mitch', display_name:'Mitch', password:'adminpass', profile_pic: "v1514852231/message-me/default_user" },
 
-  { email:'palpatine', display_name:'Palpatine', password:'password', profile_pic: "v1514933156/message-me/profile-pics/palpatine" },
-  { email:'anakin', display_name:'Anakin', password:'password', profile_pic: "v1514933156/message-me/profile-pics/Anakin-Jedi" },
+  { email:'palpatine', display_name:'Chancellor Palpatine', password:'password', profile_pic: "v1514933156/message-me/profile-pics/palpatine" },
+  { email:'anakin', display_name:'Anakin Skywalker', password:'password', profile_pic: "v1514933156/message-me/profile-pics/Anakin-Jedi" },
+
+  # { email:'mitch', display_name:'Mitch', password:'password', profile_pic: "v1514852231/message-me/default_user" },
+  # { email:'mitch', display_name:'Mitch', password:'password', profile_pic: "v1514852231/message-me/default_user" },
+  # { email:'mitch', display_name:'Mitch', password:'password', profile_pic: "v1514852231/message-me/default_user" },
+  # { email:'mitch', display_name:'Mitch', password:'password', profile_pic: "v1514852231/message-me/default_user" },
+  # { email:'mitch', display_name:'Mitch', password:'password', profile_pic: "v1514852231/message-me/default_user" },
+
 ])
 
 conversations = Conversation.create([
