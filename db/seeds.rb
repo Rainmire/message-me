@@ -98,6 +98,8 @@ messages = Message.create([
   { body: 'You can switch between conversations you\'ve joined using the navigation bar on the left.', image: false, user_id: 1, conversation_id: 1 },
   { body: 'Click the pen icon on the top left to create a new conversation with other users.', image: false, user_id: 1, conversation_id: 1 },
   { body: 'Use the Add Members button on the right to invite others to join your conversation!', image: false, user_id: 1, conversation_id: 1 },
+  { body: 'v1513199891/message-me/profile-pics/dog1_lymttu', image: true, user_id: 1, conversation_id: 1 },
+
 ])
 
 messages.each.with_index do |message, idx|

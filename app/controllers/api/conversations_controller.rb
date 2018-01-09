@@ -48,7 +48,6 @@ class Api::ConversationsController < ApplicationController
     @conversations = []
     raw_conversations.each do |conversation|
       last_message = conversation.messages.order("messages.created_at DESC").first
-      # author_name = ""
       message_body = ""
       message_created_at = nil
       if last_message.nil?
@@ -56,13 +55,11 @@ class Api::ConversationsController < ApplicationController
         author_pic = current_user.profile_pic
       else
         message_created_at = last_message.created_at
-        # author_name = last_message.user.display_name
         author_pic = last_message.user.profile_pic
         message_body = last_message.user.display_name + ": " + last_message.body
       end
       @conversations << Hash[title: conversation.title,
                              author_pic: author_pic,
-                             # author_name: author_name,
                              message_body: message_body,
                              message_created_at: message_created_at,
                              id: conversation.id]
