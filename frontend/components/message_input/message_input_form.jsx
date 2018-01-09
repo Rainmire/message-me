@@ -9,6 +9,7 @@ class MessageInputForm extends React.Component {
       image: false
     };
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleUploadPicture = this.handleUploadPicture.bind(this);
   }
 
   handleSubmit(e) {
@@ -34,11 +35,20 @@ class MessageInputForm extends React.Component {
       window.cloudinary_options,
       (error, images) => {
         if (error === null) {
-          this.setState({
+          // this.setState({
+          //   body: images[0].public_id,
+          //   image: true
+          // });
+
+          const message = {
             body: images[0].public_id,
             image: true
-          });
-          this.handleSubmit(e);
+          };
+          this.props.createMessage(message);
+
+          // e.currentTarget.reset();
+
+          // this.handleSubmit(e);
 
           // this.props.updateProfilePic(images[0].public_id)
           // .then((currentUser)=>(
