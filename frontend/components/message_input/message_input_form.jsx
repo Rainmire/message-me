@@ -37,7 +37,7 @@ class MessageInputForm extends React.Component {
           this.setState({
             body: images[0].public_id,
             image: true
-          })
+          });
           this.handleSubmit(e);
 
           // this.props.updateProfilePic(images[0].public_id)
