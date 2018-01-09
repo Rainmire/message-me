@@ -49,6 +49,7 @@ class MessageList extends React.Component {
               messages.map((message, idx) => {
                 const author = members[message.user_id];
                 return <MessageListItem
+                  key={idx}
                   message={message}
                   idx={idx}
                   author={author}

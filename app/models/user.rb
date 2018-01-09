@@ -25,7 +25,6 @@ class User < ApplicationRecord
 
   def self.top_five_results(query_param, curr_user)
     curr_user_id = curr_user.id if curr_user
-    # debugger
     return User.none if query_param.empty?
     param = '%' + query_param.downcase + '%'
     User.where.not(id: curr_user_id).

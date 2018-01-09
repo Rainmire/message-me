@@ -3,12 +3,28 @@ import {toLocalTime} from 'util/local_time_conversion';
 
 class MessageListItem extends React.Component {
 
+  messageBody(message) {
+    if (!message.image) {
+      return (
+        <div className="message-body">
+          {message.body}
+        </div>
+      );
+    }
+    else {
+      return (
+        <img className="message-image" src={message.body}/>
+      );
+    }
+
+  }
+
   render() {
-    const { message, idx, author, currentUserId } = this.props;
+    const { message, author, currentUserId } = this.props;
     const messageClass = author.id===currentUserId ? "message-item my-message" : "message-item their-message";
     const timestamp = toLocalTime(message.created_at);
     return (
-      <li key={idx} className={messageClass}>
+      <li className={messageClass}>
         <img className="author-pic" src={author.profile_pic} />
         <div className="message-text">
           <div className="message-info">
@@ -19,9 +35,7 @@ class MessageListItem extends React.Component {
               {timestamp}
             </div>
           </div>
-          <div className="message-body">
-            {message.body}
-          </div>
+          {this.messageBody(message)}
         </div>
       </li>
     );
