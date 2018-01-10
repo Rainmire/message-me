@@ -1,4 +1,7 @@
 .conversation-specific {
   display: flex;
-  flex: 1 0 320px;
+  // flex: 1 0 320px;
+  flex: auto;
+  // max-width: 100%;
+  min-width: 0;
 }

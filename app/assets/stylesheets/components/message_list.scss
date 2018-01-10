@@ -2,11 +2,11 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .message-container {
-  flex: 2 0 260px;
+  flex: 1 1 260px;
   display: flex;
   flex-direction: column;
   border-right: $border-grey;
-
+  min-width: 260px;
 }
 .message-list {
   border-bottom: $border-grey;
@@ -15,8 +15,9 @@
   color: rgba(0, 0, 0, .40);
   display: flex;
   flex-direction: column;
-  width: 100%;
-  overflow: auto;
+  // width: 100%;
+  overflow-y: auto;
+  // min-width: 0;
   font-size: 12px;
   padding-top: 10px;
 }
@@ -27,11 +28,25 @@
   max-width: 70%;
   min-height: auto;
   display: flex;
-  // min-width: 0;
+  // overflow: hidden;
+  min-width: 0;
+}
+
+.my-message {
+  margin-left: auto;
+  margin-right: 20px;
+}
+
+.their-message {
+  margin-right: auto;
+  margin-left: 20px;
 }
 
 .message-text {
   min-width: 0;
+  // text-overflow: ellipsis;
+  display: flex;
+  flex-direction: column;
 }
 
 .author-pic {
@@ -43,11 +58,6 @@
 .message-info {
   display: flex;
   padding: 0 14px;
-}
-
-.my-message {
-  margin-left: auto;
-  margin-right: 20px;
 }
 
 .my-message .author-name {
@@ -62,19 +72,22 @@
   margin-left: auto;
 }
 
+.my-message .message-text {
+  align-items: flex-end;
+}
+
 .my-message .message-body {
   color: white;
   background-color: #0084ff;
 
 }
 
-.their-message {
-  margin-right: auto;
-  margin-left: 20px;
-}
-
 .their-message .timestamp {
   padding-left: 20px;
+}
+
+.their-message .message-text {
+  align-items: flex-start;
 }
 
 .their-message .message-body {
@@ -86,9 +99,11 @@
 .message-body {
   font-size: 14px;
   border-radius: 20px;
-
   padding: 5px 10px;
   word-wrap: break-word;
+  // width: 100%;
+  max-width: 100%;
+  // min-width: 0;
 }
 
 .message-loader{
