@@ -24,4 +24,6 @@ html, body, #root, .app {
   width: 100%;
   display: flex;
   font-size: 14px;
+  overflow: auto;
+  // min-width: 0;
 }

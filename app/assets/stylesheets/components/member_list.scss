@@ -2,7 +2,9 @@
   width: 220px;
   display: flex;
   flex-direction: column;
-  overflow: auto;
+  overflow-y: auto;
+  overflow-x: visible;
+  white-space: nowrap;
 }
 
 .member-list > li {
