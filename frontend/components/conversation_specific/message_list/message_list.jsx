@@ -41,6 +41,7 @@ class MessageList extends React.Component {
 
   render() {
     const { messages, currentUserId, members } = this.props;
+    // debugger;
     if( !this.state.loading ) {
       return(
         <div className="message-container">

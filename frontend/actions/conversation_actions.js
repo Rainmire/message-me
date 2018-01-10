@@ -26,9 +26,10 @@ export const clearMembers = () => ({
   type: CLEAR_MEMBERS
 });
 
-export const createMessage = (formMessage, conversationId) => dispatch => (
-  APIUtil.createMessage(formMessage, conversationId)
-);
+export const createMessage = (formMessage, conversationId) => dispatch => {
+  // debugger;
+  APIUtil.createMessage(formMessage, conversationId);
+};
 
 export const fetchConversationDetails = (conversationId) => dispatch => (
   APIUtil.fetchConversationDetails(conversationId).then((conversation) => {
