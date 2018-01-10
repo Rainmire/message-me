@@ -62,16 +62,18 @@ class MessageInputForm extends React.Component {
   render() {
 
     return(
-      <form className="message-input-form" onSubmit={this.handleSubmit}>
-        <input type="text"
-          onChange={this.update('body')}
-          className="message-input"
-          placeholder="Type message here..."
-        />
+      <div className="message-input-box">
+        <form className="message-input-form" onSubmit={this.handleSubmit}>
+          <input type="text"
+            onChange={this.update('body')}
+            className="message-input"
+            placeholder="Type message here..."
+          />
+        </form>
         <button className="image-upload" onClick={this.handleUploadPicture}>
           <i className="fa fa-picture-o" aria-hidden="true" />
         </button>
-      </form>
+      </div>
     );
   }
 }
