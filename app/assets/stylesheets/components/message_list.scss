@@ -27,6 +27,11 @@
   max-width: 70%;
   min-height: auto;
   display: flex;
+  // min-width: 0;
+}
+
+.message-text {
+  min-width: 0;
 }
 
 .author-pic {
