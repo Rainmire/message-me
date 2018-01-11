@@ -4,7 +4,7 @@ import {toLocalTime} from 'util/local_time_conversion';
 class MessageListItem extends React.Component {
 
   messageBody(message) {
-    if (!message.image) {
+    if (message.message_type === "text") {
       return (
         <div className="message-body">
           {message.body}

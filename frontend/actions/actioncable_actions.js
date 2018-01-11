@@ -20,7 +20,7 @@ const addSocket = (channelName, dispatch) => {
     connected: () => {console.log(`connected to: ${channelName}`);},
     disconnected: () => {},
     received: (data) => {
-      // debugger;
+      debugger;
       dispatch(receiveMessage(data.message));
       dispatch(fetchConversations());
     }

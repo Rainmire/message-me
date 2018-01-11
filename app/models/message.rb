@@ -6,7 +6,7 @@ class Message < ApplicationRecord
   validates :body, presence: true
 
   def body
-    if self.image
+    if self.message_type == "image"
       "http://res.cloudinary.com/rainmire/image/upload/c_limit,h_700,w_700/#{self[:body]}.png"
     else
       self[:body]
