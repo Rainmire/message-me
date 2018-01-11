@@ -35,9 +35,8 @@ class MessageInputForm extends React.Component {
       window.cloudinary_options,
       (error, images) => {
         if (error === null) {
-        
           const message = {
-            body: images[0].public_id,
+            body: images[0].path,
             message_type: 'image'
           };
           this.props.createMessage(message);
