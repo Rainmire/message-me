@@ -15,9 +15,7 @@
   color: rgba(0, 0, 0, .40);
   display: flex;
   flex-direction: column;
-  // width: 100%;
   overflow-y: auto;
-  // min-width: 0;
   font-size: 12px;
   padding-top: 10px;
 }
@@ -28,7 +26,6 @@
   max-width: 70%;
   min-height: auto;
   display: flex;
-  // overflow: hidden;
   min-width: 0;
 }
 
@@ -44,7 +41,6 @@
 
 .message-text {
   min-width: 0;
-  // text-overflow: ellipsis;
   display: flex;
   flex-direction: column;
 }
@@ -101,9 +97,14 @@
   border-radius: 20px;
   padding: 5px 10px;
   word-wrap: break-word;
-  // width: 100%;
   max-width: 100%;
-  // min-width: 0;
+}
+
+.message-image {
+  border-radius: 15px;
+  width: auto;
+  max-width: 100%;
+  height: auto;
 }
 
 .message-loader{
