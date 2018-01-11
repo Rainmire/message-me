@@ -1,4 +1,4 @@
-import { receiveMessage } from './conversation_actions';
+import { receiveMessage, fetchConversationDetails } from './conversation_actions';
 import { fetchConversations } from './conversation_list_actions';
 
 export const setSocket = channelName => dispatch => {
@@ -20,9 +20,13 @@ const addSocket = (channelName, dispatch) => {
     connected: () => {console.log(`connected to: ${channelName}`);},
     disconnected: () => {},
     received: (data) => {
-      debugger;
-      dispatch(receiveMessage(data.message));
-      dispatch(fetchConversations());
+      if (data.message.message_type === "update") {
+        dispatch(fetchConversationDetails(data.message.conversation));
+      }
+      else {
+        dispatch(receiveMessage(data.message));
+        dispatch(fetchConversations());
+      }
     }
   });
 };
