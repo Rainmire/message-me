@@ -13,7 +13,7 @@ class MessageListItem extends React.Component {
     }
     else {
       return (
-        <img className="message-image" src={message.body}/>
+        <img className="message-image" onLoad={this.props.scrollToBottom} src={message.body}/>
       );
     }
 

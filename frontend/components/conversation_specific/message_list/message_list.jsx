@@ -10,6 +10,7 @@ class MessageList extends React.Component {
     this.state = {
       loading: true
     };
+    this.scrollToBottom = this.scrollToBottom.bind(this);
   }
 
   componentDidMount() {
@@ -39,6 +40,16 @@ class MessageList extends React.Component {
     }
   }
 
+  componentDidUpdate() {
+    if( !this.state.loading ) {
+      this.scrollToBottom();
+    }
+  }
+
+  scrollToBottom() {
+    this.messagesEnd.scrollIntoView({ behaviour: 'smooth' });
+  }
+
   render() {
     const { messages, currentUserId, members } = this.props;
     // debugger;
@@ -55,9 +66,11 @@ class MessageList extends React.Component {
                   message={message}
                   idx={idx}
                   author={author}
-                  currentUserId={currentUserId} />;
+                  currentUserId={currentUserId}
+                  scrollToBottom={this.scrollToBottom} />;
               })
             }
+            <div ref={el => { this.messagesEnd = el; }} />
           </ul>
           <MessageInputContainer/>
         </div>
