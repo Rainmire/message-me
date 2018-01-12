@@ -131,8 +131,14 @@ class SessionForm extends React.Component {
         <img className="session-splash" src="https://res.cloudinary.com/rainmire/image/upload/v1511401468/session_splash_y0i6kw.jpg"/>
       </div>
       <div className="footer">
-        <a href="https://github.com/Rainmire" target="_blank">Github</a>
-        <a href="https://www.linkedin.com/in/qiumin-yin/" target="_blank">LinkedIn</a>
+        <a href="https://github.com/Rainmire" target="_blank">
+          Github
+          <i className="fa fa-github" aria-hidden="true"></i>
+        </a>
+        <a href="https://www.linkedin.com/in/qiumin-yin/" target="_blank">
+          LinkedIn
+          <i className="fa fa-linkedin-square" aria-hidden="true"></i>
+        </a>
       </div>
     </div>
     );
