@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default ({searchItems, firstTime, searchVal, clearState, receiveUserSelection}) => {
+export default ({searchItems, firstTime, searchVal, clearState, receiveUserSelection, selectUserSearchInput}) => {
   if (searchVal === "") return (<ul className="UserSearchIndex"></ul>);
 
   let listItems;
@@ -14,6 +14,7 @@ export default ({searchItems, firstTime, searchVal, clearState, receiveUserSelec
               ()=>{
                 receiveUserSelection(user);
                 clearState();
+                selectUserSearchInput();
               }
             }>
               {user.display_name}

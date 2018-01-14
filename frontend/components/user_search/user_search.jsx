@@ -16,7 +16,7 @@ class UserSearch extends React.Component {
     this.handleChange = this.handleChange.bind(this);
     this.clearState = this.clearState.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-
+    this.selectUserSearchInput = this.selectUserSearchInput.bind(this);
   }
 
   handleChange(e) {
@@ -35,11 +35,16 @@ class UserSearch extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     const users = this.props.userSelections;
-
+    this.props.clearUserSelections();
+    
     if (Object.keys(users).length > 0) {
       this.props.userSearchAction(users);
       this.clearState();
     }
+  }
+
+  selectUserSearchInput() {
+    this.userSearchInput.focus();
   }
 
   render() {
@@ -54,6 +59,7 @@ class UserSearch extends React.Component {
               type="text"
               placeholder="Search for user..."
               value={this.state.searchVal}
+              ref={el => { this.userSearchInput = el; }}
             />
           </form>
           <ul className="selected-users">
@@ -75,6 +81,7 @@ class UserSearch extends React.Component {
           searchVal={this.state.searchVal}
           clearState={this.clearState}
           receiveUserSelection={this.props.receiveUserSelection}
+          selectUserSearchInput={this.selectUserSearchInput}
         />
       </div>
     );

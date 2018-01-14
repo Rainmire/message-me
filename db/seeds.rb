@@ -66,7 +66,9 @@ messages = Message.create([
   { body: 'Welcome to Message-Me!', message_type: "text", user_id: 1, conversation_id: 1 },
   { body: 'You can switch between conversations you\'ve joined using the navigation bar on the left.', message_type: "text", user_id: 1, conversation_id: 1 },
   { body: 'Click the pen icon on the top left to create a new conversation with other users.', message_type: "text", user_id: 1, conversation_id: 1 },
+  { body: 'message-me/seeds/create_conversation.gif', message_type: "image", user_id: 1, conversation_id: 1 },
   { body: 'Use the Add Members button on the right to invite others to join your conversation!', message_type: "text", user_id: 1, conversation_id: 1 },
+  { body: 'message-me/seeds/add_members.gif', message_type: "image", user_id: 1, conversation_id: 1 },
 
 ])
 
