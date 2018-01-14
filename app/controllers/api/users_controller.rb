@@ -35,8 +35,11 @@ class Api::UsersController < ApplicationController
     if @user.save
       membership1 = ConversationMembership.new(member_id: @user.id, conversation_id: 1)
       membership2 = ConversationMembership.new(member_id: @user.id, conversation_id: 2)
+      membership3 = ConversationMembership.new(member_id: @user.id, conversation_id: 3)
+
       membership1.save
       membership2.save
+      membership3.save
 
       login(@user)
       render "api/users/show"
