@@ -1,8 +1,25 @@
 # Message-Me!
 http://message-me-rainmire.herokuapp.com/
 
-Message-Me is a messaging client based on the popular Messenger application by Facebook. It uses a React/Redux frontend connected to a Ruby on Rails server, with a PostgreSQL database.
+Message-Me is an instant messaging client based on the popular Messenger application by Facebook. It uses a React/Redux frontend connected to a Ruby on Rails server, with a PostgreSQL database.
 
+## Live Chat
+
+Users can send and receive messages in real time using Rails 5 Action Cable to create socket connections.
+
+![live chat](docs/live_chat/live_chat.gif)
+
+## Image Sending
+
+Users can also send and receive images in real time via Cloudinary's upload widget and API.
+
+![Image sending](docs/image_sending/image_sending.gif)
+
+## Profile Picture Uploading
+
+Image uploading is also available for setting custom profile pictures.
+
+![Profile upload](docs/profile_upload/profile_upload.gif)
 
 ## Creating Conversations
 
@@ -16,9 +33,6 @@ Users can search for and add members to a conversation.
 
 ![live chat](docs/add_members/add_members.gif)
 
-## Live Chat
-
-Users can experience live communication with others through Rails 5 Action Cable.
 
 **Instant Message Delivery**
 
