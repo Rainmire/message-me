@@ -99,7 +99,7 @@ class SessionForm extends React.Component {
     <div className="session-page">
       <div className="session-form-container">
         <div className="login-form-container">
-          <img className="logo" src="https://res.cloudinary.com/rainmire/image/upload/v1511401475/logo_vqkrai.png"/>
+          <img className="logo" src="https://res.cloudinary.com/rainmire/image/upload/v1511401475/message-me/logo_vqkrai.png"/>
           <h1 className="message-me">Message Me!</h1>
           {this.welcomeText()}
           <form onSubmit={this.handleSubmit} className="login-form-box">
@@ -128,7 +128,7 @@ class SessionForm extends React.Component {
 
           {this.renderErrors()}
         </div>
-        <img className="session-splash" src="https://res.cloudinary.com/rainmire/image/upload/v1511401468/session_splash_y0i6kw.jpg"/>
+        <img className="session-splash" src="https://res.cloudinary.com/rainmire/image/upload/v1511401468/message-me/session_splash_y0i6kw.jpg"/>
       </div>
       <div className="footer">
         <a href="https://github.com/Rainmire" target="_blank">
