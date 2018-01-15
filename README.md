@@ -1,13 +1,19 @@
 # Message-Me!
 http://message-me-rainmire.herokuapp.com/
 
-Message-Me is a messaging client based on the popular Messenger application by Facebook. It consists of 5 key components.
+Message-Me is a messaging client based on the popular Messenger application by Facebook. It consists of 6 key components.
 
-* User Authentication
 * Live Chat
+* User Authentication
 * Direct Conversations
 * Group Conversations
 * User Search
+* Image Uploading
+
+## Creating Conversations
+
+![live chat](docs/create_conversation/create_conversation.gif)
+
 
 ## Live Chat
 
