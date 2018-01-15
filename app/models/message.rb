@@ -7,7 +7,7 @@ class Message < ApplicationRecord
 
   def body
     if self.message_type == "image"
-      "http://res.cloudinary.com/rainmire/image/upload/#{self[:body]}"
+      "https://res.cloudinary.com/rainmire/image/upload/#{self[:body]}"
     else
       self[:body]
     end
