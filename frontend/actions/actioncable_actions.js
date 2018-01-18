@@ -21,6 +21,7 @@ const addSocket = (channelName, dispatch) => {
     disconnected: () => {},
     received: (data) => {
       if (data.message.message_type === "update") {
+        // debugger;
         dispatch(fetchConversationDetails(data.message.conversation));
       }
       else {
