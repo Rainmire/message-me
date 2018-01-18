@@ -52,14 +52,12 @@ class MessageList extends React.Component {
 
   render() {
     const { messages, currentUserId, members } = this.props;
-    // debugger;
     if( !this.state.loading ) {
       return(
         <div className="message-container">
           <ul className="message-list">
             {
               messages.map((message, idx) => {
-                // debugger;
                 const author = members[message.user_id];
                 return <MessageListItem
                   key={idx}

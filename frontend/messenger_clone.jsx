@@ -24,25 +24,6 @@ document.addEventListener('DOMContentLoaded', () => {
     store = configureStore();
   }
 
-  window.getState = store.getState;
-  window.dispatch = store.dispatch;
-  window.createMessage = createMessage;
-  window.fetchMessages = fetchMessages;
 
-  // window.login = login;
-  // window.signup = signup;
-
-  window.logout = logout;
-  // window.utilLogout = utilLogout;
-
-  window.fetchConversations = fetchConversations;
-
-  window.fetchMembers = fetchMembers;
-
-  window.fetchConversationDetails = fetchConversationDetails;
-
-  window.searchUserDatabase = searchUserDatabase;
-
-  // ReactDOM.render(<h1>Welcome to Messenger</h1>,root);
   ReactDOM.render(<Root store={store}/>, root);
 });

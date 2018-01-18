@@ -1,10 +1,8 @@
 class Api::MessagesController < ApplicationController
 
   def create
-    # debugger
     @message = Message.new(message_params)
     @message.user_id = current_user.id
-    # @message.conversation_id = params[:conversation_id]
     @message.conversation_id = current_user.conversations.find(params[:conversation_id]).id
 
     @message.save

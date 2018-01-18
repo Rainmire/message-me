@@ -27,7 +27,6 @@ export const clearMembers = () => ({
 });
 
 export const createMessage = (formMessage, conversationId) => dispatch => {
-  // debugger;
   APIUtil.createMessage(formMessage, conversationId);
 };
 

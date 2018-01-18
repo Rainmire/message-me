@@ -21,7 +21,6 @@ class MessageListItem extends React.Component {
 
   render() {
     const { message, author, currentUserId } = this.props;
-    // debugger;
     const messageClass = author.id===currentUserId ? "message-item my-message" : "message-item their-message";
     const timestamp = toLocalTime(message.created_at);
     return (
@@ -43,7 +42,5 @@ class MessageListItem extends React.Component {
   }
 
 }
-
-
 
 export default MessageListItem;
