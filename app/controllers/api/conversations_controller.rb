@@ -79,6 +79,7 @@ class Api::ConversationsController < ApplicationController
           @users << User.find(id)
         end
       end
+      UpdateMembersJob.perform_later(@conversation.id)
       render "api/users/index"
     else
       render json: "Conversation does not exist", status: 400

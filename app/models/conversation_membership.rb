@@ -1,10 +1,4 @@
 class ConversationMembership < ApplicationRecord
-  # after_commit {
-  #   # update_message = Message.new(message_type: "update")
-  #
-  #   # conversation = Conversation.find(self.conversation_id)
-  #   UpdateMembersJob.perform_later(self.conversation_id)
-  # }
 
   belongs_to :member,
   primary_key: :id,
