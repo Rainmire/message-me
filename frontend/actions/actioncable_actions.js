@@ -13,6 +13,8 @@ const removeSocket = () => (
 );
 
 const addSocket = (channelName, dispatch) => {
+  // debugger;
+  // channelName = "1";
   window.App.channel = window.App.cable.subscriptions.create({
     channel: 'ChatChannel',
     channel_name: channelName
