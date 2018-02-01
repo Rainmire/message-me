@@ -14,7 +14,7 @@ const removeSocket = () => (
 
 const addSocket = (channelName, dispatch) => {
   window.App.channel = window.App.cable.subscriptions.create({
-    channel: 'ChannelChannel',
+    channel: 'ChatChannel',
     channel_name: channelName
   }, {
     connected: () => {console.log(`connected to: ${channelName}`);},
