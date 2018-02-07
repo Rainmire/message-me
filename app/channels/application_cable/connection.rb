@@ -8,8 +8,9 @@ module ApplicationCable
  
     private
     def find_verified_user
-      debugger
-      if verified_user = User.find_by(id: cookies.encrypted[:user_id])
+      token = cookies.encrypted[:session_token]
+      if token && verified_user = User.find_by(session_token: token)
+        puts "CONNECTION SUCCESSFUL"
         verified_user
       else
         reject_unauthorized_connection
