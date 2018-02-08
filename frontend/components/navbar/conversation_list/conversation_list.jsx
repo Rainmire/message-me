@@ -13,19 +13,30 @@ class ConversationList extends React.Component {
   }
 
   componentDidMount() {
+    console.log("LOG1: "+this.props)
+    debugger;
     this.props.fetchConversations().then(
       (action)=>{
         const path = this.props.location.pathname;
-
+        console.log("LOG2: "+this.props)
+        debugger;
         if (path!=='/conversations/new') {
           if(this.props.conversations.length===0) {
             this.props.history.push('/conversations/new');
           }
           else {
-            if (path==="/conversations" || path==="/conversations/") {
-              const id = this.props.conversations[0].id;
-              this.props.history.push(`/conversations/${id}`);
-            }
+            console.log("LOG3: "+this.props.setSocket);
+            debugger;
+            
+            this.props.setSocket()
+            .then(
+              ()=>{
+                if (path==="/conversations" || path==="/conversations/") {
+                  const id = this.props.conversations[0].id;
+                  this.props.history.push(`/conversations/${id}`);
+                }
+              }
+            );
           }
         }
         this.setState({loading: false});
