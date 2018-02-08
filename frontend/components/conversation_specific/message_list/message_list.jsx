@@ -39,11 +39,21 @@ class MessageList extends React.Component {
       this.props.fetchConversationDetails(convoId)
       .then(
         ()=>{
-          this.props.setSocket(convoId);
+          this.props.receiveCurrentConversationId(convoId);
+        }
+      )
+      .then(
+        ()=>{
           this.setState({loading: false});
-        },
-        ()=>this.props.history.push('/conversations/new')
+        }
       );
+      // .then(
+      //   ()=>{
+      //     this.props.setSocket(convoId);
+      //     this.setState({loading: false});
+      //   },
+      //   ()=>this.props.history.push('/conversations/new')
+      // );
     }
   }
 

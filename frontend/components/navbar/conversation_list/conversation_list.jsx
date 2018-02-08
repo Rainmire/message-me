@@ -24,9 +24,6 @@ class ConversationList extends React.Component {
           else {
             if (path==="/conversations" || path==="/conversations/") {
               const id = this.props.conversations[0].id;
-
-              // receiveCurrentConversationId(id); //////////////
-
               this.props.history.push(`/conversations/${id}`);
             }
           }

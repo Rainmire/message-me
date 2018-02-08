@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import ConversationList from './conversation_list';
 
-import { fetchConversations, receiveCurrentConversationId } from 'actions/conversation_list_actions';
+import { fetchConversations } from 'actions/conversation_list_actions';
 
 import { withRouter } from 'react-router-dom';
 
@@ -11,7 +11,6 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   fetchConversations: () => dispatch(fetchConversations()),
-  // receiveCurrentConversationId: (id) => dispatch(receiveCurrentConversationId(id))
 });
 
 export default withRouter(connect(

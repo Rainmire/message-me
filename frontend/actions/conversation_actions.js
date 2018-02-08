@@ -6,6 +6,7 @@ export const RECEIVE_MESSAGE = 'RECEIVE_MESSAGE';
 export const RECEIVE_MESSAGES = 'RECEIVE_MESSAGES';
 export const RECEIVE_MEMBERS = 'RECEIVE_MEMBERS';
 export const CLEAR_MEMBERS = 'CLEAR_MEMBERS';
+export const RECEIVE_CURRENT_CONVERSATION_ID = 'RECEIVE_CURRENT_CONVERSATION_ID';
 
 export const receiveMessage = message => ({
   type: RECEIVE_MESSAGE,
@@ -24,6 +25,11 @@ export const receiveMembers = members => ({
 
 export const clearMembers = () => ({
   type: CLEAR_MEMBERS
+});
+
+export const receiveCurrentConversationId = (currentConversationId) => ({
+  type: RECEIVE_CURRENT_CONVERSATION_ID,
+  currentConversationId
 });
 
 export const createMessage = (formMessage, conversationId) => dispatch => {
