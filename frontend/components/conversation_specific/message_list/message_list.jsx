@@ -19,13 +19,13 @@ class MessageList extends React.Component {
     this.props.fetchConversationDetails(convoId)
     .then(
       ()=>{
-        debugger;
+        // debugger;
         this.props.receiveCurrentConversationId(convoId);
       }
     )
     .then(
       ()=>{
-        debugger;
+        // debugger;
         this.setState({loading: false});
       },
       ()=>this.props.history.push('/conversations/new')
