@@ -1,10 +1,11 @@
 import { receiveMessage, fetchConversationDetails } from './conversation_actions';
 import { fetchConversations } from './conversation_list_actions';
 
-export const setSocket = channelName => dispatch => {
-  if (window.App.channel) {
-    removeSocket();
-  }
+export const setSocket = channelName => (dispatch, getState) => {
+  // if (window.App.channel) {
+  //   removeSocket();
+  // }
+  debugger;
   addSocket(channelName, dispatch);
 };
 
@@ -13,11 +14,9 @@ const removeSocket = () => (
 );
 
 const addSocket = (channelName, dispatch) => {
-  // debugger;
-  // channelName = "1";
+  
   window.App.channel = window.App.cable.subscriptions.create({
-    channel: 'ChatChannel',
-    channel_name: channelName
+    channel: 'ChatChannel'
   }, {
     connected: () => {console.log(`connected to: ${channelName}`);},
     disconnected: () => {},
