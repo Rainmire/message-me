@@ -1,3 +1,5 @@
+import { updateMembers } from 'actions/conversation_actions';
+
 export const RECEIVE_MESSAGE = 'RECEIVE_MESSAGE';
 export const RECEIVE_MESSAGES = 'RECEIVE_MESSAGES';
 
