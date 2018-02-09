@@ -1,19 +1,15 @@
 export const RECEIVE_MESSAGE = 'RECEIVE_MESSAGE';
-
-// import { receiveMessage } from 'actions/conversation_actions';
+export const RECEIVE_MESSAGES = 'RECEIVE_MESSAGES';
 
 const receiveMessage = message => ({
   type: RECEIVE_MESSAGE,
   message
 });
 
-// const receiveMessage = message => {
-//   debugger;
-//   return {
-//     type: RECEIVE_MESSAGE,
-//     message
-//   };
-// };
+export const receiveMessages = messages => ({
+  type: RECEIVE_MESSAGES,
+  messages
+});
 
 
 export const parseMessage = message => (dispatch, getState) => {
