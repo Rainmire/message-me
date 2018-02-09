@@ -32,9 +32,9 @@ export const receiveCurrentConversationId = (currentConversationId) => ({
   currentConversationId
 });
 
-export const createMessage = (formMessage, conversationId) => dispatch => {
-  APIUtil.createMessage(formMessage, conversationId);
-};
+export const createMessage = (formMessage, conversationId) => dispatch => (
+  APIUtil.createMessage(formMessage, conversationId)
+);
 
 export const fetchConversationDetails = (conversationId) => dispatch => (
   APIUtil.fetchConversationDetails(conversationId).then((conversation) => {
