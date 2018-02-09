@@ -14,7 +14,7 @@ class MessageList extends React.Component {
   }
 
   componentDidMount() {
-    const convoId = this.props.conversation_id;
+    const convoId = parseInt(this.props.conversation_id);
     // debugger;
     this.props.fetchConversationDetails(convoId)
     .then(
