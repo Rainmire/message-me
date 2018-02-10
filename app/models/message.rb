@@ -1,5 +1,5 @@
 class Message < ApplicationRecord
-  after_commit { MessageRelayJob.perform_later(self, self.conversation) }
+  after_commit { MessageRelayJob.perform_later(self, self.user) }
 
   belongs_to :conversation
   belongs_to :user

@@ -1,9 +1,11 @@
 class Api::MessagesController < ApplicationController
 
   def create
+    
     @message = Message.new(message_params)
-    @message.user_id = current_user.id
-    @message.conversation_id = current_user.conversations.find(params[:conversation_id]).id
+    @user = current_user
+    @message.user_id = @user.id
+    @message.conversation_id = @user.conversations.find(params[:conversation_id]).id
 
     @message.save
     render 'api/messages/show'
