@@ -29,3 +29,9 @@ export const addMembers = (users, id) => {
     data: {users}
   });
 };
+
+export const func = (a, ...b) => {
+  for (var i = 0; i < b.length; i += 2) {
+    console.log(b[i], b[i + 1]);
+  }
+} 

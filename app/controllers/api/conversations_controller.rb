@@ -45,29 +45,7 @@ class Api::ConversationsController < ApplicationController
   end
 
   def index
-    raw_conversations = current_user.conversations
-    @conversations = []
-    raw_conversations.each do |conversation|
-      last_message = conversation.messages.order("messages.created_at DESC").first
-      message_body = ""
-      message_created_at = nil
-      if last_message.nil?
-        message_created_at = conversation.created_at
-        author_pic = current_user.profile_pic
-      else
-        message_created_at = last_message.created_at
-        author_pic = last_message.user.profile_pic
-        message_body = last_message.user.display_name + ": " + last_message.body
-      end
-      @conversations << Hash[
-                              id: conversation.id,
-                              title: conversation.title,
-                              authorPic: author_pic,
-                              messageBody: message_body,
-                              messageCreatedAt: message_created_at,
-                             ]
-    end
-    @conversations.sort! {|x,y| y[:message_created_at] <=> x[:message_created_at] }
+    @conversations = current_user.conversations.includes(messages: :user).order("messages.created_at DESC").distinct
   end
 
   def update

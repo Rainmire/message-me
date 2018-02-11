@@ -13,16 +13,27 @@ const conversationListReducer = (state = [], action) => {
       let idx = selectConversationIndexById(action.notification.conversation_id);
       return state.map(conversation =>
         (conversation.id === message.conversation_id)
-          ? {...conversation, 
-            authorPic: message.author.profile_pic, 
-            messageBody: message.body,
-            messageCreatedAt: message.create_at
+          ? {
+              id: conversation.id,
+              title: conversation.title,
+              authorPic: message.profile_pic,
+              authorName: message.display_name,
+              messageBody: message.body,
+              messageCreatedAt: message.created_at
           }
           : conversation
       )
+
+      return state;
     default:
       return state;
   }
 };
 
 export default conversationListReducer;
+
+//////////////////////////////////////////////////////
+
+// SELECT * FROM conversations
+// JOIN messages ON conversations.id = messages.conversation_id
+// ORDER BY messages.created_at DESC
