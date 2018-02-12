@@ -13,10 +13,9 @@ class ConversationList extends React.Component {
   }
 
   componentDidMount() {
-    this.props.setSocket();
+    // this.props.setSocket();
     this.props.fetchConversations().then(
       (action)=>{
-        console.log("fetchConversations complete")
         const path = this.props.location.pathname;
 
         if (path!=='/conversations/new') {
@@ -25,7 +24,7 @@ class ConversationList extends React.Component {
           }
           else {
             if (path==="/conversations" || path==="/conversations/") {
-              const id = this.props.conversations[0].id;
+              const id = this.props.conversations[0].conversationId;
               this.props.history.push(`/conversations/${id}`);
             }
           }
@@ -39,7 +38,7 @@ class ConversationList extends React.Component {
     const path = nextProps.location.pathname;
     if(nextProps.conversations.length!==0) {
       if (path==="/conversations" || path==="/conversations/") {
-        const id = nextProps.conversations[0].id;
+        const id = nextProps.conversations[0].conversationId;
         nextProps.history.push(`/conversations/${id}`);
       }
     }

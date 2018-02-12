@@ -7,8 +7,7 @@ json.members do
 end
 
 json.messages do
-  messages = @conversation.messages.order("messages.created_at ASC")
-  json.array!(messages) do |message|
+  json.array!(@conversation.messages) do |message|
     json.partial! 'api/messages/message', message: message
   end
 end

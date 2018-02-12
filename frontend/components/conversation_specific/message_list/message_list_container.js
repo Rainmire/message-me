@@ -7,9 +7,10 @@ import { selectAllMessages } from 'reducers/selectors';
 import { fetchConversationDetails, receiveCurrentConversationId } from 'actions/conversation_actions';
 
 const mapStateToProps = (state, ownProps) => ({
-  conversation_id: ownProps.match.params.id,
+  conversationId: ownProps.match.params.id,
   members: state.entities.members,
-  messages: selectAllMessages(state),
+  // messages: selectAllMessages(state),
+  messages: state.entities.messages,
   currentUserId: state.session.currentUser.id
 });
 
