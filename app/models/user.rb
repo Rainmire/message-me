@@ -10,7 +10,8 @@ class User < ApplicationRecord
 
   after_initialize :ensure_session_token
 
-  has_many :messages
+  has_many :messages,
+  foreign_key: :author_id
 
   has_many :conversation_memberships,
   primary_key: :id,

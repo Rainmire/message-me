@@ -16,6 +16,7 @@ class ConversationList extends React.Component {
     this.props.setSocket();
     this.props.fetchConversations().then(
       (action)=>{
+        console.log("fetchConversations complete")
         const path = this.props.location.pathname;
 
         if (path!=='/conversations/new') {
@@ -57,11 +58,11 @@ class ConversationList extends React.Component {
     return (
       <li key={idx} className="conversation-list-item">
         <Link className="conversation-item-link" to={`/conversations/${conversation.id}`}>
-          <img className="latest-author-pic" src={conversation.author_pic}/>
+          <img className="latest-author-pic" src={conversation.authorPic}/>
           <div className="latest-message">
             <div className="conversation-item-header">
               <div className="conversation-title">{conversation.title}</div>
-              <div className="conversation-timestamp">{toLocalTime(conversation.message_created_at)}</div>
+              <div className="conversation-timestamp">{toLocalTime(conversation.messageCreatedAt)}</div>
             </div>
             <div className="latest-message-body">
               {this.messageBody(conversation)}

@@ -39,13 +39,12 @@ class Api::ConversationsController < ApplicationController
   end
 
   def show
-    # debugger
-    @conversation = current_user.conversations.find(params[:id])
+    @conversation = current_user.conversations.includes(messages: :author).find(params[:id])
     render json: "Conversation does not exist", status: 400 if !@conversation
   end
 
   def index
-    @conversations = current_user.conversations.includes(messages: :user).order("messages.created_at DESC").distinct
+    @conversations = current_user.conversations.includes(messages: :author).order("messages.created_at DESC").distinct
   end
 
   def update

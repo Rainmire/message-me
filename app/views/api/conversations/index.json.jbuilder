@@ -1,16 +1,16 @@
-#json.array!(@conversations) do |conversation|
-#  json.extract! conversation, :id, :title, :authorPic, :authorName, :messageBody, :messageCreatedAt
-#end
-
-
 json.array!(@conversations) do |conversation|
-  json.extract! conversation, :id, :title
+  # json.extract! conversation, :id, :title
 
-  #debugger
+  json.conversationId conversation.id
+  json.title conversation.title
+
   latest_message = conversation.messages.first
   
-  json.authorPic latest_message.user.profile_pic
-  json.authorName latest_message.user.display_name
+  # json.authorPic latest_message.author.profile_pic
+  # json.authorName latest_message.author.display_name
+
+  json.partial! 'api/users/user', user: latest_message.author
+
   json.messageBody latest_message.body
   json.messageCreatedAt latest_message.created_at
 end

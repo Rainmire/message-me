@@ -2,7 +2,11 @@ class Message < ApplicationRecord
   after_commit { MessageRelayJob.perform_later(self, self.user) }
 
   belongs_to :conversation
-  belongs_to :user
+
+  belongs_to :author,
+  class_name: :User,
+  foreign_key: :author_id
+
   validates :body, presence: true
 
   def body
