@@ -4,32 +4,32 @@ import {toLocalTime} from 'util/local_time_conversion';
 class MessageListItem extends React.Component {
 
   messageBody(message) {
-    if (message.message_type === "text") {
+    if (message.messageType === "text") {
       return (
         <div className="message-body">
-          {message.body}
+          {message.messageBody}
         </div>
       );
     }
     else {
       return (
-        <img className="message-image" onLoad={this.props.scrollToBottom} src={message.body}/>
+        <img className="message-image" onLoad={this.props.scrollToBottom} src={message.messageBody}/>
       );
     }
 
   }
 
   render() {
-    const { message, author, currentUserId } = this.props;
-    const messageClass = author.id===currentUserId ? "message-item my-message" : "message-item their-message";
-    const timestamp = toLocalTime(message.created_at);
+    const { message, currentUserId } = this.props;
+    const messageClass = message.authorId===currentUserId ? "message-item my-message" : "message-item their-message";
+    const timestamp = toLocalTime(message.createdAt);
     return (
       <li className={messageClass}>
-        <img className="author-pic" src={author.profile_pic} />
+        <img className="author-pic" src={message.profilePic} />
         <div className="message-text">
           <div className="message-info">
             <div className="author-name">
-              {author.display_name}
+              {message.displayName}
             </div>
             <div className="timestamp">
               {timestamp}

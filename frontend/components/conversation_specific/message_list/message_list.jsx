@@ -17,7 +17,6 @@ class MessageList extends React.Component {
 
     const convoId = this.props.conversationId;
     // const convoId = parseInt(this.props.conversationId);
-    // debugger;
     this.props.fetchConversationDetails(convoId)
     .then(
       ()=>{
@@ -50,13 +49,6 @@ class MessageList extends React.Component {
           this.setState({loading: false});
         }
       );
-      // .then(
-      //   ()=>{
-      //     this.props.setSocket(convoId);
-      //     this.setState({loading: false});
-      //   },
-      //   ()=>this.props.history.push('/conversations/new')
-      // );
     }
   }
 
@@ -71,19 +63,19 @@ class MessageList extends React.Component {
   }
 
   render() {
-    const { messages, currentUserId, members } = this.props;
+    const { messages, currentUserId } = this.props;
     if( !this.state.loading ) {
       return(
         <div className="message-container">
           <ul className="message-list">
             {
               messages.map((message, idx) => {
-                const author = members[message.user_id];
+                // const author = members[message.user_id];
                 return <MessageListItem
                   key={idx}
                   message={message}
-                  idx={idx}
-                  author={author}
+                  // idx={idx}
+                  // author={author}
                   currentUserId={currentUserId}
                   scrollToBottom={this.scrollToBottom} />;
               })
