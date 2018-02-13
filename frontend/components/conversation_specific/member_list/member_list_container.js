@@ -2,11 +2,12 @@ import { connect } from 'react-redux';
 import MembersList from './member_list';
 import {withRouter} from 'react-router-dom';
 
-import { selectAllMembers } from 'reducers/selectors';
+// import { selectAllMembers } from 'reducers/selectors';
 import { addMembers } from 'actions/conversation_actions';
 
 const mapStateToProps = (state) => ({
-  members: selectAllMembers(state),
+  // members: selectAllMembers(state),
+  members: state.entities.members,
   currentUser: state.session.currentUser
 });
 
