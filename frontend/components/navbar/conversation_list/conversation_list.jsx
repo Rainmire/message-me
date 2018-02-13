@@ -5,12 +5,12 @@ import { ClipLoader } from 'react-spinners';
 
 class ConversationList extends React.Component {
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      loading: true
-    };
-  }
+  // constructor(props) {
+  //   super(props);
+  //   this.state = {
+  //     loading: true
+  //   };
+  // }
 
   componentDidMount() {
     // this.props.setSocket();
@@ -29,7 +29,7 @@ class ConversationList extends React.Component {
             }
           }
         }
-        this.setState({loading: false});
+        // this.setState({loading: false});
       }
     );
   }
@@ -73,8 +73,8 @@ class ConversationList extends React.Component {
   }
 
   render() {
-    const { conversations } = this.props;
-    if( !this.state.loading ) {
+    const { loading, conversations } = this.props;
+    if( !loading ) {
       return(
         <ul className = "conversation-list">
           {conversations.map((conversation, idx) => (
@@ -89,7 +89,7 @@ class ConversationList extends React.Component {
           <div className = "conversation-loader">
             <ClipLoader
               color={'#123abc'}
-              loading={this.state.loading}
+              loading={true}
             />
           </div>
         </div>
