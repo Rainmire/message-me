@@ -16,28 +16,24 @@ class MessageList extends React.Component {
   componentDidMount() {
 
     const convoId = this.props.conversationId;
-    // const convoId = parseInt(this.props.conversationId);
     this.props.fetchConversationDetails(convoId)
     .then(
       ()=>{
-        // debugger;
         this.props.receiveCurrentConversationId(convoId);
       }
+    )
+    .then(
+      ()=>{
+        this.setState({loading: false});
+      },
+      ()=>this.props.history.push('/conversations/new')
     );
-    // .then(
-    //   ()=>{
-    //     // debugger;
-    //     this.setState({loading: false});
-    //   },
-    //   ()=>this.props.history.push('/conversations/new')
-    // );
   }
 
   componentWillReceiveProps(nextProps) {
     const convoId = nextProps.match.params.id;
     if(this.props.match.params.id!==convoId) {
       this.setState({loading: true});
-      // debugger;
       this.props.fetchConversationDetails(convoId)
       .then(
         ()=>{
