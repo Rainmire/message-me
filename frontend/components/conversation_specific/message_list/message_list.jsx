@@ -23,14 +23,14 @@ class MessageList extends React.Component {
         // debugger;
         this.props.receiveCurrentConversationId(convoId);
       }
-    )
-    .then(
-      ()=>{
-        // debugger;
-        this.setState({loading: false});
-      },
-      ()=>this.props.history.push('/conversations/new')
     );
+    // .then(
+    //   ()=>{
+    //     // debugger;
+    //     this.setState({loading: false});
+    //   },
+    //   ()=>this.props.history.push('/conversations/new')
+    // );
   }
 
   componentWillReceiveProps(nextProps) {
@@ -69,16 +69,13 @@ class MessageList extends React.Component {
         <div className="message-container">
           <ul className="message-list">
             {
-              messages.map((message, idx) => {
-                // const author = members[message.user_id];
-                return <MessageListItem
+              messages.map((message, idx) => (
+                <MessageListItem
                   key={idx}
-                  message={message}
-                  // idx={idx}
-                  // author={author}
+                  message={message}                 
                   currentUserId={currentUserId}
-                  scrollToBottom={this.scrollToBottom} />;
-              })
+                  scrollToBottom={this.scrollToBottom} />
+              ))
             }
             <div ref={el => { this.messagesEnd = el; }} />
           </ul>
