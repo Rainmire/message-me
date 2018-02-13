@@ -8,7 +8,8 @@ import { addMembers } from 'actions/conversation_actions';
 const mapStateToProps = (state) => ({
   // members: selectAllMembers(state),
   members: state.entities.members,
-  currentUser: state.session.currentUser
+  currentUser: state.session.currentUser,
+  loading: state.loading.detailLoading
 });
 
 const mapDispatchToProps = (dispatch, {match}) => ({

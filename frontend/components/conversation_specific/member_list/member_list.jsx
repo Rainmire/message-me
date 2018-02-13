@@ -1,5 +1,6 @@
 import React from 'react';
 import UserSearchContainer from 'components/user_search/user_search_container';
+import { ClipLoader } from 'react-spinners';
 
 class ConversationList extends React.Component {
 
@@ -68,23 +69,33 @@ class ConversationList extends React.Component {
   }
 
   render() {
-    const { members, currentUser } = this.props;
+    const { loading, members, currentUser } = this.props;
 
-    return(
-      <ul className="member-list">
-        <li className="member-list-title">Members</li>
-        {this.addMemberButton()}
-        <li className = "member-list-item">
-          <img className="member-list-pic" src={currentUser.profilePic} />
-          <div className="member-list-name">
-            {currentUser.displayName}
-          </div>
-        </li>
-        {members.map((member,idx) => (
-          this.memberItem(member, idx, currentUser)
-        ))}
-      </ul>
-    );
+    if (!loading) {
+      return(
+        <ul className="member-list">
+          <li className="member-list-title">Members</li>
+          {this.addMemberButton()}
+          <li className = "member-list-item">
+            <img className="member-list-pic" src={currentUser.profilePic} />
+            <div className="member-list-name">
+              {currentUser.displayName}
+            </div>
+          </li>
+          {members.map((member,idx) => (
+            this.memberItem(member, idx, currentUser)
+          ))}
+        </ul>
+      );
+    }
+    else {
+      return(
+        <ClipLoader
+          color={'#123abc'}
+          loading={true}
+        />
+      );
+    }
   }
 }
 

@@ -7,9 +7,9 @@ class MessageList extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = {
-      loading: true
-    };
+    // this.state = {
+    //   loading: true
+    // };
     this.scrollToBottom = this.scrollToBottom.bind(this);
   }
 
@@ -21,35 +21,35 @@ class MessageList extends React.Component {
       ()=>{
         this.props.receiveCurrentConversationId(convoId);
       }
-    )
-    .then(
-      ()=>{
-        this.setState({loading: false});
-      },
-      ()=>this.props.history.push('/conversations/new')
     );
+    // .then(
+    //   ()=>{
+    //     // this.setState({loading: false});
+    //   },
+    //   ()=>this.props.history.push('/conversations/new')
+    // );
   }
 
   componentWillReceiveProps(nextProps) {
     const convoId = nextProps.match.params.id;
     if(this.props.match.params.id!==convoId) {
-      this.setState({loading: true});
+      // this.setState({loading: true});
       this.props.fetchConversationDetails(convoId)
       .then(
         ()=>{
           this.props.receiveCurrentConversationId(convoId);
         }
-      )
-      .then(
-        ()=>{
-          this.setState({loading: false});
-        }
       );
+      // .then(
+      //   ()=>{
+      //     this.setState({loading: false});
+      //   }
+      // );
     }
   }
 
   componentDidUpdate() {
-    if( !this.state.loading ) {
+    if( !this.props.loading ) {
       this.scrollToBottom();
     }
   }
@@ -59,8 +59,8 @@ class MessageList extends React.Component {
   }
 
   render() {
-    const { messages, currentUserId } = this.props;
-    if( !this.state.loading ) {
+    const { loading, messages, currentUserId } = this.props;
+    if( !loading ) {
       return(
         <div className="message-container">
           <ul className="message-list">
@@ -84,7 +84,7 @@ class MessageList extends React.Component {
         <div className = "message-loader">
           <ClipLoader
             color={'#123abc'}
-            loading={this.state.loading}
+            loading={true}
           />
         </div>
       </div>
