@@ -37,6 +37,9 @@ class Api::UsersController < ApplicationController
       membership2 = ConversationMembership.new(member_id: @user.id, conversation_id: 2)
       membership3 = ConversationMembership.new(member_id: @user.id, conversation_id: 3)
 
+      membership1.save
+      membership2.save
+      membership3.save
       # UpdateMembersJob.perform_later(1) if membership1.save
       # UpdateMembersJob.perform_later(2) if membership2.save      
       # UpdateMembersJob.perform_later(3) if membership3.save

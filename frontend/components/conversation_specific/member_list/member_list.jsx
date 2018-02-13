@@ -1,5 +1,6 @@
 import React from 'react';
 import UserSearchContainer from 'components/user_search/user_search_container';
+import { ClipLoader } from 'react-spinners';
 
 class ConversationList extends React.Component {
 
@@ -7,8 +8,7 @@ class ConversationList extends React.Component {
     super(props);
 
     this.state = {
-      clickAddMember: false,
-      memberId: ''
+      clickAddMember: false
     };
     this.addMemberButton = this.addMemberButton.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -56,12 +56,12 @@ class ConversationList extends React.Component {
   }
 
   memberItem(member, idx, currentUser) {
-    if (member.id !== currentUser.id) {
+    if (member.userId !== currentUser.userId) {
       return (
         <li key={idx} className="member-list-item">
-          <img className="member-list-pic" src={member.profile_pic} />
+          <img className="member-list-pic" src={member.profilePic} />
           <div className="member-list-name">
-            {member.display_name}
+            {member.displayName}
           </div>
         </li>
       );
@@ -69,23 +69,33 @@ class ConversationList extends React.Component {
   }
 
   render() {
-    const { members, currentUser } = this.props;
+    const { loading, members, currentUser } = this.props;
 
-    return(
-      <ul className="member-list">
-        <li className="member-list-title">Members</li>
-        {this.addMemberButton()}
-        <li className = "member-list-item">
-          <img className="member-list-pic" src={currentUser.profile_pic} />
-          <div className="member-list-name">
-            {currentUser.display_name}
-          </div>
-        </li>
-        {members.map((member,idx) => (
-          this.memberItem(member, idx, currentUser)
-        ))}
-      </ul>
-    );
+    if (!loading) {
+      return(
+        <ul className="member-list">
+          <li className="member-list-title">Members</li>
+          {this.addMemberButton()}
+          <li className = "member-list-item">
+            <img className="member-list-pic" src={currentUser.profilePic} />
+            <div className="member-list-name">
+              {currentUser.displayName}
+            </div>
+          </li>
+          {members.map((member,idx) => (
+            this.memberItem(member, idx, currentUser)
+          ))}
+        </ul>
+      );
+    }
+    else {
+      return(
+        <ClipLoader
+          color={'#123abc'}
+          loading={true}
+        />
+      );
+    }
   }
 }
 

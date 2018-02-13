@@ -1,8 +1,6 @@
 json.members do
-  @conversation.members.each do |member|
-    json.set! member.id do
-      json.partial! 'api/users/user', user: member
-    end
+  json.array!(@conversation.members) do |member|
+    json.partial! 'api/users/user', user: member
   end
 end
 

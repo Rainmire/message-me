@@ -6,8 +6,10 @@ const messageReducer = (state = {}, action) => {
   Object.freeze(state);
   switch(action.type) {
     case RECEIVE_MESSAGE:
-      const newMessage = {[action.message.id]: action.message};
-      return merge({}, state, newMessage);
+      // debugger;
+      // const newMessage = {[action.message.id]: action.message};
+      // return merge({}, state, action.message);
+      return Object.assign([], state).concat(action.message)
     case RECEIVE_MESSAGES:
       if (action.messages == null)
         return {};

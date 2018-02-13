@@ -7,61 +7,34 @@ class MessageList extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = {
-      loading: true
-    };
     this.scrollToBottom = this.scrollToBottom.bind(this);
   }
 
   componentDidMount() {
+    const convoIdStr = this.props.conversationId;
+    const convoIdInt = parseInt(convoIdStr);
 
-    const convoId = this.props.conversationId;
-    // const convoId = parseInt(this.props.conversationId);
-    // debugger;
-    this.props.fetchConversationDetails(convoId)
-    .then(
-      ()=>{
-        // debugger;
-        this.props.receiveCurrentConversationId(convoId);
-      }
-    )
-    .then(
-      ()=>{
-        // debugger;
-        this.setState({loading: false});
-      },
-      ()=>this.props.history.push('/conversations/new')
-    );
+    this.props.fetchConversationDetails(convoIdInt)
+    .then(() => (
+      this.props.receiveCurrentConversationId(convoIdInt)
+    ));
   }
 
   componentWillReceiveProps(nextProps) {
-    const convoId = nextProps.match.params.id;
-    if(this.props.match.params.id!==convoId) {
-      this.setState({loading: true});
-      // debugger;
-      this.props.fetchConversationDetails(convoId)
+    const convoIdStr = nextProps.match.params.id;
+    const convoIdInt = parseInt(convoIdStr);
+    if(this.props.match.params.id!==convoIdStr) {
+      this.props.fetchConversationDetails(convoIdInt)
       .then(
         ()=>{
-          this.props.receiveCurrentConversationId(convoId);
-        }
-      )
-      .then(
-        ()=>{
-          this.setState({loading: false});
+          this.props.receiveCurrentConversationId(convoIdInt);
         }
       );
-      // .then(
-      //   ()=>{
-      //     this.props.setSocket(convoId);
-      //     this.setState({loading: false});
-      //   },
-      //   ()=>this.props.history.push('/conversations/new')
-      // );
     }
   }
 
   componentDidUpdate() {
-    if( !this.state.loading ) {
+    if( !this.props.loading ) {
       this.scrollToBottom();
     }
   }
@@ -71,22 +44,19 @@ class MessageList extends React.Component {
   }
 
   render() {
-    const { messages, currentUserId, members } = this.props;
-    if( !this.state.loading ) {
+    const { loading, messages, currentUserId } = this.props;
+    if( !loading ) {
       return(
         <div className="message-container">
           <ul className="message-list">
             {
-              messages.map((message, idx) => {
-                const author = members[message.user_id];
-                return <MessageListItem
+              messages.map((message, idx) => (
+                <MessageListItem
                   key={idx}
-                  message={message}
-                  idx={idx}
-                  author={author}
+                  message={message}                 
                   currentUserId={currentUserId}
-                  scrollToBottom={this.scrollToBottom} />;
-              })
+                  scrollToBottom={this.scrollToBottom} />
+              ))
             }
             <div ref={el => { this.messagesEnd = el; }} />
           </ul>
@@ -99,7 +69,7 @@ class MessageList extends React.Component {
         <div className = "message-loader">
           <ClipLoader
             color={'#123abc'}
-            loading={this.state.loading}
+            loading={true}
           />
         </div>
       </div>

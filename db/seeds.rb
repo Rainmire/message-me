@@ -72,12 +72,12 @@ messages = Message.create([
 
 ])
 
-# messages.each.with_index do |message, idx|
-#   message.update_attribute :created_at, (messages.length-idx).minutes.ago
-# end
+messages.each.with_index do |message, idx|
+  message.update_attribute :created_at, (messages.length-idx).minutes.ago
+end
 
 ###reverse order testing###
-messages.each.with_index do |message, idx|
-  message.update_attribute :created_at, (idx).minutes.ago
-end
+# messages.each.with_index do |message, idx|
+#   message.update_attribute :created_at, (idx).minutes.ago
+# end
 ###
