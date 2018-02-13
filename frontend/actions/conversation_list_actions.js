@@ -1,19 +1,19 @@
 import * as APIUtil from 'util/conversation_list_api_util';
 export const RECEIVE_CONVERSATIONS = 'RECEIVE_CONVERSATIONS';
-export const RECEIVE_CONVERSATION = 'RECEIVE_CONVERSATION';
+export const START_LOADING_INDEX = 'START_LOADING_INDEX';
 
 export const receiveConversations = conversations => ({
   type: RECEIVE_CONVERSATIONS,
   conversations
 });
 
-export const receiveConversation = conversation => ({
-  type: RECEIVE_CONVERSATION,
-  conversation
-});
+const startLoadingIndex = () => ({
+  type: START_LOADING_INDEX
+})
 
-export const fetchConversations = () => dispatch => (
-  APIUtil.fetchConversations().then(conversations => (
+export const fetchConversations = () => dispatch => {
+  dispatch(startLoadingIndex());
+  return APIUtil.fetchConversations().then(conversations => (
     dispatch(receiveConversations(conversations))
-  ))
-);
+  ));
+};
