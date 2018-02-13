@@ -5,33 +5,23 @@ import { ClipLoader } from 'react-spinners';
 
 class ConversationList extends React.Component {
 
-  // constructor(props) {
-  //   super(props);
-  //   this.state = {
-  //     loading: true
-  //   };
-  // }
-
   componentDidMount() {
-    // this.props.setSocket();
-    this.props.fetchConversations().then(
-      (action)=>{
-        const path = this.props.location.pathname;
+    this.props.setSocket();
+    this.props.fetchConversations().then(() => {
+      const path = this.props.location.pathname;
 
-        if (path!=='/conversations/new') {
-          if(this.props.conversations.length===0) {
-            this.props.history.push('/conversations/new');
-          }
-          else {
-            if (path==="/conversations" || path==="/conversations/") {
-              const id = this.props.conversations[0].conversationId;
-              this.props.history.push(`/conversations/${id}`);
-            }
+      if (path!=='/conversations/new') {
+        if(this.props.conversations.length===0) {
+          this.props.history.push('/conversations/new');
+        }
+        else {
+          if (path==="/conversations" || path==="/conversations/") {
+            const id = this.props.conversations[0].conversationId;
+            this.props.history.push(`/conversations/${id}`);
           }
         }
-        // this.setState({loading: false});
       }
-    );
+    })
   }
 
   componentWillReceiveProps(nextProps) {

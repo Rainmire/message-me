@@ -8,8 +8,8 @@ class ApplicationController < ActionController::Base
 
   def current_user
     ###TODO: REMOVE AFTER TESTING
-    @current_user = User.first
-    return @current_user
+    # @current_user = User.first
+    # return @current_user
     ###
 
 

@@ -6,11 +6,11 @@ import values from 'lodash/values';
 
 export const selectAllUserSearchResults = state => values(state.entities.userSearchResults);
 
-export const selectConversationIndexById = (id, state) => {
-  for(let i = 0; i < state.length; i++) {
-    if (state[i].id === id) {
-      return i;
-    }
-  }
-  return -1;
-}
+// export const selectConversationIndexById = (id, state) => {
+//   for(let i = 0; i < state.length; i++) {
+//     if (state[i].id === id) {
+//       return i;
+//     }
+//   }
+//   return -1;
+// }

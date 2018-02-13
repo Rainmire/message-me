@@ -4,7 +4,7 @@ class Api::MessagesController < ApplicationController
     
     @message = Message.new(message_params)
     @user = current_user
-    @message.user_id = @user.id
+    @message.author_id = @user.id
     @message.conversation_id = @user.conversations.find(params[:conversation_id]).id
 
     @message.save

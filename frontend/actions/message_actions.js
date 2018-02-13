@@ -21,21 +21,17 @@ export const receiveNotification = notification => ({
 
 export const parseMessage = message => (dispatch, getState) => {
   let currentConvo = getState().entities.currentConversationId;
-  let messageConvo = message.conversation_id;
+  let messageConvo = message.conversationId;
 
-  if (message.message_type === "update") {
-    if (currentConvo === messageConvo) {
-      //dispatch update member
-    }
-  }
-  else {
-    if (currentConvo === messageConvo) {
-      dispatch(receiveMessage(message));
-    }
-    else {
-      //dispatch notification
-      dispatch(receiveNotification(message));
-    }
-  }
+  // if (message.message_type === "update") {
+  //   if (currentConvo === messageConvo) {
+  //     //dispatch update member
+  //   }
+  // }
+  dispatch(receiveNotification(message));
+
+  if (currentConvo === messageConvo) {
+    dispatch(receiveMessage(message));
+  }  
 
 };

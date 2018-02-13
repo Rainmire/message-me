@@ -7,44 +7,29 @@ class MessageList extends React.Component {
 
   constructor(props) {
     super(props);
-    // this.state = {
-    //   loading: true
-    // };
     this.scrollToBottom = this.scrollToBottom.bind(this);
   }
 
   componentDidMount() {
+    const convoIdStr = this.props.conversationId;
+    const convoIdInt = parseInt(convoIdStr);
 
-    const convoId = this.props.conversationId;
-    this.props.fetchConversationDetails(convoId)
-    .then(
-      ()=>{
-        this.props.receiveCurrentConversationId(convoId);
-      }
-    );
-    // .then(
-    //   ()=>{
-    //     // this.setState({loading: false});
-    //   },
-    //   ()=>this.props.history.push('/conversations/new')
-    // );
+    this.props.fetchConversationDetails(convoIdInt)
+    .then(() => (
+      this.props.receiveCurrentConversationId(convoIdInt)
+    ));
   }
 
   componentWillReceiveProps(nextProps) {
-    const convoId = nextProps.match.params.id;
-    if(this.props.match.params.id!==convoId) {
-      // this.setState({loading: true});
-      this.props.fetchConversationDetails(convoId)
+    const convoIdStr = nextProps.match.params.id;
+    const convoIdInt = parseInt(convoIdStr);
+    if(this.props.match.params.id!==convoIdStr) {
+      this.props.fetchConversationDetails(convoIdInt)
       .then(
         ()=>{
-          this.props.receiveCurrentConversationId(convoId);
+          this.props.receiveCurrentConversationId(convoIdInt);
         }
       );
-      // .then(
-      //   ()=>{
-      //     this.setState({loading: false});
-      //   }
-      // );
     }
   }
 
