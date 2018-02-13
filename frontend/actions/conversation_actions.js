@@ -7,6 +7,7 @@ export const RECEIVE_MEMBERS = 'RECEIVE_MEMBERS';
 export const CLEAR_MEMBERS = 'CLEAR_MEMBERS';
 export const RECEIVE_CURRENT_CONVERSATION_ID = 'RECEIVE_CURRENT_CONVERSATION_ID';
 export const START_LOADING_DETAILS = 'START_LOADING_DETAILS';
+export const RECEIVE_DETAILS = 'RECEIVE_DETAILS';
 
 export const receiveMembers = members => ({
   type: RECEIVE_MEMBERS,
@@ -36,13 +37,13 @@ const receiveDetails = () => ({
 
 export const fetchConversationDetails = (conversationId) => dispatch => {
   dispatch(startLoadingDetails());
-  APIUtil.fetchConversationDetails(conversationId).then((conversation) => {
+  return APIUtil.fetchConversationDetails(conversationId).then((conversation) => {
       dispatch(receiveMembers(conversation.members));
       dispatch(receiveMessages(conversation.messages));
     }
   ).then(() => (
     dispatch(receiveDetails())
-  ))
+  ));
 };
 
 export const createConversation = users => dispatch => (
