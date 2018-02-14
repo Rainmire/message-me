@@ -9,15 +9,23 @@ const conversationListReducer = (state = [], action) => {
       return action.conversations;
     case RECEIVE_NOTIFICATION:
       let message = action.notification;
-      return state.map(conversation => {
+      let newConversations = [message];
+      state.forEach((conversation) => {
         if (conversation.conversationId === message.conversationId) {
-          message.title = conversation.title;
-          return message;
+          newConversations[0].title = conversation.title;
         }
         else {
-          return conversation;
+          newConversations.push(conversation);
         }
-      });
+      })
+
+      // let newConversations = state.map(conversation => {
+      //   if (conversation.conversationId !== message.conversationId) {
+      //     return conversation;
+      //   }
+      // });
+      // message.title = conversation.title;
+      return newConversations;
     default:
       return state;
   }

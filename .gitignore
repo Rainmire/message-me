@@ -30,3 +30,4 @@ bundle.js*
 /config/application.yml
 
 gconfig
+reset_heroku

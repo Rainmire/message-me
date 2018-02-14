@@ -3,7 +3,7 @@ import { fetchConversations } from './conversation_list_actions';
 import { parseMessage } from './message_actions';
 
 export const setSocket = () => (dispatch) => {
-  return window.App.channel = window.App.cable.subscriptions.create({
+  return App.cable.subscriptions.create({
     channel: 'ChatChannel'
   }, {
     connected: () => {console.log(`connected to ChatChannel`);},

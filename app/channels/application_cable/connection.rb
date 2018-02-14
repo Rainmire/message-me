@@ -10,7 +10,6 @@ module ApplicationCable
     def find_verified_user
       token = cookies.encrypted[:session_token]
       if token && verified_user = User.find_by(session_token: token)
-        puts "CONNECTION SUCCESSFUL"
         verified_user
       else
         reject_unauthorized_connection
