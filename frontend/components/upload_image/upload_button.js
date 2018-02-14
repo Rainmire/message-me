@@ -1,5 +1,4 @@
 import React from 'react';
-// var PropTypes = require('prop-types');
 
 class UploadButton extends React.Component {
 

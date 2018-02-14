@@ -1,12 +1,6 @@
 import React from 'react';
 import UserSearchIndex from './user_search_index';
 import values from 'lodash/values';
-// import { selectAllUserSelections } from '../../reducers/selectors';
-
-// import onClickOutside from 'react-onclickoutside';
-
-//state.entities.userSelections
-//dispatch(receiveUserSelection)
 
 class UserSearch extends React.Component {
   constructor(props) {
@@ -91,5 +85,4 @@ class UserSearch extends React.Component {
   }
 }
 
-// export default onClickOutside(UserSearch);
 export default UserSearch;

@@ -18,13 +18,6 @@ const conversationListReducer = (state = [], action) => {
           newConversations.push(conversation);
         }
       })
-
-      // let newConversations = state.map(conversation => {
-      //   if (conversation.conversationId !== message.conversationId) {
-      //     return conversation;
-      //   }
-      // });
-      // message.title = conversation.title;
       return newConversations;
     default:
       return state;

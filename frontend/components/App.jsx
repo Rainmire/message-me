@@ -30,7 +30,3 @@ const App = () => (
 );
 
 export default App;
-
-// <Route exact path="/conversations" render={
-//     ()=><div className="navbar">Loading</div>
-// } />

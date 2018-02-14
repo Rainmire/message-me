@@ -6,8 +6,8 @@ export const setSocket = () => (dispatch) => {
   return App.cable.subscriptions.create({
     channel: 'ChatChannel'
   }, {
-    connected: () => {console.log(`connected to ChatChannel`);},
-    disconnected: () => {console.log(`disconnected from ChatChannel`);},
+    connected: () => {},
+    disconnected: () => {},
     received: (data) => {
       
       dispatch(parseMessage(data.message));

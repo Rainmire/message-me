@@ -23,11 +23,6 @@ export const parseMessage = message => (dispatch, getState) => {
   let currentConvo = getState().entities.currentConversationId;
   let messageConvo = message.conversationId;
 
-  // if (message.message_type === "update") {
-  //   if (currentConvo === messageConvo) {
-  //     //dispatch update member
-  //   }
-  // }
   dispatch(receiveNotification(message));
 
   if (currentConvo === messageConvo) {

@@ -1,6 +1,5 @@
 import * as APIUtil from 'util/conversation_api_util';
 import { browserHistory } from 'react-router';
-// import { receiveConversation } from 'actions/conversation_list_actions';
 import { receiveMessages } from 'actions/message_actions';
 
 export const RECEIVE_MEMBERS = 'RECEIVE_MEMBERS';

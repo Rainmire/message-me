@@ -3,10 +3,6 @@ import { createMessage } from '../../actions/conversation_actions';
 import MessageInputForm from './message_input_form';
 import {withRouter} from 'react-router-dom';
 
-// const mapDispatchToProps = (dispatch, ownProps) => ({
-//   createMessage: (message) => dispatch(createMessage(message)),
-// });
-
 const mapDispatchToProps = (dispatch, {match}) => {
   const conversationId = match.params.id;
   return {
