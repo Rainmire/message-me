@@ -1,4 +1,3 @@
-# json.messageId message.id
 json.messageBody message.body
 json.createdAt message.created_at
 json.conversationId message.conversation_id

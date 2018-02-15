@@ -45,11 +45,12 @@ export const fetchConversationDetails = (conversationId) => dispatch => {
   ));
 };
 
-export const createConversation = users => dispatch => (
-  APIUtil.createConversation(users).then((conversationId) => {
+export const createConversation = users => dispatch => {
+  let userIds = users.map((user) => (user.userId));
+  return APIUtil.createConversation(userIds).then((conversationId) => {
     return conversationId;
   })
-);
+};
 
 export const UPDATE_MEMBERS = 'UPDATE_MEMBERS';
 

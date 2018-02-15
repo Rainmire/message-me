@@ -17,7 +17,7 @@ class NewConversation extends React.Component {
     )
     .then(
       ()=>(
-        this.props.history.push(`/conversations/${this.props.conversations[0].id}`)
+        this.props.history.push(`/conversations/${this.props.conversations[0].conversationId}`)
       )
     );
   }

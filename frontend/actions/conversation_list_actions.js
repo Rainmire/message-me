@@ -11,9 +11,17 @@ const startLoadingIndex = () => ({
   type: START_LOADING_INDEX
 })
 
+// export const fetchConversations = () => dispatch => {
+//   dispatch(startLoadingIndex());
+//   return APIUtil.fetchConversations().then(conversations => (
+//     dispatch(receiveConversations(conversations))
+//   ));
+// };
+
 export const fetchConversations = () => dispatch => {
   dispatch(startLoadingIndex());
-  return APIUtil.fetchConversations().then(conversations => (
+  return APIUtil.fetchConversations().then(conversations => {
+    debugger;
     dispatch(receiveConversations(conversations))
-  ));
+  });
 };

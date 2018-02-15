@@ -3,10 +3,10 @@ class Api::ConversationsController < ApplicationController
   def create
     title = current_user.display_name
     author_id = current_user.id
-    members = params[:users]
+    memberIds = params[:userIds]
 
     i = 1
-    members.keys.each do |id|
+    memberIds.each do |id|
       if i >= 3
         title += ", etc..."
         break
@@ -19,11 +19,10 @@ class Api::ConversationsController < ApplicationController
     conversation = Conversation.new( title: title, author_id: author_id )
 
     if conversation.save
-      #add current_user
       membership = ConversationMembership.new(
         member_id: author_id, conversation_id: conversation.id )
       membership.save
-      members.keys.each do |id|
+      memberIds.each do |id|
         membership = ConversationMembership.new(
           member_id: id, conversation_id: conversation.id )
         membership.save
