@@ -28,7 +28,7 @@ class Api::ConversationsController < ApplicationController
         membership.save
       end
       #create hidden message
-      placeholder = Message.new(body: 'DO NOT RENDER', message_type: 'text', author_id: author_id, conversation_id: conversation.id)
+      placeholder = Message.new(body: 'DO NOT RENDER', message_type: 'hidden', author_id: author_id, conversation_id: conversation.id)
       placeholder.save
 
       render json: conversation.id, status: :ok

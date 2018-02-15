@@ -6,6 +6,6 @@ end
 
 json.messages do
   json.array!(@conversation.messages) do |message|
-    json.partial! 'api/messages/message', message: message
+    json.partial! 'api/messages/message', message: message unless message.message_type == 'hidden'
   end
 end
