@@ -1,15 +1,15 @@
-# class UpdateMembersJob < ApplicationJob
-#   def perform(users, conversation_id)
+class UpdateMembersJob < ApplicationJob
+  def perform(users, id)
 
-#     update = Api::MessagesController.render(
-#       partial: 'api/updates/update',
-#       locals: { members: users,
-#                 conversation_id: conversation_id
-#               }
-#     )
+    members = Api::UsersController.render(
+      'api/users/index',
+      assigns: { users: users }
+    )
 
-#     ActionCable.server.broadcast("chat_#{conversation_id}",
-#     message: {message_type: "update", conversation: conversation_id})
-#   end
+    update = {members: JSON.parse(members), conversationId: id, messageType: "update"}
 
-# end
+    ActionCable.server.broadcast("chat_#{id}",
+    message: update)
+  end
+
+end
