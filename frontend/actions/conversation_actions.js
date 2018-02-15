@@ -53,7 +53,7 @@ export const createConversation = users => dispatch => (
 
 export const UPDATE_MEMBERS = 'UPDATE_MEMBERS';
 
-const updateMembers = members => ({
+export const updateMembers = members => ({
   type: UPDATE_MEMBERS,
   members
 });

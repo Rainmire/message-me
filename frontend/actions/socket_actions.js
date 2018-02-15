@@ -9,7 +9,6 @@ export const setSocket = () => (dispatch) => {
     connected: () => {},
     disconnected: () => {},
     received: (data) => {
-      debugger;
       dispatch(parseMessage(data.message));
     }
   });
