@@ -51,7 +51,7 @@ class Api::ConversationsController < ApplicationController
     @conversation = current_user.conversations.find(params[:id])
     if @conversation
       @users = []
-      params[:users].keys.each do |id|
+      params[:userIds].each do |id|
         if !ConversationMembership.exists?(['member_id = ? and conversation_id = ?', id, @conversation.id])
           membership = ConversationMembership.new(member_id: id, conversation_id: @conversation.id)
           membership.save

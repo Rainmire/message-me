@@ -12,12 +12,4 @@
 #     message: {message_type: "update", conversation: conversation_id})
 #   end
 
-#   def perform(message, conversation)
-#     message = Api::MessagesController.render(
-#       partial: 'api/messages/message',
-#       locals: { message: message }
-#     )
-#     ActionCable.server.broadcast("chat_#{conversation.id}",
-#                                  message: JSON.parse(message))
-#   end
 # end

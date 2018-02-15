@@ -10,12 +10,11 @@ class UserSearch extends React.Component {
     this.handleChange = this.handleChange.bind(this);
     this.clearState = this.clearState.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.selectUserSearchInput = this.selectUserSearchInput.bind(this);
+    this.focusUserSearchInput = this.focusUserSearchInput.bind(this);
   }
 
   handleChange(e) {
     e.preventDefault();
-
     const newVal = e.target.value;
     this.setState({ searchVal: newVal, firstTime: false }, () => {
       this.props.searchDatabase(this.state.searchVal);
@@ -29,15 +28,15 @@ class UserSearch extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     const users = this.props.userSelections;
-    this.props.clearUserSelections();
     
-    if (Object.keys(users).length > 0) {
+    if (users.length > 0) {
       this.props.userSearchAction(users);
       this.clearState();
+      this.props.clearUserSelections();
     }
   }
 
-  selectUserSearchInput() {
+  focusUserSearchInput() {
     this.userSearchInput.focus();
   }
 
@@ -58,10 +57,8 @@ class UserSearch extends React.Component {
           </form>
           <ul className="selected-users">
             {userSelectionsArr.map((user) => (
-              <div key={user.id} id="selected-user-item">
-
-                  {user.display_name}
-
+              <div key={user.userId} id="selected-user-item">
+                  {user.displayName}
               </div>
               )
             )}
@@ -71,11 +68,11 @@ class UserSearch extends React.Component {
 
         <UserSearchIndex className="user-search-index"
           firstTime={this.state.firstTime}
-          searchItems={this.props.userSearchResults}
+          userSearchResults={this.props.userSearchResults}
           searchVal={this.state.searchVal}
           clearState={this.clearState}
           receiveUserSelection={this.props.receiveUserSelection}
-          selectUserSearchInput={this.selectUserSearchInput}
+          focusUserSearchInput={this.focusUserSearchInput}
         />
       </div>
     );

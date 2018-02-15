@@ -1,23 +1,23 @@
 import React from 'react';
 
-export default ({searchItems, firstTime, searchVal, clearState, receiveUserSelection, selectUserSearchInput}) => {
+export default ({userSearchResults, firstTime, searchVal, clearState, receiveUserSelection, focusUserSearchInput}) => {
   if (searchVal === "") return (<ul className="UserSearchIndex"></ul>);
 
   let listItems;
 
-  if (searchItems.length !== 0) {
+  if (userSearchResults.length !== 0) {
     listItems =
-      searchItems.map(
+      userSearchResults.map(
         (user) => (
-          <li key={user.id}>
+          <li key={user.userId}>
             <button className="user-search-button" onClick={
               ()=>{
                 receiveUserSelection(user);
                 clearState();
-                selectUserSearchInput();
+                focusUserSearchInput();
               }
             }>
-              {user.display_name}
+              {user.displayName}
             </button>
           </li>
         )

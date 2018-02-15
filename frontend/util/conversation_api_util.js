@@ -22,10 +22,12 @@ export const createConversation = (users) => (
 );
 
 
-export const addMembers = (users, id) => {
-  return $.ajax({
+export const addMembers = (userIds, convoId) => (
+  $.ajax({
     method: 'PATCH',
-    url: `/api/conversations/${id}`,
-    data: {users}
-  });
-};
+    url: `/api/conversations/${convoId}`,
+    data: JSON.stringify({userIds}),
+    dataType: "json", 
+    contentType: 'application/json'
+  })
+);

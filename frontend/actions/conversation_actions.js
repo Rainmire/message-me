@@ -58,9 +58,10 @@ const updateMembers = members => ({
   members
 });
 
-export const addMembers = (users, id) => dispatch => (
-  APIUtil.addMembers(users, id).then(members => (
+export const addMembers = (users, convoId) => dispatch => {
+  let userIds = users.map((user) => (user.userId));
+  APIUtil.addMembers(userIds, convoId).then(members => (
       dispatch(updateMembers(members))
     )
   )
-);
+};

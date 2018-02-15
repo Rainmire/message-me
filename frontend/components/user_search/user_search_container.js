@@ -1,13 +1,9 @@
 import { connect } from 'react-redux';
 import UserSearch from './user_search';
-
-import { searchDatabase, receiveUserSelection, clearUserSelections } from '../../actions/user_actions.js';
-import { selectAllUserSearchResults, selectAllUserSelections } from '../../reducers/selectors';
-
-import { addMembers } from '../../actions/conversation_actions';
+import { searchDatabase, receiveUserSelection, clearUserSelections } from 'actions/user_actions.js';
 
 const mapStateToProps = (state, {userSearchAction}) => ({
-  userSearchResults: selectAllUserSearchResults(state),
+  userSearchResults: state.entities.userSearchResults,
   userSelections: state.entities.userSelections,
   userSearchAction
 });
