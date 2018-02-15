@@ -35,11 +35,11 @@ class ConversationList extends React.Component {
   }
 
   messageBody(conversation) {
-    if (conversation.messageBody !== "") {
-      return conversation.messageBody;
+    if (conversation.messageType !== "hidden") {
+      return `${conversation.displayName}: ${conversation.messageBody}`;
     }
     else {
-      return "New conversation";
+      return "New Conversation";
     }
   }
 
