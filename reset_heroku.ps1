@@ -1,0 +1,1 @@
+heroku restart; heroku pg:reset DATABASE --confirm message-me-rainmire; heroku run rake db:migrate; heroku run rake db:seed
