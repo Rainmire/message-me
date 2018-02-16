@@ -1,4 +1,4 @@
-import { RECEIVE_CONVERSATIONS } from 'actions/conversation_list_actions';
+import { RECEIVE_CONVERSATIONS, RECEIVE_NEW_CONVERSATION } from 'actions/conversation_list_actions';
 import { RECEIVE_NOTIFICATION } from 'actions/message_actions';
 import merge from 'lodash/merge';
 
@@ -7,6 +7,9 @@ const conversationListReducer = (state = [], action) => {
   switch(action.type) {
     case RECEIVE_CONVERSATIONS:
       return action.conversations;
+    case RECEIVE_NEW_CONVERSATION:
+      let newState = action.newConversation;
+      return newState.concat(state);
     case RECEIVE_NOTIFICATION:
       let message = action.notification;
       let newConversations = [message];

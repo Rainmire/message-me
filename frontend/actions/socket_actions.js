@@ -1,5 +1,4 @@
-import { fetchConversationDetails } from './conversation_actions';
-import { fetchConversations } from './conversation_list_actions';
+import { receiveNewConversation } from './conversation_list_actions';
 import { parseMessage } from './message_actions';
 
 export const setSocket = () => (dispatch) => {
@@ -33,9 +32,10 @@ const addNotificationSocket = (dispatch) => {
     connected: () => {},
     disconnected: () => {},
     received: (data) => {
-      debugger;
-      console.log("Got notification! "+data.action);
+      // debugger;
+      // console.log("Got notification! "+data.action);
       // dispatch(parseMessage(data.message));
+      dispatch(receiveNewConversation(data.content));
     }
   });
 }
