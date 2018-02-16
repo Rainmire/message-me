@@ -3,10 +3,10 @@ class Api::ConversationsController < ApplicationController
   def create
     title = current_user.display_name
     author_id = current_user.id
-    memberIds = params[:userIds]
+    member_ids = params[:userIds]
 
     i = 1
-    memberIds.each do |id|
+    member_ids.each do |id|
       if i >= 3
         title += ", etc..."
         break
@@ -22,7 +22,7 @@ class Api::ConversationsController < ApplicationController
       membership = ConversationMembership.new(
         member_id: author_id, conversation_id: conversation.id )
       membership.save
-      memberIds.each do |id|
+      member_ids.each do |id|
         membership = ConversationMembership.new(
           member_id: id, conversation_id: conversation.id )
         membership.save
@@ -31,8 +31,9 @@ class Api::ConversationsController < ApplicationController
       placeholder = Message.new(body: 'DO NOT RENDER', message_type: 'hidden', author_id: author_id, conversation_id: conversation.id)
       placeholder.save
 
-      render json: conversation.id, status: :ok
+      NewConversationJob.perform_later(member_ids, conversation)
 
+      render json: conversation.id, status: :ok
     else
       render json: conversation.errors.full_messages, status: 422
     end

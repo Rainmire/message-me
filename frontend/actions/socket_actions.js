@@ -3,11 +3,19 @@ import { fetchConversations } from './conversation_list_actions';
 import { parseMessage } from './message_actions';
 
 export const setSocket = () => (dispatch) => {
-  if (App.channel) {
-    App.cable.subscriptions.remove(App.channel);
-  }
+  addChatSocket(dispatch);
+  addNotificationSocket(dispatch);
+};
 
-  App.channel = App.cable.subscriptions.create({
+export const resetSocket = () => (dispatch) => {
+  if (App.chatChannel) {
+    App.cable.subscriptions.remove(App.chatChannel);
+  }
+  addChatSocket(dispatch);
+};
+
+const addChatSocket = (dispatch) => {
+  App.chatChannel = App.cable.subscriptions.create({
     channel: 'ChatChannel'
   }, {
     connected: () => {},
@@ -16,4 +24,18 @@ export const setSocket = () => (dispatch) => {
       dispatch(parseMessage(data.message));
     }
   });
-};
+}
+
+const addNotificationSocket = (dispatch) => {
+  App.cable.subscriptions.create({
+    channel: 'WebNotificationsChannel'
+  }, {
+    connected: () => {},
+    disconnected: () => {},
+    received: (data) => {
+      debugger;
+      console.log("Got notification! "+data.action);
+      // dispatch(parseMessage(data.message));
+    }
+  });
+}
