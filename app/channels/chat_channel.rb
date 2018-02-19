@@ -12,7 +12,7 @@ class ChatChannel < ApplicationCable::Channel
 
     memberships = current_user.conversation_memberships.reload
     memberships.each do |membership|
-      puts "CONVERSATION: #{membership.conversation_id}"
+      # puts "CONVERSATION: #{membership.conversation_id}"
       stream_from "chat_#{membership.conversation_id}"
     end
     # puts "ACTION_METHODS: "

@@ -13,7 +13,7 @@ const addChatSocket = (dispatch) => {
     connected: () => {},
     disconnected: () => {},
     received: (data) => {
-      debugger;
+      // debugger;
       dispatch(parseMessage(data.message));
     },
     resetChatSocket: () => {
@@ -36,7 +36,8 @@ const addNotificationSocket = (dispatch) => {
     received: (data) => {
       dispatch(receiveNewConversation(data.content));
       // resetChatSocket(dispatch);
-      setTimeout(App.chatChannel.resetChatSocket, 10000);
+      // setTimeout(App.chatChannel.resetChatSocket, 10000);
+      App.chatChannel.resetChatSocket();
       // debugger;
       // App.chatChannel.addStream(data.content[0].conversationId);
     }
