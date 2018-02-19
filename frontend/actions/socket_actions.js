@@ -6,13 +6,6 @@ export const setSocket = () => (dispatch) => {
   addNotificationSocket(dispatch);
 };
 
-export const resetSocket = () => (dispatch) => {
-  if (App.chatChannel) {
-    App.cable.subscriptions.remove(App.chatChannel);
-  }
-  addChatSocket(dispatch);
-};
-
 const addChatSocket = (dispatch) => {
   App.chatChannel = App.cable.subscriptions.create({
     channel: 'ChatChannel'
@@ -20,7 +13,15 @@ const addChatSocket = (dispatch) => {
     connected: () => {},
     disconnected: () => {},
     received: (data) => {
+      debugger;
       dispatch(parseMessage(data.message));
+    },
+    // resetChatSocket: () => {
+    //   App.chatChannel.perform("reset_streams");
+    // }
+    addStream: (id) => {
+      // debugger;
+      App.chatChannel.perform("add_stream", {"id": id});
     }
   });
 }
@@ -32,10 +33,19 @@ const addNotificationSocket = (dispatch) => {
     connected: () => {},
     disconnected: () => {},
     received: (data) => {
-      // debugger;
-      // console.log("Got notification! "+data.action);
-      // dispatch(parseMessage(data.message));
       dispatch(receiveNewConversation(data.content));
+      // resetChatSocket(dispatch);
+      // App.chatChannel.resetChatSocket.call(App.chatChannel);
+      debugger;
+      App.chatChannel.addStream(data.content[0].conversationId);
     }
   });
 }
+
+// const resetChatSocket = (dispatch) => {
+//   debugger;
+//   if (App.chatChannel) {
+//     App.cable.subscriptions.remove(App.chatChannel);
+//   }
+//   addChatSocket(dispatch);
+// };
