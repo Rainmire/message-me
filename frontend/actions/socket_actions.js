@@ -13,17 +13,12 @@ const addChatSocket = (dispatch) => {
     connected: () => {},
     disconnected: () => {},
     received: (data) => {
-      // debugger;
       dispatch(parseMessage(data.message));
     },
     resetChatSocket: () => {
       console.log("PERFORMING RESET");
       App.chatChannel.perform("reset_streams");
-    },
-    // addStream: (id) => {
-      // debugger;
-    //   App.chatChannel.perform("add_stream", {"id": id});
-    // }
+    }
   });
 }
 
@@ -35,19 +30,8 @@ const addNotificationSocket = (dispatch) => {
     disconnected: () => {},
     received: (data) => {
       dispatch(receiveNewConversation(data.content));
-      // resetChatSocket(dispatch);
-      // setTimeout(App.chatChannel.resetChatSocket, 10000);
-      App.chatChannel.resetChatSocket();
-      // debugger;
-      // App.chatChannel.addStream(data.content[0].conversationId);
+      
+      App.chatChannel.resetChatSocket(); 
     }
   });
 }
-
-// const resetChatSocket = (dispatch) => {
-//   debugger;
-//   if (App.chatChannel) {
-//     App.cable.subscriptions.remove(App.chatChannel);
-//   }
-//   addChatSocket(dispatch);
-// };

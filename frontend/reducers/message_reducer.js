@@ -10,11 +10,6 @@ const messageReducer = (state = [], action) => {
       newState.push(action.message);
       return newState;
     case RECEIVE_MESSAGES:
-      // if (action.messages == null)
-      //   return {};
-      // else {
-      // return action.messages;
-      // }
       return action.messages;
 
     default:

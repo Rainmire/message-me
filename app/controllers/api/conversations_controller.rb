@@ -19,10 +19,7 @@ class Api::ConversationsController < ApplicationController
     member_ids.unshift(author_id)
     conversation = Conversation.new( title: title, author_id: author_id )
 
-    if conversation.save
-      # membership = ConversationMembership.new(
-      #   member_id: author_id, conversation_id: conversation.id )
-      # membership.save
+    if conversation.save     
       member_ids.each do |id|
         membership = ConversationMembership.new(
           member_id: id, conversation_id: conversation.id )

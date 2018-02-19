@@ -1,5 +1,5 @@
 # Message-Me!
-http://message-me-rainmire.herokuapp.com/
+https://message-me.live
 
 Message-Me is an instant messaging client based on the popular Messenger application by Facebook. It uses a React/Redux frontend connected to a Ruby on Rails server, with a PostgreSQL database.
 
