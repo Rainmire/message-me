@@ -6,7 +6,11 @@ class ChatChannel < ApplicationCable::Channel
   def reset_streams
     puts "RESETTING STREAMS"
     stop_all_streams
-    memberships = current_user.conversation_memberships
+
+    puts "CLEARING CACHE"
+    # ActiveRecord::Base.connection.query_cache.clear
+
+    memberships = current_user.conversation_memberships.reload
     memberships.each do |membership|
       puts "CONVERSATION: #{membership.conversation_id}"
       stream_from "chat_#{membership.conversation_id}"
