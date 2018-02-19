@@ -8,6 +8,7 @@ import { withRouter } from 'react-router-dom';
 
 const mapStateToProps = (state) => ({
   conversations: state.entities.conversations,
+  currentConversationId: state.entities.currentConversationId,
   loading: state.loading.indexLoading
 });
 

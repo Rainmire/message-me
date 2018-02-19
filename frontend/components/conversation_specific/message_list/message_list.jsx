@@ -23,7 +23,7 @@ class MessageList extends React.Component {
   componentWillReceiveProps(nextProps) {
     const convoIdStr = nextProps.match.params.id;
     const convoIdInt = parseInt(convoIdStr);
-    if(this.props.match.params.id!==convoIdStr) {
+    if (this.props.match.params.id!==convoIdStr) {
       this.props.fetchConversationDetails(convoIdInt)
       .then(
         ()=>{
@@ -34,7 +34,7 @@ class MessageList extends React.Component {
   }
 
   componentDidUpdate() {
-    if( !this.props.loading ) {
+    if ( !this.props.loading ) {
       this.scrollToBottom();
     }
   }
@@ -45,7 +45,7 @@ class MessageList extends React.Component {
 
   render() {
     const { loading, messages, currentUserId } = this.props;
-    if( !loading ) {
+    if ( !loading ) {
       return(
         <div className="message-container">
           <ul className="message-list">

@@ -11,7 +11,7 @@ class ConversationList extends React.Component {
       const path = this.props.location.pathname;
 
       if (path!=='/conversations/new') {
-        if(this.props.conversations.length===0) {
+        if (this.props.conversations.length===0) {
           this.props.history.push('/conversations/new');
         }
         else {
@@ -26,7 +26,7 @@ class ConversationList extends React.Component {
 
   componentWillReceiveProps(nextProps) {
     const path = nextProps.location.pathname;
-    if(nextProps.conversations.length!==0) {
+    if (nextProps.conversations.length!==0) {
       if (path==="/conversations" || path==="/conversations/") {
         const id = nextProps.conversations[0].conversationId;
         nextProps.history.push(`/conversations/${id}`);
@@ -43,9 +43,13 @@ class ConversationList extends React.Component {
     }
   }
 
-  conversationListItem(conversation, idx) {
+  conversationListItem(conversation, idx, currentConversationId) {
+    let conversationClass = "conversation-list-item";
+    if (conversation.conversationId === currentConversationId) {
+      conversationClass += " selected-conversation";
+    }
     return (
-      <li key={idx} className="conversation-list-item">
+      <li key={idx} className={conversationClass}>
         <Link className="conversation-item-link" to={`/conversations/${conversation.conversationId}`}>
           <img className="latest-author-pic" src={conversation.profilePic}/>
           <div className="latest-message">
@@ -63,12 +67,12 @@ class ConversationList extends React.Component {
   }
 
   render() {
-    const { loading, conversations } = this.props;
-    if( !loading ) {
+    const { loading, conversations, currentConversationId } = this.props;
+    if (!loading) {
       return(
         <ul className = "conversation-list">
           {conversations.map((conversation, idx) => (
-            this.conversationListItem(conversation, idx)
+            this.conversationListItem(conversation, idx, currentConversationId)
           ))}
         </ul>
       );

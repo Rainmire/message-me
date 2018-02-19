@@ -41,13 +41,17 @@
   display: flex;
 }
 
+.selected-conversation {
+  background-color: $lightest-grey;
+}
+
 .conversation-item-link {
   width: 100%;
   display: flex;
 }
 
 .conversation-item-link:hover {
-  background-color: #f2f2f2;
+  background-color: $lightest-grey;
 }
 
 .latest-author-pic {
