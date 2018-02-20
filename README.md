@@ -12,7 +12,7 @@ Users can send and receive messages in real time using Rails 5 Action Cable to c
 
 **Instant Message Delivery**
 
-Upon hitting return, a message is send to the database through an AJAX request, where it is saved and passed along to Action Cable and broadcasted to the appropriate conversation. Users connected to the same conversation will have their page automatically updated.
+User messages are broadcasted to the appropriate recipients using Action Cable's sub/pub paradigm. Users connected to the same conversation will have their page automatically updated.
 
 The MessageRelayJob directs the saved message to the correct channel.
 
@@ -28,6 +28,7 @@ class MessageRelayJob < ApplicationJob
   end
 end
 ```
+To learn more about Action Cable and see a tutorial based on this project, visit https://github.com/Rainmire/action-cable-tutorial
 
 
 ## Image Sending
@@ -54,7 +55,7 @@ Users can search for other users to create a new conversation with.
 
 Users can start a direct conversation with multiple other users using the Create Conversation button. This opens a new conversation form, which when submitted redirects to the newly created conversation.
 
-The conversation controller in the Rails backend creates ConversationMembership models for both the current user and the users they're starting a conversation with.
+All users participating in the new conversation are notified via a `WebNotificationChannel`, and are automatically subscribed to the new `ChatChannel`. This allows them to immediately receive data from the new conversation without performing any actions.
 
 
 ## Adding New Members to a Conversation
