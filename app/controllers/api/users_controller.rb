@@ -1,4 +1,5 @@
 class Api::UsersController < ApplicationController
+  before_action :require_logged_in, only: [:index, :update]
 
   def index
     @users = User.top_five_results(search_params[:query], current_user)

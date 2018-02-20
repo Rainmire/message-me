@@ -1,4 +1,5 @@
 class Api::ConversationsController < ApplicationController
+  before_action :require_logged_in
 
   def create
     title = current_user.display_name

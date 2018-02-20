@@ -7,12 +7,6 @@ class ApplicationController < ActionController::Base
   private
 
   def current_user
-    ###TODO: REMOVE AFTER TESTING
-    # @current_user = User.first
-    # return @current_user
-    ###
-
-
     token = cookies.encrypted[:session_token]
     return nil unless token
     @current_user ||= User.find_by(session_token: token)
@@ -24,9 +18,7 @@ class ApplicationController < ActionController::Base
 
   def login(user)
     user.reset_session_token!
-    # session[:session_token] = user.session_token
     cookies.encrypted[:session_token] = user.session_token
-
     @current_user = user
   end
 
