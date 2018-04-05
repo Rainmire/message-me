@@ -33,6 +33,7 @@
     "npm": "3.10.10"
   },
   "scripts": {
+    "postinstall": "webpack",
     "test": "jest",
     "start": "webpack --watch"
   },
